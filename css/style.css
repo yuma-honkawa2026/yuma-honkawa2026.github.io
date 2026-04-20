@@ -1,3 +1,25 @@
+/* CSS変数定義 */
+:root {
+    --color-text-main: #2b2b2b;
+    --color-text-sub: #555;
+    --color-text-light: #999;
+    --color-background: #fafaf5;
+    --color-main: #454545;
+    --color-sub: #460d0d;
+}
+
 /* ===========================
     Header Navigation
    =========================== */
+
+body {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    font-family: "Yuji Mai", serif;
+    font-weight: 400;
+    font-style: normal;
+}
