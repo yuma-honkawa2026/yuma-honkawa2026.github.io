@@ -3,7 +3,7 @@
     --color-text-main: #2b2b2b;
     --color-text-sub: #555;
     --color-text-light: #999;
-    --color-background: #fafaf5;
+    --color-background: #dcd8d8;
     --color-main: #454545;
     --color-sub: #460d0d;
 }
@@ -13,13 +13,94 @@
    =========================== */
 
 body {
+    background-color: var(--color-background);
     font-family: "Zen Old Mincho", serif;
     font-weight: 400;
     font-style: normal;
+    color: var(--color-text-sub);
+    line-height: 1.6;
 }
 
 h1 {
     font-family: "Yuji Mai", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: var(--color-text-main);
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+.navigation__list {
+    display: flex;
+    gap: 60px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.navigation__link {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-sub);
+}
+
+.profile__subname {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-text-sub);
+    letter-spacing: 0.2em;
+}
+
+.profile__name {
+    font-size: 53px;
+    font-weight: 400;
+    color: var(--color-text-main);
+    letter-spacing: 0.3em;
+}
+
+.profile__bio, .profile__school {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-text-sub);
+    letter-spacing: 0.1em;
+}
+
+.statement__title {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--color-text-main);
+    letter-spacing: 0.2em;
+    border-left: 8px solid var(--color-text-main);
+    padding-left: 20px;
+}
+
+.statement__text {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--color-text-sub);
+    letter-spacing: 0.2em;
+    line-height: 2;
+}
+
+.skills__title {
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--color-text-main);
+    letter-spacing: 0.1em;
 }
