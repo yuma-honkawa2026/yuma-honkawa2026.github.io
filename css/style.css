@@ -1,8 +1,8 @@
 /* CSS変数定義 */
 :root {
-    --color-text-main: #2b2b2b;
-    --color-text-sub: #555;
-    --color-text-light: #999;
+    --color-text-main: #151515;
+    --color-text-sub: #232323;
+    --color-text-light: #3e3e3e;
     --color-background: #dcd8d8;
     --color-main: #454545;
     --color-sub: #460d0d;
@@ -15,7 +15,7 @@
 body {
     background-color: var(--color-background);
     font-family: "Zen Old Mincho", serif;
-    font-weight: 400;
+    font-weight: 600;
     font-style: normal;
     color: var(--color-text-sub);
     line-height: 1.6;
@@ -30,7 +30,6 @@ body {
 
 .maincontents-home{
     max-width: 35%;
-    background-color: #9bffff;
     margin-left: 8%;
     display:flex;
     flex-direction: column;
@@ -40,9 +39,7 @@ body {
 }
 
 h1 {
-    font-family: "Yuji Mai", serif;
-    font-weight: 400;
-    font-style: normal;
+    font-weight: 1000;
 }
 
 a {
@@ -128,4 +125,10 @@ header {
     font-weight: 300;
     color: var(--color-text-main);
     letter-spacing: 0.1em;
+}
+
+.skills__item {
+    display: grid;
+    grid-template-columns: 350px 300px;
+    gap: 10px;
 }
