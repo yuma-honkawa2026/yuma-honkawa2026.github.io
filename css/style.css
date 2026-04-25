@@ -1,45 +1,32 @@
 /* CSS変数定義 */
 :root {
     --color-text-main: #151515;
-    --color-text-sub: #232323;
+    --color-text-sub: #202020;
     --color-text-light: #3e3e3e;
     --color-background: #dcd8d8;
     --color-main: #454545;
     --color-sub: #460d0d;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-6: 48px;
+    --space-8: 64px;
 }
 
-/* ===========================
-    Header Navigation
-   =========================== */
+/* 全体共通 */
 
 body {
     background-color: var(--color-background);
     font-family: "Zen Old Mincho", serif;
     font-weight: 600;
-    font-style: normal;
     color: var(--color-text-sub);
     line-height: 1.6;
-    background-image: url(../images/profile.webp);
-    background-size: cover;
     min-height: 100vh;
     overflow: hidden;
     margin: 0;
     display: flex;
     flex-direction: column;
-}
-
-.maincontents-home{
-    max-width: 35%;
-    margin-left: 8%;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10%;
-
-}
-
-h1 {
-    font-weight: 1000;
 }
 
 a {
@@ -56,15 +43,23 @@ ul {
     list-style: none;
 }
 
-.navigation__list {
-    display: flex;
-    gap: 10px;
+/* ページ固有設定 */
+
+.p-about {
+    background-image: url(../images/profile.webp);
+    background-size: cover;
 }
 
-header {
+/* ヘッダー・ナビ */
+.header {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: var(--space-6);
+}
+
+.navigation__list {
+    display: flex;
+    gap: var(--space-3);
 }
 
 .navigation__link {
@@ -73,7 +68,24 @@ header {
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--color-text-sub);
-    padding: 20px;
+    padding: var(--space-3);
+}
+
+.navigation__link--current {
+    text-decoration: underline;
+    color: var(--color-text-main);
+    text-underline-offset: var(--space-1);
+}
+
+/* indexページ */
+.p-about .main-content{
+    max-width: 35%;
+    margin-left: 8%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+    flex-grow: 1;
 }
 
 .profile__subname {
@@ -90,13 +102,12 @@ header {
     color: var(--color-text-main);
     letter-spacing: 0.3em;
     text-align: center;
-    margin-top: -20px;
+    margin-top: calc(var(--space-2) * -1);/* 計算の関数。--space-2の値を-1倍する。-16pxと同義。 */
 }
 
 .profile__bio, .profile__school {
     font-size: 18px;
     font-weight: 400;
-    color: var(--color-text-sub);
     letter-spacing: 0.1em;
 }
 
@@ -105,19 +116,19 @@ header {
     font-weight: 400;
     color: var(--color-text-main);
     letter-spacing: 0.2em;
-    border-left: 8px solid var(--color-text-main);
-    padding-left: 20px;
-    margin-bottom: 60px;
-    margin-top: 60px;
+    border-left: var(--space-1) solid var(--color-text-main);
+    padding-left: var(--space-3);
+    margin-bottom: var(--space-8);
+    margin-top: var(--space-8);
 }
 
 .statement__text {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 300;
     color: var(--color-text-sub);
     letter-spacing: 0.2em;
     line-height: 2;
-    margin-left: 30px;
+    margin-left: var(--space-4);
 }
 
 .skills__title {
@@ -130,5 +141,13 @@ header {
 .skills__item {
     display: grid;
     grid-template-columns: 350px 300px;
-    gap: 10px;
+    gap: var(--space-2);
+}
+
+/* フッター */
+.footer__text {
+    color: var(--color-text-light);
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: var(--space-3);
 }
