@@ -66,12 +66,12 @@ ul {
 .header {
     display: flex;
     justify-content: center;
-    margin-top: var(--space-06);
+    margin-top: var(--space-08);
 }
 
 .navigation__list {
     display: flex;
-    gap: var(--space-03);
+    gap: var(--space-01);
 }
 
 .navigation__link {
