@@ -155,6 +155,16 @@ ul {
     gap: var(--space-02);
 }
 
+/* Careerページ */
+
+
+
+
+
+
+
+
+
 
 /* contactページ */
 .p-contact {
@@ -189,13 +199,6 @@ ul {
 .contact__github {
     border-top: none;
 }
-
-
-
-
-
-
-
 
 /* フッター */
 .footer {
