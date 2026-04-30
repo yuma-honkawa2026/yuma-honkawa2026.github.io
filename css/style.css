@@ -30,7 +30,6 @@ body {
     color: var(--color-text-sub);
     line-height: 1.6;
     min-height: 100vh;
-    overflow: hidden;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -47,19 +46,12 @@ a:hover {
     text-underline-offset: var(--space-01);
 }
 
-ul {
+ul, ol {
     list-style: none;
 }
 
 .main-content {
     flex-grow: 1;
-}
-
-/* ページ固有設定 */
-
-.p-about {
-    background-image: url(../images/profile.webp);
-    background-size: cover;
 }
 
 /* ヘッダー・ナビ */
@@ -90,6 +82,12 @@ ul {
 }
 
 /* indexページ */
+.p-about {
+    background-image: url(../images/profile.webp);
+    background-size: cover;
+    overflow: hidden;
+}
+
 .p-about .main-content{
     max-width: 35%;
     margin-left: 8%;
@@ -156,6 +154,126 @@ ul {
 }
 
 /* Careerページ */
+.career__list {
+    display: grid;
+    grid-template-columns: var(--space-10) var(--space-04) 1fr; 
+    grid-template-rows: repeat(72, var(--space-03));
+}
+
+.career__year {
+    grid-column: 1;
+    justify-self: end;
+}
+
+.career__year--2021 {
+    grid-row: 1;
+}
+
+.career__year--2021-04 {
+    grid-row: 4;
+}
+
+.career__year--2022 {
+    grid-row: 13;
+}
+
+.career__year--2022-08 {
+    grid-row: 20;
+}
+
+.career__year--2023 {
+    grid-row: 25;
+}
+
+.career__year--2023-10 {
+    grid-row: 34;
+}
+
+.career__year--2024 {
+    grid-row: 37;
+}
+
+.career__year--2024-08 {
+    grid-row: 44;
+}
+
+.career__year--2025 {
+    grid-row: 49;
+}
+
+.career__year--2025-04 {
+    grid-row: 52;
+}
+
+.career__year--2026 {
+    grid-row: 61;
+}
+
+.career__item--mitsubishi-in {
+    grid-column: 3;
+    grid-row: 4;
+    position: relative;
+}
+
+.career__item--alpha-part {
+    grid-column: 3;
+    grid-row: 20;
+}
+
+.career__item--youtube {
+    grid-column: 3;
+    grid-row: 34;
+}
+
+.career__item--mitsubishi-out {
+    grid-column: 3;
+    grid-row: 44;
+}
+
+.career__item--alpha-full {
+    grid-column: 3;
+    grid-row: 49;
+}
+
+.career__item--school {
+    grid-column: 3;
+    grid-row: 52;
+}
+
+.career__list::before {
+    content: '';
+    display: block;
+    grid-column: 2;
+    grid-row:1 / -1;
+    background-color: var(--color-main);
+    width: 3px;
+    justify-self: center;
+}
+
+.career__item {
+    position: relative;
+}
+
+.career__item::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--color-main);
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: -16px;
+    top: 6px;
+}
+
+.career__title, .career__subtitle {
+    line-height: 1.2;
+}
+
+
+
+
+
 
 
 
@@ -169,6 +287,7 @@ ul {
 /* contactページ */
 .p-contact {
     background-color: var(--color-background);
+    overflow: hidden;
 }
 
 .contact {
