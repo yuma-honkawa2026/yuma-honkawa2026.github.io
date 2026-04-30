@@ -1,82 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>本川悠真のPortfolio</title>
-    <meta name="description" content="東京デザイン専門学校2027卒、本川悠真のPortfolioです。ユーザーファーストでシンプルなデザインを軸に、Web制作を学んでいます。">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>本川悠真のPortfolio</title>
+        <meta
+            name="description"
+            content="東京デザイン専門学校2027卒、本川悠真のPortfolioです。ユーザーファーストでシンプルなデザインを軸に、Web制作を学んでいます。"
+        />
 
-    <!-- OGP（SNSシェア用） -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yuma-honkawa2026.github.io/">
-    <meta property="og:title" content="本川悠真のPortfolio">
-    <meta property="og:description" content="東京デザイン専門学校2027卒、本川悠真のPortfolioです。">
-    <meta property="og:site_name" content="本川悠真のPortfolio">
-    <meta property="og:locale" content="ja_JP">
-    <!-- <meta property="og:image" content="https://yuma-honkawa2026.github.io/images/ogp.jpg"> -->
+        <!-- OGP（SNSシェア用） -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yuma-honkawa2026.github.io/" />
+        <meta property="og:title" content="本川悠真のPortfolio" />
+        <meta property="og:description" content="東京デザイン専門学校2027卒、本川悠真のPortfolioです。" />
+        <meta property="og:site_name" content="本川悠真のPortfolio" />
+        <meta property="og:locale" content="ja_JP" />
+        <!-- <meta property="og:image" content="https://yuma-honkawa2026.github.io/images/ogp.jpg"> -->
 
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+        <!-- Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Zen+Old+Mincho&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/ress.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="p-about">
-    <header class="header">
-        <nav class="navigation">
-            <ul class="navigation__list">
-                <li class="navigation__item">
-                    <span class="navigation__link navigation__link--current" aria-current="page">About</span>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__link" href="works.html">Works</a>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__link" href="career.html">Career</a>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__link" href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+        <link rel="stylesheet" href="css/ress.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <div class="p-about">
+            <header class="l-header">
+                <div class="l-container">
+                    <nav class="l-header__nav">
+                        <ul class="l-header__nav-list">
+                            <li class="l-header__nav-item">
+                                <span class="l-header__nav-link l-header__nav-link--current" aria-current="page">About</span>
+                            </li>
+                            <li class="l-header__nav-item">
+                                <a class="l-header__nav-link" href="works.html">Works</a>
+                            </li>
+                            <li class="l-header__nav-item">
+                                <a class="l-header__nav-link" href="career.html">Career</a>
+                            </li>
+                            <li class="l-header__nav-item">
+                                <a class="l-header__nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
 
-    <main class="main-content">
-        <section class="profile">
-            <p class="profile__subname">HONKAWA YUMA</p>
-            <h1 class="profile__name">本川悠真</h1>
-            <p class="profile__bio">2002年生まれ。香川県出身、東京都在住</p>
-            <p class="profile__school">東京デザイン専門学校 グラフィックデザイン科 Web専攻</p>
-        </section>
+            <main class="l-main">
+                <div class="l-container">
+                    <div class="p-about__inner">
+                        <section class="p-profile">
+                            <p class="p-profile__subname">HONKAWA YUMA</p>
+                            <h1 class="p-profile__name">本川悠真</h1>
+                            <p class="p-profile__bio">2002年生まれ。香川県出身、東京都在住</p>
+                            <p class="p-profile__school">東京デザイン専門学校 グラフィックデザイン科 Web専攻</p>
+                        </section>
 
-        <section class="statement">
-            <h2 class="statement__title">User First, Simple is Best</h2>
-            <p class="statement__text">AIの普及により、派手な演出や動きのあるUIが誰でも作れる時代になった。しかし、どれだけ装飾が洗練されていても、ユーザーが欲しい情報に素早く辿り着けなければ本末転倒だ。</p>
-            <p class="statement__text">だから私は「ユーザーにとって分かりやすく、シンプルで洗練されたデザイン」を作ることを軸にしている。</p>
-        </section>
-        
-        <section class="skills">
-            <h2 class="skills__title">skills</h2>
-            <div class="skills__body">
-                <ul class="skills__list">
-                    <li class="skills__item">Illustrator</li>
-                    <li class="skills__item">Photoshop</li>
-                    <li class="skills__item">After Effects</li>
-                    <li class="skills__item">Premiere Pro</li>
-                    <li class="skills__item">Lightroom Classic</li>
-                    <li class="skills__item">Figma</li>
-                </ul>
-            </div>
-        </section>
-    </main>
+                        <section class="p-statement">
+                            <h2 class="p-statement__title">User First, Simple is Best</h2>
+                            <p class="p-statement__text">
+                                AIの普及により、派手な演出や動きのあるUIが誰でも作れる時代になった。しかし、どれだけ装飾が洗練されていても、ユーザーが欲しい情報に素早く辿り着けなければ本末転倒だ。
+                            </p>
+                            <p class="p-statement__text">
+                                だから私は「ユーザーにとって分かりやすく、シンプルで洗練されたデザイン」を作ることを軸にしている。
+                            </p>
+                        </section>
 
-    <footer class="footer">
-        <p class="footer__text">
-            <small>&copy; 2026 Yuma Honkawa</small>
-        </p>
-    </footer>
+                        <section class="p-skills">
+                            <h2 class="p-skills__title">skills</h2>
+                            <div class="p-skills__body">
+                                <ul class="p-skills__list">
+                                    <li class="p-skills__item">Illustrator</li>
+                                    <li class="p-skills__item">Photoshop</li>
+                                    <li class="p-skills__item">After Effects</li>
+                                    <li class="p-skills__item">Premiere Pro</li>
+                                    <li class="p-skills__item">Lightroom Classic</li>
+                                    <li class="p-skills__item">Figma</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
 
-</body>
+        <footer class="l-footer">
+            <p class="footer__text">
+                <small>&copy; 2026 Yuma Honkawa</small>
+            </p>
+        </footer>
+    </body>
 </html>

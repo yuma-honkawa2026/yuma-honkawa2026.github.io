@@ -1,4 +1,4 @@
-/* CSS変数定義 */
+/* Foundation */
 :root {
     --color-text-main: #151515;
     --color-text-sub: #202020;
@@ -21,8 +21,6 @@
     --font-size-2xl: 32px;
 }
 
-/* 全体共通 */
-
 body {
     background-color: var(--color-background);
     font-family: "Zen Old Mincho", serif;
@@ -33,6 +31,10 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -46,27 +48,34 @@ a:hover {
     text-underline-offset: var(--space-01);
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
-.main-content {
+/* Layout */
+.l-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.l-main {
     flex-grow: 1;
 }
 
 /* ヘッダー・ナビ */
-.header {
-    display: flex;
-    justify-content: center;
+.l-header {
     margin-top: var(--space-08);
 }
 
-.navigation__list {
+.l-header__nav-list {
     display: flex;
+    justify-content: center;
     gap: var(--space-01);
 }
 
-.navigation__link {
+.l-header__nav-link {
     font-size: var(--font-size-md);
     font-weight: 300;
     letter-spacing: 0.15em;
@@ -75,7 +84,7 @@ ul, ol {
     padding: var(--space-03);
 }
 
-.navigation__link--current {
+.l-header__nav-link--current {
     text-decoration: underline;
     color: var(--color-text-main);
     text-underline-offset: var(--space-01);
@@ -85,19 +94,19 @@ ul, ol {
 .p-about {
     background-image: url(../images/profile.webp);
     background-size: cover;
-    overflow: hidden;
+    flex-grow: 1;
 }
 
-.p-about .main-content{
+.p-about__inner {
     max-width: 35%;
     margin-left: 8%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10%;
 }
 
-.profile__subname {
+.p-profile__subname {
     font-size: var(--font-size-md);
     font-weight: 300;
     color: var(--color-text-sub);
@@ -105,22 +114,23 @@ ul, ol {
     text-align: center;
 }
 
-.profile__name {
+.p-profile__name {
     font-size: calc(var(--font-size-2xl) * 2);
     font-weight: 400;
     color: var(--color-text-main);
     letter-spacing: 0.3em;
     text-align: center;
-    margin-top: calc(var(--space-02) * -1);/* 計算の関数。--space-02の値を-1倍する。-16pxと同義。 */
+    margin-top: calc(var(--space-02) * -1); /* 計算の関数。--space-02の値を-1倍する。-16pxと同義。 */
 }
 
-.profile__bio, .profile__school {
+.p-profile__bio,
+.p-profile__school {
     font-size: var(--font-size-lg);
     font-weight: 400;
     letter-spacing: 0.1em;
 }
 
-.statement__title {
+.p-statement__title {
     font-size: var(--font-size-2xl);
     font-weight: 400;
     color: var(--color-text-main);
@@ -131,7 +141,7 @@ ul, ol {
     margin-top: var(--space-08);
 }
 
-.statement__text {
+.p-statement__text {
     font-size: var(--font-size-lg);
     font-weight: 300;
     color: var(--color-text-sub);
@@ -140,122 +150,122 @@ ul, ol {
     margin-left: var(--space-04);
 }
 
-.skills__title {
+.p-skills__title {
     font-size: var(--font-size-2xl);
     font-weight: 300;
     color: var(--color-text-main);
     letter-spacing: 0.1em;
 }
 
-.skills__list {
+.p-skills__list {
     display: grid;
     grid-template-columns: 350px 300px;
     gap: var(--space-02);
 }
 
 /* Careerページ */
-.career__list {
+.p-career__list {
     display: grid;
-    grid-template-columns: var(--space-10) var(--space-04) 1fr; 
+    grid-template-columns: var(--space-10) var(--space-04) 1fr;
     grid-template-rows: repeat(72, var(--space-03));
 }
 
-.career__year {
+.p-career__year {
     grid-column: 1;
     justify-self: end;
 }
 
-.career__year--2021 {
+.p-career__year--2021 {
     grid-row: 1;
 }
 
-.career__year--2021-04 {
+.p-career__year--2021-04 {
     grid-row: 4;
 }
 
-.career__year--2022 {
+.p-career__year--2022 {
     grid-row: 13;
 }
 
-.career__year--2022-08 {
+.p-career__year--2022-08 {
     grid-row: 20;
 }
 
-.career__year--2023 {
+.p-career__year--2023 {
     grid-row: 25;
 }
 
-.career__year--2023-10 {
+.p-career__year--2023-10 {
     grid-row: 34;
 }
 
-.career__year--2024 {
+.p-career__year--2024 {
     grid-row: 37;
 }
 
-.career__year--2024-08 {
+.p-career__year--2024-08 {
     grid-row: 44;
 }
 
-.career__year--2025 {
+.p-career__year--2025 {
     grid-row: 49;
 }
 
-.career__year--2025-04 {
+.p-career__year--2025-04 {
     grid-row: 52;
 }
 
-.career__year--2026 {
+.p-career__year--2026 {
     grid-row: 61;
 }
 
-.career__item--mitsubishi-in {
+.p-career__item--mitsubishi-in {
     grid-column: 3;
     grid-row: 4;
     position: relative;
 }
 
-.career__item--alpha-part {
+.p-career__item--alpha-part {
     grid-column: 3;
     grid-row: 20;
 }
 
-.career__item--youtube {
+.p-career__item--youtube {
     grid-column: 3;
     grid-row: 34;
 }
 
-.career__item--mitsubishi-out {
+.p-career__item--mitsubishi-out {
     grid-column: 3;
     grid-row: 44;
 }
 
-.career__item--alpha-full {
+.p-career__item--alpha-full {
     grid-column: 3;
     grid-row: 49;
 }
 
-.career__item--school {
+.p-career__item--school {
     grid-column: 3;
     grid-row: 52;
 }
 
-.career__list::before {
-    content: '';
+.p-career__list::before {
+    content: "";
     display: block;
     grid-column: 2;
-    grid-row:1 / -1;
+    grid-row: 1 / -1;
     background-color: var(--color-main);
     width: 3px;
     justify-self: center;
 }
 
-.career__item {
+.p-career__item {
     position: relative;
 }
 
-.career__item::before {
-    content: '';
+.p-career__item::before {
+    content: "";
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -266,42 +276,24 @@ ul, ol {
     top: 6px;
 }
 
-.career__title, .career__subtitle {
+.p-career__title,
+.p-career__subtitle {
     line-height: 1.2;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* contactページ */
 .p-contact {
-    background-color: var(--color-background);
-    overflow: hidden;
-}
-
-.contact {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.contact__message {
+.p-contact__message {
     margin: 20vh 0;
     font-size: var(--font-size-xl);
 }
 
-.contact__mail, .contact__github {
+.p-contact__mail, .p-contact__github {
     padding: var(--space-10);
     letter-spacing: 0.1em;
     font-size: var(--font-size-lg);
@@ -309,18 +301,19 @@ ul, ol {
     border: 1px solid var(--color-main);
 }
 
-.contact__mail:hover, .contact__github:hover {
+.p-contact__mail:hover,
+.p-contact__github:hover {
     background-color: rgba(55, 38, 40, 0.08);
     letter-spacing: 0.15em;
     text-decoration: none;
 }
 
-.contact__github {
+.p-contact__github {
     border-top: none;
 }
 
 /* フッター */
-.footer {
+.l-footer {
     color: var(--color-text-light);
     text-align: center;
     font-size: var(--font-size-lg);
