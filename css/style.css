@@ -1,9 +1,9 @@
 /* Foundation */
 :root {
-    --color-text-main: #151515;
-    --color-text-sub: #202020;
-    --color-text-light: #3e3e3e;
-    --color-background: #dcd8d8;
+    --color-text-main: #202020;
+    --color-text-sub: #333333;
+    --color-text-light: #e0e0e0;
+    --color-background: #e0e0e0;
     --color-main: #454545;
     --color-sub: #460d0d;
     --space-01: 8px;
@@ -53,29 +53,53 @@ ol {
     list-style: none;
 }
 
+summary {
+    display: block;
+    cursor: pointer;
+    padding: var(--space-01);
+    transition: all 0.5s ease;
+    border: 1px solid #202020 ;
+}
+
+summary:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
 /* Layout */
-.l-container {
+.l-header {
+    margin-top: var(--space-08);
+}
+
+.l-main {
+    flex-grow: 1;
+    padding: calc(var(--space-06) * 2) 0;
+}
+
+.l-footer {
+    background-color: var(--color-sub);
+    color: var(--color-text-light);
+    text-align: center;
+    font-size: var(--font-size-lg);
+    padding: var(--space-03) 0;
+}
+
+/* Component */
+.c-container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-.l-main {
-    flex-grow: 1;
-}
-
-/* ヘッダー・ナビ */
-.l-header {
-    margin-top: var(--space-08);
-}
-
-.l-header__nav-list {
+/* Project */
+/* header */
+.p-header__nav-list {
     display: flex;
     justify-content: center;
     gap: var(--space-01);
 }
 
-.l-header__nav-link {
+.p-header__nav-link {
     font-size: var(--font-size-md);
     font-weight: 300;
     letter-spacing: 0.15em;
@@ -84,13 +108,14 @@ ol {
     padding: var(--space-03);
 }
 
-.l-header__nav-link--current {
+.p-header__nav-link--current {
     text-decoration: underline;
-    color: var(--color-text-main);
+    color: var(--color-text-sub);
     text-underline-offset: var(--space-01);
 }
 
-/* indexページ */
+
+/* index.html*/
 .p-about {
     background-image: url(../images/profile.webp);
     background-size: cover;
@@ -166,13 +191,24 @@ ol {
 /* Careerページ */
 .p-career__list {
     display: grid;
-    grid-template-columns: var(--space-10) var(--space-04) 1fr;
+    grid-template-columns: 1fr var(--space-08) 1fr;
     grid-template-rows: repeat(72, var(--space-03));
+}
+
+.p-career__title {
+    font-size: var(--font-size-xl);
+    letter-spacing: 0.1em;
 }
 
 .p-career__year {
     grid-column: 1;
     justify-self: end;
+    font-size: var(--font-size-lg);
+}
+
+.p-career__title,
+.p-career__subtitle {
+    line-height: 1.2;
 }
 
 .p-career__year--2021 {
@@ -271,15 +307,24 @@ ol {
     border-radius: 50%;
     background-color: var(--color-main);
     position: absolute;
-    transform: translate(-50%, 0%);
-    left: -16px;
-    top: 6px;
+    transform: translate(-50%, 0%);/* アンカーポイントを左右の真ん中にしている */
+    left: -32px;
+    top: 14px;
 }
 
-.p-career__title,
-.p-career__subtitle {
-    line-height: 1.2;
+.p-career_-body-title {
+    font-size: var(--font-size-2xl);
 }
+
+
+
+
+
+
+
+
+
+
 
 /* contactページ */
 .p-contact {
@@ -289,7 +334,7 @@ ol {
 }
 
 .p-contact__message {
-    margin: 20vh 0;
+    margin: 15vh 0 17vh 0;
     font-size: var(--font-size-xl);
 }
 
@@ -310,12 +355,4 @@ ol {
 
 .p-contact__github {
     border-top: none;
-}
-
-/* フッター */
-.l-footer {
-    color: var(--color-text-light);
-    text-align: center;
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-03);
 }
