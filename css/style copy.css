@@ -1,0 +1,358 @@
+/* Foundation */
+:root {
+    --color-text-main: #202020;
+    --color-text-sub: #333333;
+    --color-text-light: #e0e0e0;
+    --color-background: #e0e0e0;
+    --color-main: #454545;
+    --color-sub: #460d0d;
+    --space-01: 8px;
+    --space-02: 16px;
+    --space-03: 24px;
+    --space-04: 32px;
+    --space-06: 48px;
+    --space-08: 64px;
+    --space-10: 80px;
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 20px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 32px;
+}
+
+body {
+    background-color: var(--color-background);
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 600;
+    color: var(--color-text-sub);
+    line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: var(--color-text-main);
+    text-decoration: underline;
+    text-underline-offset: var(--space-01);
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+summary {
+    display: block;
+    cursor: pointer;
+    padding: var(--space-01);
+    transition: all 0.5s ease;
+    border: 1px solid #202020 ;
+}
+
+summary:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+/* Layout */
+.l-header {
+    margin-top: var(--space-08);
+}
+
+.l-main {
+    flex-grow: 1;
+    padding: calc(var(--space-06) * 2) 0;
+}
+
+.l-footer {
+    background-color: var(--color-sub);
+    color: var(--color-text-light);
+    text-align: center;
+    font-size: var(--font-size-lg);
+    padding: var(--space-03) 0;
+}
+
+/* Component */
+.c-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Project */
+/* header */
+.p-header__nav-list {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-01);
+}
+
+.p-header__nav-link {
+    font-size: var(--font-size-md);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-sub);
+    padding: var(--space-03);
+}
+
+.p-header__nav-link--current {
+    text-decoration: underline;
+    color: var(--color-text-sub);
+    text-underline-offset: var(--space-01);
+}
+
+
+/* index.html*/
+.p-about {
+    background-image: url(../images/profile.webp);
+    background-size: cover;
+    flex-grow: 1;
+}
+
+.p-about__inner {
+    max-width: 35%;
+    margin-left: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.p-profile__subname {
+    font-size: var(--font-size-md);
+    font-weight: 300;
+    color: var(--color-text-sub);
+    letter-spacing: 0.2em;
+    text-align: center;
+}
+
+.p-profile__name {
+    font-size: calc(var(--font-size-2xl) * 2);
+    font-weight: 400;
+    color: var(--color-text-main);
+    letter-spacing: 0.3em;
+    text-align: center;
+    margin-top: calc(var(--space-02) * -1); /* 計算の関数。--space-02の値を-1倍する。-16pxと同義。 */
+}
+
+.p-profile__bio,
+.p-profile__school {
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+.p-statement__title {
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    color: var(--color-text-main);
+    letter-spacing: 0.2em;
+    border-left: var(--space-01) solid var(--color-text-main);
+    padding-left: var(--space-03);
+    margin-bottom: var(--space-08);
+    margin-top: var(--space-08);
+}
+
+.p-statement__text {
+    font-size: var(--font-size-lg);
+    font-weight: 300;
+    color: var(--color-text-sub);
+    letter-spacing: 0.2em;
+    line-height: 2;
+    margin-left: var(--space-04);
+}
+
+.p-skills__title {
+    font-size: var(--font-size-2xl);
+    font-weight: 300;
+    color: var(--color-text-main);
+    letter-spacing: 0.1em;
+}
+
+.p-skills__list {
+    display: grid;
+    grid-template-columns: 350px 300px;
+    gap: var(--space-02);
+}
+
+/* Careerページ */
+.p-career__list {
+    display: grid;
+    grid-template-columns: 1fr var(--space-08) 1fr;
+    grid-template-rows: repeat(72, var(--space-03));
+}
+
+.p-career__title {
+    font-size: var(--font-size-xl);
+    letter-spacing: 0.1em;
+}
+
+.p-career__year {
+    grid-column: 1;
+    justify-self: end;
+    font-size: var(--font-size-lg);
+}
+
+.p-career__title,
+.p-career__subtitle {
+    line-height: 1.2;
+}
+
+.p-career__year--2021 {
+    grid-row: 1;
+}
+
+.p-career__year--2021-04 {
+    grid-row: 4;
+}
+
+.p-career__year--2022 {
+    grid-row: 13;
+}
+
+.p-career__year--2022-08 {
+    grid-row: 20;
+}
+
+.p-career__year--2023 {
+    grid-row: 25;
+}
+
+.p-career__year--2023-10 {
+    grid-row: 34;
+}
+
+.p-career__year--2024 {
+    grid-row: 37;
+}
+
+.p-career__year--2024-08 {
+    grid-row: 44;
+}
+
+.p-career__year--2025 {
+    grid-row: 49;
+}
+
+.p-career__year--2025-04 {
+    grid-row: 52;
+}
+
+.p-career__year--2026 {
+    grid-row: 61;
+}
+
+.p-career__item--mitsubishi-in {
+    grid-column: 3;
+    grid-row: 4;
+    position: relative;
+}
+
+.p-career__item--alpha-part {
+    grid-column: 3;
+    grid-row: 20;
+}
+
+.p-career__item--youtube {
+    grid-column: 3;
+    grid-row: 34;
+}
+
+.p-career__item--mitsubishi-out {
+    grid-column: 3;
+    grid-row: 44;
+}
+
+.p-career__item--alpha-full {
+    grid-column: 3;
+    grid-row: 49;
+}
+
+.p-career__item--school {
+    grid-column: 3;
+    grid-row: 52;
+}
+
+.p-career__list::before {
+    content: "";
+    display: block;
+    grid-column: 2;
+    grid-row: 1 / -1;
+    background-color: var(--color-main);
+    width: 3px;
+    justify-self: center;
+}
+
+.p-career__item {
+    position: relative;
+}
+
+.p-career__item::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--color-main);
+    position: absolute;
+    transform: translate(-50%, 0%);/* アンカーポイントを左右の真ん中にしている */
+    left: -32px;
+    top: 14px;
+}
+
+.p-career_-body-title {
+    font-size: var(--font-size-2xl);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* contactページ */
+.p-contact {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.p-contact__message {
+    margin: 15vh 0 17vh 0;
+    font-size: var(--font-size-xl);
+}
+
+.p-contact__mail, .p-contact__github {
+    padding: var(--space-10);
+    letter-spacing: 0.1em;
+    font-size: var(--font-size-lg);
+    transition: 0.5s;
+    border: 1px solid var(--color-main);
+}
+
+.p-contact__mail:hover,
+.p-contact__github:hover {
+    background-color: rgba(55, 38, 40, 0.08);
+    letter-spacing: 0.15em;
+    text-decoration: none;
+}
+
+.p-contact__github {
+    border-top: none;
+}
