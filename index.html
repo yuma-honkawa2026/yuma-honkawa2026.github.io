@@ -26,28 +26,46 @@
         <link rel="stylesheet" href="css/ress.css" />
         <link rel="stylesheet" href="css/style.css" />
     </head>
+
     <body>
         <header class="l-header">
-            <nav class="p-header__nav">
-                <ul class="p-header__nav-list">
-                    <li class="p-header__nav-item"><a class="p-header__nav-link" href="#about">About</a></li>
-                    <li class="p-header__nav-item"><a class="p-header__nav-link" href="#works">Works</a></li>
-                    <li class="p-header__nav-item"><a class="p-header__nav-link" href="#career">Career</a></li>
-                    <li class="p-header__nav-item"><a class="p-header__nav-link" href="#contact">Contact</a></li>
+            <nav class="p-gnav">
+                <ul class="p-gnav__list">
+                    <li class="p-gnav__item"><a class="p-gnav__link" href="#about">About</a></li>
+                    <li class="p-gnav__item"><a class="p-gnav__link" href="#works">Works</a></li>
+                    <li class="p-gnav__item"><a class="p-gnav__link" href="#career">Career</a></li>
+                    <li class="p-gnav__item"><a class="p-gnav__link" href="#contact">Contact</a></li>
                 </ul>
-                <div class="p-header__nav-list">
-                    <a class="p-header__nav-github" href="https://github.com/yuma-honkawa2026">GitHubを見る</a>
+
+                <div class="p-gnav__buttons">
+                    <a class="c-button" href="https://github.com/yuma-honkawa2026">GitHubを見る</a>
                 </div>
             </nav>
         </header>
-        
+
         <main class="l-main">
-            <section id="about">
-                <div class="p-profile__main">
+            <section class="p-profile" id="about">
+                <div class="p-profile__wrap">
+                    <div class="p-profile__main">
+                        <img class="p-profile__yuma" src="images/profile.jpg" alt="">
+                    </div>
+                    <div class="p-profile__sub">
+                        <ul class="p-profile__list">
+                            <li class="p-profile__item">
+                                <div><img class="p-profile__images01" src="images/design.jpg" alt="在学中の東京デザイン専門学校の写真" /></div>
+                                <p>デザイン感覚</p>
+                                <p>東京デザイン専門学校に在学し、、、</p>
 
-                </div>
-                <div class="p-profile__sub">
+                                <div><img src="" alt=""></div>
+                                <p>クライアントワーク</p>
+                                <p>実際に、、、、</p>
 
+                                <div><img src="" alt=""></div>
+                                <p>クライアントワーク</p>
+                                <p>実際に、、、、</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="p-profile__text">
                     <p class="p-profile__subname">HONKAWA YUMA</p>
@@ -55,21 +73,13 @@
                     <p class="p-profile__school">東京デザイン専門学校</p>
                     <p class="p-profile__school">グラフィックデザイン科 WEB・映像専攻</p>
                 </div>
-
             </section>
 
-            <section id="works">
+            <section class="p-works" id="works"></section>
 
-            </section>
+            <section class="p-career" id="career"></section>
 
-            <section id="career">
-
-            </section>
-
-            <section id="contact">
-
-            </section>
-
+            <section class="p-contact" id="contact"></section>
         </main>
 
         <footer class="l-footer">

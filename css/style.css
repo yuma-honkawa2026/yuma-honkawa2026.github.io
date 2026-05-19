@@ -1,0 +1,82 @@
+:root {
+    /* 基本色 */
+    --color-primary: #474747;
+    --color-secondary: #d0d0d0;
+}
+
+body {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+
+.l-header {
+    padding-inline: 2rem;
+    padding-block: 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.p-gnav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.p-gnav__list {
+    grid-column: 2;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--color-secondary);
+    padding-inline: 5rem;
+}
+
+.p-gnav__link {
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+}
+
+.c-button {
+    grid-column: 3;
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    color: var(--color-primary);
+    height: 50px;
+    border-radius: 50px;
+    justify-self: end;
+    padding-inline: 2rem;
+    letter-spacing: 0.05em;
+}
+
+
+.p-profile__wrap {
+    display: flex;
+}
+
+.p-profile__item {
+    display: flex;
+}
+
+.p-profile__images01 {
+    width: 300px;
+}
+
+.p-profile__yuma {
+    width: 500px;
+}
