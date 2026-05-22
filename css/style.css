@@ -12,12 +12,18 @@
 
     /* 余白 */
     --spacing-xs: 0.25rem; /* 4px */
-    --spacing-sm: 0.5rem;  /* 8px */
-    --spacing-md: 1rem;  /* 16px */
-    --spacing-lg: 1.5rem;  /* 24px */
-    --spacing-xl: 2rem;  /* 32px */
-    --spacing-2xl: 3rem;  /* 48px */
-    --spacing-3xl: 4rem;  /* 64px */
+    --spacing-sm: 0.5rem; /* 8px */
+    --spacing-md: 1rem; /* 16px */
+    --spacing-lg: 1.5rem; /* 24px */
+    --spacing-xl: 2rem; /* 32px */
+    --spacing-2xl: 3rem; /* 48px */
+    --spacing-3xl: 4rem; /* 64px */
+
+    /* ボーダー半径 */
+    --radius-sm: 0.25rem; /* 4px */
+    --radius-md: 0.5rem;  /* 8px */
+    --radius-lg: 1rem; /* 16px */
+    --radius-full: 9999px; /* 完全な円 */
 }
 
 body {
@@ -35,13 +41,21 @@ ol {
     list-style: none;
 }
 
+h3 {
+    font-size: var(--font-size-500);
+}
+
 .l-header {
-    padding-inline: 2rem;
-    padding-block: 2rem;
+    padding-inline: var(--spacing-3xl);
+    padding-block: var(--spacing-2xl);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 9999;
+}
+
+.l-main {
+    padding-inline: var(--spacing-3xl);
 }
 
 .p-gnav {
@@ -90,13 +104,32 @@ ol {
     display: flex;
 }
 
-.p-profile__images01 {
-    width: 300px;
+.p-profile__image {
+    padding-bottom: var(--spacing-md);
+    padding-inline: var(--spacing-xl);
+}
+
+.p-profile__photo {
+    width: 260px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
 }
 
 .p-profile__yuma {
     width: 500px;
 }
+
+
+
+
+
+
+
+
+
+
+/* career */
 
 .p-career__wrap {
     display: flex;
@@ -196,4 +229,9 @@ ol {
 .p-career__item--school {
     grid-column: 3;
     grid-row: 52;
+}
+
+.p-career__title {
+    font-size: var(--font-size-300);
+    letter-spacing: var(--spacing-xs);
 }
