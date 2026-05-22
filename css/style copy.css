@@ -66,6 +66,10 @@ summary:hover {
     transform: scale(1.02);
 }
 
+
+
+
+
 /* Layout */
 .l-header {
     margin-top: var(--space-08);
@@ -310,10 +314,6 @@ summary:hover {
     transform: translate(-50%, 0%);/* アンカーポイントを左右の真ん中にしている */
     left: -32px;
     top: 14px;
-}
-
-.p-career_-body-title {
-    font-size: var(--font-size-2xl);
 }
 
 

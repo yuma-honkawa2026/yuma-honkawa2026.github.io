@@ -1,23 +1,23 @@
 :root {
     /* 基本色 */
-    --color-primary: #474747;
+    --color-primary: #383838;
     --color-secondary: #d0d0d0;
 
     /* 文字大きさ（Googleのデザインシステムが採用しているらしいもの） */
     --font-size-100: 0.75rem;
     --font-size-200: 0.875rem;
     --font-size-300: 1rem;
-    --font-size-400: 1.25rem;
-    --font-size-500: 1.5rem;
+    --font-size-400: 1.5rem;
+    --font-size-500: 2rem;
 
     /* 余白 */
-    --spacing-xs: 0.25rem; /* 4px */
-    --spacing-sm: 0.5rem; /* 8px */
-    --spacing-md: 1rem; /* 16px */
-    --spacing-lg: 1.5rem; /* 24px */
-    --spacing-xl: 2rem; /* 32px */
-    --spacing-2xl: 3rem; /* 48px */
-    --spacing-3xl: 4rem; /* 64px */
+    --spacing-xs: 0.1rem;
+    --spacing-sm: 0.3rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 5rem;
 
     /* ボーダー半径 */
     --radius-sm: 0.25rem; /* 4px */
@@ -29,6 +29,7 @@
 body {
     background-color: var(--color-primary);
     color: var(--color-secondary);
+    overflow-x: hidden;
 }
 
 a {
@@ -41,8 +42,19 @@ ol {
     list-style: none;
 }
 
-h3 {
+h1 {
     font-size: var(--font-size-500);
+    letter-spacing: var(--spacing-xs);
+}
+
+h2 {
+    font-size: var(--font-size-400);
+    letter-spacing: var(--spacing-xs);
+}
+
+h3 {
+    font-size: var(--font-size-300);
+    letter-spacing: var(--spacing-sm);
 }
 
 .l-header {
@@ -58,6 +70,10 @@ h3 {
     padding-inline: var(--spacing-3xl);
 }
 
+.c-section-title {
+    padding-bottom: var(--spacing-xl);
+}
+
 .p-gnav {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -70,7 +86,7 @@ h3 {
     gap: 50px;
     align-items: center;
     height: 50px;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     background-color: var(--color-secondary);
     padding-inline: 5rem;
 }
@@ -80,44 +96,50 @@ h3 {
     letter-spacing: 0.05em;
 }
 
+.p-gnav__buttons {
+    justify-self: end;
+}
+
 .c-button {
     background-color: var(--color-secondary);
     display: flex;
     align-items: center;
     color: var(--color-primary);
     height: 50px;
-    border-radius: 50px;
-    justify-self: end;
-    padding-inline: 2rem;
-    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    padding-inline: var(--spacing-xl);
+    letter-spacing: var(--spacing-xs);
 }
 
 .p-profile {
-    padding-block: 10rem;
+    padding-block: calc(var(--spacing-3xl) * 3);
 }
 
 .p-profile__wrap {
     display: flex;
+    width: 100%;
 }
 
-.p-profile__item {
-    display: flex;
+.p-profile__main {
+    flex: 1;
+    width: 50%;
 }
 
-.p-profile__image {
-    padding-bottom: var(--spacing-md);
+.p-profile__sub {
+    flex: 1;
+    width: 50%;
+}
+
+.p-profile__avatar {
+    width: 100%;
+    max-width: 1000px;
+    max-height: 600px;
     padding-inline: var(--spacing-xl);
 }
 
 .p-profile__photo {
-    width: 260px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-}
-
-.p-profile__yuma {
-    width: 500px;
+    max-width: 320px;
+    height: 140px;
 }
 
 
@@ -130,6 +152,12 @@ h3 {
 
 
 /* career */
+.p-career__main-title {
+    font-size: var(--font-size-400);
+    font-weight: 700;
+    letter-spacing: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+}
 
 .p-career__wrap {
     display: flex;
@@ -234,4 +262,23 @@ h3 {
 .p-career__title {
     font-size: var(--font-size-300);
     letter-spacing: var(--spacing-xs);
+}
+
+
+
+
+
+
+/* Contact */
+.p-contact__github,
+.p-contact__mail {
+    width: 100%;
+    max-width: 500px;
+}
+
+
+.p-contact__button-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
 }
