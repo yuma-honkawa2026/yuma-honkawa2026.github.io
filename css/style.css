@@ -3,21 +3,32 @@
     --color-primary: #383838;
     --color-secondary: #d0d0d0;
 
-    /* 文字大きさ（Googleのデザインシステムが採用しているらしいもの） */
-    --font-size-100: 0.75rem;
-    --font-size-200: 0.875rem;
-    --font-size-300: 1rem;
-    --font-size-400: 1.5rem;
-    --font-size-500: 2rem;
+    /* 文字大きさ（Googleのデザインシステムが採用しているらしいものをベースに） */
+    --font-size-100: 0.75rem;   /* 12px */
+    --font-size-200: 0.875rem;  /* 14px */
+    --font-size-300: 1rem;      /* 16px */
+    --font-size-400: 1.125rem;  /* 18px */
+    --font-size-500: 1.25rem;   /* 20px */
+    --font-size-600: 1.5rem;    /* 24px */
+    --font-size-700: 2rem;      /* 32px */
+    --font-size-800: 3rem;      /* 48px */
+    --font-size-900: 5rem;      /* 80px */
 
     /* 余白 */
-    --spacing-xs: 0.1rem;
-    --spacing-sm: 0.3rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-    --spacing-2xl: 3rem;
-    --spacing-3xl: 5rem;
+    --spacing-100: 0.25rem; /* 4px */
+    --spacing-200: 0.5rem;  /* 8px */
+    --spacing-300: 0.75rem; /* 12px */
+    --spacing-400: 1rem;    /* 16px */
+    --spacing-500: 1.5rem;  /* 24px */
+    --spacing-600: 2rem;    /* 32px */
+    --spacing-700: 3rem;    /* 48px */
+    --spacing-800: 4rem;    /* 64px */
+    --spacing-900: 6rem;    /* 96px */
+
+    --letter-spacing-100: 0.02em;
+    --letter-spacing-200: 0.04em;
+    --letter-spacing-300: 0.08em;
+    --letter-spacing-400: 0.12em;
 
     /* ボーダー半径 */
     --radius-sm: 0.25rem; /* 4px */
@@ -59,17 +70,17 @@ ol {
 
 h1 {
     font-size: var(--font-size-500);
-    letter-spacing: var(--spacing-xs);
+    letter-spacing: var(--letter-spacing-300);
 }
 
 h2 {
     font-size: var(--font-size-400);
-    letter-spacing: var(--spacing-xs);
+    letter-spacing: var(--letter-spacing-200);
 }
 
 h3 {
     font-size: var(--font-size-300);
-    letter-spacing: var(--spacing-sm);
+    letter-spacing: var(--letter-spacing-300);
 }
 
 img {
@@ -99,8 +110,8 @@ address {
 /* Layout */
 
 .l-header {
-    padding-inline: var(--spacing-3xl);
-    padding-block: var(--spacing-2xl);
+    padding-inline: var(--spacing-900);
+    padding-block: var(--spacing-700);
     position: fixed;
     top: 0;
     width: 100%;
@@ -108,14 +119,14 @@ address {
 }
 
 .l-main {
-    padding-inline: var(--spacing-3xl);
+    padding-inline: var(--spacing-900);
     padding-top: 120px;
 }
 
 /* Component */
 
 .c-section-title {
-    padding-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-400);
 }
 
 .c-button {
@@ -125,8 +136,8 @@ address {
     color: var(--color-primary);
     height: 50px;
     border-radius: var(--radius-full);
-    padding-inline: var(--spacing-xl);
-    letter-spacing: var(--spacing-xs);
+    padding-inline: var(--spacing-600);
+    letter-spacing: var(--letter-spacing-300);
 }
 
 /* Project */
@@ -150,7 +161,7 @@ address {
 
 .p-gnav__link {
     color: var(--color-primary);
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-200);
 }
 
 .p-gnav__buttons {
@@ -165,9 +176,9 @@ address {
     grid-template-areas:
         "media strengths"
         "body .";
-    gap: var(--spacing-xl) var(--spacing-3xl);
+    gap: var(--spacing-400) var(--spacing-800);
     align-items: stretch;
-    padding-block: var(--spacing-3xl);
+    padding-block: var(--spacing-600);
 }
 
 .p-about-hero__media {
@@ -190,24 +201,24 @@ address {
 .p-about-hero__subname {
     margin: 0;
     font-size: var(--font-size-200);
-    letter-spacing: 0.12em;
+    letter-spacing: var(--letter-spacing-400);
 }
 
 .p-about-hero__name {
     margin: 0;
     line-height: 1;
-    letter-spacing: var(--spacing-sm);
+    letter-spacing: var(--letter-spacing-300);
 }
 
 .p-about-hero__meta-group {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-400);
 }
 
 .p-about-hero__meta {
     margin: 0;
     font-size: var(--font-size-200);
-    line-height: var(--spacing-lg);
-    letter-spacing: var(--spacing-xs);
+    line-height: 1.5;
+    letter-spacing: var(--letter-spacing-300);
 }
 
 .p-about-hero__strengths {
@@ -217,14 +228,14 @@ address {
 
 .p-about-hero__list {
     display: grid;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-500);
     height: 100%;
 }
 
 .p-about-hero__item {
     display: grid;
     grid-template-columns: minmax(120px, 280px) minmax(0, 1fr);
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-600);
 }
 
 .p-about-hero__strength-visual {
@@ -240,22 +251,172 @@ address {
 }
 
 .p-about-hero__strength-body {
-    padding-block: var(--spacing-xs);
+    padding-block: var(--spacing-100);
 }
 
 .p-about-hero__strength-title {
     margin: 0;
     font-size: var(--font-size-400);
     font-weight: 700;
-    letter-spacing: var(--spacing-xs);
+    letter-spacing: var(--letter-spacing-300);
 }
 
 .p-about-hero__strength-text {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-300);
     font-size: var(--font-size-300);
-    letter-spacing: var(--spacing-xs);
+    letter-spacing: var(--letter-spacing-300);
     line-height: 1.7;
 }
+
+/* works */
+.p-works {
+    position: relative;
+    padding: 96px 0 120px;
+    color: var(--color-secondary);
+    overflow: hidden;
+}
+
+.p-works__inner {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.p-works__bg-title {
+    position: absolute;
+    top: -52px;
+    left: 0;
+    z-index: -1;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: var(--font-size-600);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: var(--letter-spacing-300);
+}
+
+.p-works__title {
+    margin-bottom: 32px;
+    color: var(--color-secondary);
+    font-size: var(--font-size-400);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: var(--letter-spacing-300);
+}
+
+.p-works__category + .p-works__category {
+    margin-top: var(--spacing-800); /* movieとgraphicの感覚 */
+}
+
+.p-works__category-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-500);
+}
+
+.p-works__category-title {
+    margin: 0;
+    color: var(--color-secondary);
+    font-size: var(--font-size-400);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: var(--letter-spacing-300);
+}
+
+.p-works__more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 156px;
+    min-height: 34px;
+    padding: 6px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-full);
+    color: var(--color-secondary);
+    font-size: var(--font-size-300);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: var(--letter-spacing-300);
+    transition: 0.3s;
+}
+
+.p-works__more:hover {
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+.p-works__more-icon {
+    display: inline-block;
+    margin-left: var(--spacing-500);
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.p-works__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--spacing-600);
+    margin: 0;
+    padding: 0;
+}
+
+.c-works-card {
+    color: var(--color-secondary);
+}
+
+.c-work-card__visual {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.c-work-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.c-work-card__body {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.c-work-card__title {
+    margin-top: var(--spacing-300);
+    font-size: var(--font-size-600);
+    font-weight: 700;
+    letter-spacing: var(--letter-spacing-300);
+}
+
+.c-work-card__type {
+    margin-top: var(--spacing-100);
+    font-size: var(--font-size-200);
+    letter-spacing: var(--letter-spacing-300);
+}
+
+.c-work-card__meta {
+    margin-top: var(--spacing-400);
+    font-size: var(--font-size-300);
+    letter-spacing: var(--letter-spacing-300);
+}
+
+.c-work-card__text {
+    margin-top: var(--spacing-100);
+    font-size: var(--font-size-300);
+    font-weight: 500;
+    letter-spacing: var(--letter-spacing-300);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -265,8 +426,8 @@ address {
 .p-career__main-title {
     font-size: var(--font-size-400);
     font-weight: 700;
-    letter-spacing: var(--spacing-xs);
-    margin-bottom: var(--spacing-sm);
+    letter-spacing: var(--letter-spacing-300);
+    margin-bottom: var(--spacing-100);
 }
 
 .p-career__wrap {
@@ -371,8 +532,21 @@ address {
 
 .p-career__title {
     font-size: var(--font-size-300);
-    letter-spacing: var(--spacing-xs);
+    letter-spacing: var(--letter-spacing-300);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Contact */
 .p-contact__github,
@@ -384,5 +558,5 @@ address {
 .p-contact__button-wrap {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-400);
 }
