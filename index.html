@@ -44,60 +44,70 @@
         </header>
 
         <main class="l-main">
-            <section class="p-profile" id="about">
-                <div class="p-profile__wrap">
-                    <div class="p-profile__main">
-                        
-                            <img class="p-profile__avatar" src="images/avater.jpg" alt="本川悠真の近影" />
+            <section class="p-about-hero" id="about">
+                
+                    <div class="p-about-hero__media">
+                        <img class="p-about-hero__media-image" src="images/about-hero.jpg" alt="本川悠真の近影" />
+                    </div>
 
-                            <div class="p-profile__text">
-                                <p class="p-profile__subname">HONKAWA YUMA</p>
-                                <h1 class="p-profile__name">本川悠真</h1>
-                                <p class="p-profile__school">東京デザイン専門学校</p>
-                                <p class="p-profile__school">グラフィックデザイン科 WEB・映像専攻</p>
+                    <div class="p-about-hero__body">
+                        <p class="p-about-hero__subname">HONKAWA YUMA</p>
+                        <h1 class="p-about-hero__name">本川悠真</h1>
+                        <div class="p-about-hero__meta-group">
+                            <p class="p-about-hero__meta">東京デザイン専門学校</p>
+                            <p class="p-about-hero__meta">グラフィックデザイン科 WEB・映像専攻</p>
+                        </div>
+                    </div>
+                
+
+                <div class="p-about-hero__strengths">
+                    <ul class="p-about-hero__list">
+                        <li class="p-about-hero__item">
+                            <div class="p-about-hero__strength-visual">
+                                <img
+                                    class="p-about-hero__strength-image"
+                                    src="images/design.jpg"
+                                    alt="在学中の東京デザイン専門学校の写真"
+                                />
                             </div>
-                        
-                    </div>
+                            <div class="p-about-hero__strength-body">
+                                <p class="p-about-hero__strength-title">チームリーダーの経験数</p>
+                                <p class="p-about-hero__strength-text">
+                                    高校生で生徒会長と吹奏楽部部長を兼任、専門学校では1年次に文化祭執行部副委員長、2年次に文化祭執行部委員長、音楽同好会の部長、卓球同好会の副部長を務めた。
+                                </p>
+                            </div>
+                        </li>
 
-                    <div class="p-profile__sub">
-                        <ul class="p-profile__list">
-                            <li class="p-profile__item">
-                                <div class="p-profile__image">
-                                    <img
-                                        class="p-profile__photo"
-                                        src="images/design.jpg"
-                                        alt="在学中の東京デザイン専門学校の写真"
-                                    />
-                                </div>
-                                <div class="p-profile__content">
-                                    <p class="p-profile__title">チームリーダーの経験数</p>
-                                    <p class="p-profile__description">
-                                        高校生で生徒会長と吹奏楽部部長を兼任、専門学校では1年次に文化祭執行部副委員長、2年次に文化祭執行部委員長、音楽同好会の部長、卓球同好会の副部長を務めた。
-                                    </p>
-                                </div>
-                            </li>
+                        <li class="p-about-hero__item">
+                            <div class="p-about-hero__strength-visual">
+                                <img
+                                    class="p-about-hero__strength-image"
+                                    src="images/clientwork.jpg"
+                                    alt="在学中の東京デザイン専門学校の写真"
+                                />
+                            </div>
+                            <div class="p-about-hero__strength-body">
+                                <p class="p-about-hero__strength-title">クライアントワーク</p>
+                                <p class="p-about-hero__strength-text">
+                                    高校生で生徒会長と吹奏楽部部長を兼任、専門学校では1年次に文化祭執行部副委員長、2年次に文化祭執行部委員長、音楽同好会の部長、卓球同好会の副部長を務めた。
+                                </p>
+                            </div>
+                        </li>
 
-                            <li class="p-profile__item">
-                                <div class="p-profile__image">
-                                    <img class="p-profile__photo" src="images/clientwork.jpg" alt="" />
-                                </div>
-                                <div class="p-profile__content">
-                                    <p class="p-profile__title">クライアントワーク</p>
-                                    <p class="p-profile__description">実際にクライアントワークでデザインの案件をしたり</p>
-                                </div>
-                            </li>
-
-                            <li class="p-profile__item">
-                                <div class="p-profile__image">
-                                    <img class="p-profile__photo" src="images/leader.jpg" alt="" />
-                                </div>
-                                <div class="p-profile__content">
-                                    <p class="p-profile__title">デザイン感覚</p>
-                                    <p class="p-profile__description">東京デザイン専門学校に在学しており</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                        <li class="p-about-hero__item">
+                            <div class="p-about-hero__strength-visual">
+                                <img
+                                    class="p-about-hero__strength-image"
+                                    src="images/design.jpg"
+                                    alt="在学中の東京デザイン専門学校の写真"
+                                />
+                            </div>
+                            <div class="p-about-hero__strength-body">
+                                <p class="p-about-hero__strength-title">デザイン感覚</p>
+                                <p class="p-about-hero__strength-text">本文だよー後から書くから放置</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </section>
 
@@ -186,12 +196,14 @@
                 <p class="p-contact__maintext">お忙しい中ご覧いただきありがとうございました。 ご検討いただけますと幸いです。</p>
 
                 <div class="p-contact__button-wrap">
-
-                    <div class="p-contact__mail"><a class="c-button" href="mailto:yuma.honkawa2026@gmail.com">メールを送る</a></div>
+                    <div class="p-contact__mail">
+                        <a class="c-button" href="mailto:yuma.honkawa2026@gmail.com">メールを送る</a>
+                    </div>
 
                     <div class="p-contact__github">
-                        <a class="c-button" href="https://github.com/yuma-honkawa2026" target="_blank" rel="noopener">GitHubを見る</a>
-
+                        <a class="c-button" href="https://github.com/yuma-honkawa2026" target="_blank" rel="noopener"
+                            >GitHubを見る</a
+                        >
                     </div>
                 </div>
             </section>
