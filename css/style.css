@@ -430,7 +430,7 @@ address {
     margin-bottom: var(--spacing-100);
 }
 
-.p-career__wrap {
+.p-career__inner {
     display: flex;
     padding-block: 5rem;
 }
@@ -441,7 +441,7 @@ address {
 
 .p-career__list {
     display: grid;
-    grid-template-columns: 1fr 60fpx 1fr;
+    grid-template-columns: 1fr 60px 1fr;
     grid-template-rows: minmax(24px, auto);
 }
 
@@ -535,8 +535,32 @@ address {
     letter-spacing: var(--letter-spacing-300);
 }
 
+.p-career__list::before {
+    content: "";
+    display: block;
+    grid-column: 2;
+    grid-row: 1 / -1;
+    background-color: var(--color-secondary);
+    width: 3px;
+    justify-self: center;
+}
+
+.p-career__item {
+    position: relative;
+}
 
 
+.p-career__item::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    position: absolute;
+    transform: translate(-50%, 0%);/* アンカーポイントを左右の真ん中にしている */
+    left: -32px;
+    top: 14px;
+}
 
 
 
