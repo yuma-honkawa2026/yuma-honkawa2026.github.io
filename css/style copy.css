@@ -358,3 +358,144 @@ summary:hover {
 }
 
 
+/* 本番Careerページのバックアップ */
+/* career */
+.p-career__main-title {
+    font-size: var(--font-size-400);
+    font-weight: 700;
+    letter-spacing: var(--letter-spacing-300);
+    margin-bottom: var(--spacing-100);
+}
+
+.p-career__inner {
+    display: flex;
+    padding-block: 5rem;
+}
+
+.p-career__timeline {
+    width: 50%;
+}
+
+.p-career__list {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    grid-template-rows: minmax(24px, auto);
+}
+
+.p-career__year {
+    grid-column: 1;
+    justify-self: end;
+}
+
+.p-career__title,
+.p-career__subtitle {
+    line-height: 1.2;
+}
+
+.p-career__year--2021 {
+    grid-row: 1;
+}
+
+.p-career__year--2021-04 {
+    grid-row: 4;
+}
+
+.p-career__year--2022 {
+    grid-row: 13;
+}
+
+.p-career__year--2022-08 {
+    grid-row: 20;
+}
+
+.p-career__year--2023 {
+    grid-row: 25;
+}
+
+.p-career__year--2023-10 {
+    grid-row: 34;
+}
+
+.p-career__year--2024 {
+    grid-row: 37;
+}
+
+.p-career__year--2024-08 {
+    grid-row: 44;
+}
+
+.p-career__year--2025 {
+    grid-row: 49;
+}
+
+.p-career__year--2025-04 {
+    grid-row: 52;
+}
+
+.p-career__year--2026 {
+    grid-row: 61;
+}
+
+.p-career__item--mitsubishi-in {
+    grid-column: 3;
+    grid-row: 4;
+    position: relative;
+}
+
+.p-career__item--alpha-part {
+    grid-column: 3;
+    grid-row: 20;
+}
+
+.p-career__item--youtube {
+    grid-column: 3;
+    grid-row: 34;
+}
+
+.p-career__item--mitsubishi-out {
+    grid-column: 3;
+    grid-row: 44;
+}
+
+.p-career__item--alpha-full {
+    grid-column: 3;
+    grid-row: 49;
+}
+
+.p-career__item--school {
+    grid-column: 3;
+    grid-row: 52;
+}
+
+.p-career__title {
+    font-size: var(--font-size-300);
+    letter-spacing: var(--letter-spacing-300);
+}
+
+.p-career__list::before {
+    content: "";
+    display: block;
+    grid-column: 2;
+    grid-row: 1 / -1;
+    background-color: var(--color-secondary);
+    width: 3px;
+    justify-self: center;
+}
+
+.p-career__item {
+    position: relative;
+}
+
+
+.p-career__item::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    position: absolute;
+    transform: translate(-50%, 0%);/* アンカーポイントを左右の真ん中にしている */
+    left: -32px;
+    top: 14px;
+}
+
