@@ -64,7 +64,7 @@ a {
 ul,
 ol {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
     margin: 0;
 }
 
@@ -415,6 +415,11 @@ address {
 
 
 /* Career */
+.p-career {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
 .p-career__inner {
     padding-block: 5rem;
 }
@@ -454,7 +459,7 @@ address {
     height: 7px;
     margin-top: 0.2em;
     border-radius: var(--radius-full);
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
 }
 
 
