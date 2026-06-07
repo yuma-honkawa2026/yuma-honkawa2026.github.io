@@ -4,6 +4,7 @@
     /* 基本色 */
     --color-primary: #383838;
     --color-secondary: #d0d0d0;
+    --color-accent: #6f1d2d;
 
     /* 文字大きさ（Googleのデザインシステムが採用しているらしいものをベースに） */
     --font-size-100: 0.75rem;   /* 12px */
@@ -33,9 +34,10 @@
     --letter-spacing-400: 0.12em;
 
     /* ボーダー半径 */
-    --radius-sm: 0.25rem; /* 4px */
-    --radius-md: 0.5rem; /* 8px */
-    --radius-lg: 1rem; /* 16px */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-300: 0.75rem; /* あとから全部命名修正する。。 */
+    --radius-lg: 1rem;
     --radius-full: 9999px; /* 完全な円 */
 }
 
@@ -419,29 +421,55 @@ address {
 
 /* Career */
 .p-career {
+    --career-date-width: 96px;
+    --career-marker-width:40px;
+    --career-month-height: 1rem;
+    --career-line-color: rgba(51, 51, 51, 0.28);
+
     background-color: var(--color-secondary);
     color: var(--color-primary);
+    margin-inline: calc(var(--spacing-900) * -1);
+}
+
+.p-career__timeline-title {
+    font-size: var(--font-size-400);
+    font-weight: 600;
+    letter-spacing: var(--letter-spacing-300);
+    line-height: 1.4;
+
+}
+
+.p-career__timeline-subtitle {
+    font-size: var(--font-size-100);
+    font-weight: 200;
+    letter-spacing: var(--letter-spacing-300);
+    line-height: 1;
 }
 
 .p-career__inner {
     padding-block: 5rem;
+    padding-inline: var(--spacing-900);
 }
 
 .p-career__body {
     display: grid;
     grid-template-columns: minmax(360px, 0.9fr) minmax(420px, 1fr);
-    column-gap: clamp(3rem, 7vw, 7rem);
+    column-gap: clamp(3rem, 4vw, 7rem);
 }
 
-.p-career__timeline-list {
+.p-career__timeline-list {    
     position: relative;
+    min-height: calc(63 * var(--career-month-height) + 4rem);
 }
 
 .p-career__timeline-item {
     display: grid;
-    grid-template-columns: 96px 40px 1fr;
+    grid-template-columns: var(--career-date-width) var(--career-marker-width) 1fr;
     align-items: start;
-    position: relative;
+    position: absolute;
+    top: calc(var(--career-offset-months) * var(--career-month-height));
+    left: 0;
+    width: 100%;
 }
 
 .p-career__timeline-date {
@@ -454,23 +482,185 @@ address {
     grid-column: 3;
 }
 
+/* 丸 */
 .p-career__timeline-item::before {
     content: "";
     grid-column: 2;
+    grid-row: 1;
     justify-self: center;
-    width: 7px;
-    height: 7px;
-    margin-top: 0.2em;
+    position: relative;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    top: 0.5em;
     border-radius: var(--radius-full);
-    background-color: var(--color-primary);
+    background-color: var(--career-line-color);
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.p-career__timeline-item:last-child::before {
+    display: none;
+}
+
+/* 線 */
+.p-career__timeline-item::after {
+    content: "";
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    width: 1.5px;
+    height: calc(var(--career-duration-months) * var(--career-month-height));
+    background-color: var(--career-line-color);
+    transition: background-color 0.25s ease, opacity 0.25s ease, width 0.25s ease;
+}
+
+.p-career__timeline-item:last-child::after {
+    display: none;
+}
+
+/* 座標指定？ */
+.p-career__timeline-item--high-school {
+    --career-offset-months: 0;
+    --career-duration-months: 1;
+}
+
+.p-career__timeline-item--mitsubishi-in {
+    --career-offset-months: 1;
+    --career-duration-months: 9;
+}
+
+.p-career__timeline-item--2022-01 {
+    --career-offset-months: 10;
+    --career-duration-months: 7;
+}
+
+.p-career__timeline-item--alpha-part {
+    --career-offset-months: 17;
+    --career-duration-months: 5;
+}
+
+.p-career__timeline-item--2023-01 {
+    --career-offset-months: 22;
+    --career-duration-months: 9;
+}
+
+.p-career__timeline-item--youtube {
+    --career-offset-months: 31;
+    --career-duration-months: 3;
+}
+
+.p-career__timeline-item--2024-01 {
+    --career-offset-months: 34;
+    --career-duration-months: 7;
+}
+
+.p-career__timeline-item--mitsubishi-out {
+    --career-offset-months: 41;
+    --career-duration-months: 5;
+}
+
+.p-career__timeline-item--alpha-full {
+    --career-offset-months: 46;
+    --career-duration-months: 3;
+}
+
+.p-career__timeline-item--school {
+    --career-offset-months: 49;
+    --career-duration-months: 9;
+}
+
+.p-career__timeline-item--2026-01 {
+    --career-offset-months: 58;
+    --career-duration-months: 3;
+}
+
+.p-career__timeline-item--school-advance {
+    --career-offset-months: 61;
+    --career-duration-months: 3;
+}
+
+.p-career__timeline-item--2026-06 {
+    --career-offset-months: 63;
+    --career-duration-months: 0;
 }
 
 
 
 
+.p-career__details {
+    display: grid;
+    row-gap: var(--spacing-800);
+}
+
+.p-career__detail-card {
+    border-bottom: 1px solid rgba(51, 51, 51, 0.3);
+    padding: 0 0 var(--spacing-700);
+}
+
+.p-career__detail-title {
+    font-size: var(--font-size-700);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: var(--letter-spacing-300);
+}
+
+.p-career__detail-role {
+    margin-top: var(--spacing-200);
+    font-size: var(--font-size-200);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: var(--letter-spacing-200);
+}
+
+.p-career__detail-period {
+    margin-top: var(--spacing-100);
+    font-size: var(--font-size-100);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: var(--letter-spacing-200);
+}
+
+.p-career__detail-lead {
+    margin-top: var(--spacing-500);
+    font-size: var(--font-size-500);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: var(--letter-spacing-100);
+}
+
+.p-career__detail-text {
+    margin-top: var(--spacing-100);
+    font-size: var(--font-size-400);
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: var(--letter-spacing-200);
+    max-width: 32rem;
+}
 
 
 
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
+    .p-career__timeline-item--mitsubishi-in::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
+    .p-career__timeline-item--2022-01::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
+    .p-career__timeline-item--alpha-part::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
+    .p-career__timeline-item--2023-01::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
+    .p-career__timeline-item--youtube::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
+    .p-career__timeline-item--2024-01::after {
+    background-color: var(--color-accent);
+}
+
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
+    .p-career__timeline-item--mitsubishi-in::before,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
+    .p-career__timeline-item--mitsubishi-out::before {
+    background-color: var(--color-accent);
+    transform: scale(1.7);
+}
 
 
 
@@ -495,3 +685,5 @@ address {
     flex-direction: column;
     gap: var(--spacing-400);
 }
+
+
