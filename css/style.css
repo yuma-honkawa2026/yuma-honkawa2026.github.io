@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root {
     /* 基本色 */
     --color-primary: #383838;
@@ -40,7 +42,8 @@
 /* Foundation */
 
 *,
-*::before *::after {
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
