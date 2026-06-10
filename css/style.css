@@ -7,28 +7,28 @@
     --color-accent-winered: #6f1d2d;
 
     /* 文字大きさ（Googleのデザインシステムが採用しているらしいものをベースに） */
-    --font-size-100: 0.75rem;   /* 12px */
-    --font-size-200: 0.875rem;  /* 14px */
-    --font-size-300: 1rem;      /* 16px */
-    --font-size-400: 1.125rem;  /* 18px */
-    --font-size-500: 1.25rem;   /* 20px */
-    --font-size-600: 1.5rem;    /* 24px */
-    --font-size-700: 2rem;      /* 32px */
+    --font-size-100: 0.75rem; /* 12px */
+    --font-size-200: 0.875rem; /* 14px */
+    --font-size-300: 1rem; /* 16px */
+    --font-size-400: 1.125rem; /* 18px */
+    --font-size-500: 1.25rem; /* 20px */
+    --font-size-600: 1.5rem; /* 24px */
+    --font-size-700: 2rem; /* 32px */
     --font-size-750: 2.5rem;
-    --font-size-800: 3rem;      /* 48px */
-    --font-size-850: 4rem;      /* 64px*/
-    --font-size-900: 5rem;      /* 80px */
+    --font-size-800: 3rem; /* 48px */
+    --font-size-850: 4rem; /* 64px*/
+    --font-size-900: 5rem; /* 80px */
 
     /* 余白 */
     --spacing-100: 0.25rem; /* 4px */
-    --spacing-200: 0.5rem;  /* 8px */
+    --spacing-200: 0.5rem; /* 8px */
     --spacing-300: 0.75rem; /* 12px */
-    --spacing-400: 1rem;    /* 16px */
-    --spacing-500: 1.5rem;  /* 24px */
-    --spacing-600: 2rem;    /* 32px */
-    --spacing-700: 3rem;    /* 48px */
-    --spacing-800: 4rem;    /* 64px */
-    --spacing-900: 6rem;    /* 96px */
+    --spacing-400: 1rem; /* 16px */
+    --spacing-500: 1.5rem; /* 24px */
+    --spacing-600: 2rem; /* 32px */
+    --spacing-700: 3rem; /* 48px */
+    --spacing-800: 4rem; /* 64px */
+    --spacing-900: 6rem; /* 96px */
 
     --letter-spacing-100: 0.02em;
     --letter-spacing-200: 0.04em;
@@ -125,6 +125,10 @@ address {
     padding-top: 120px;
 }
 
+.l-footer {
+    background-color: #1c1c1c;
+    color: var(--color-base-light);
+}
 
 /* Component */
 .c-button {
@@ -141,7 +145,8 @@ address {
 /* 共通 */
 .p-section__title {
     font-size: var(--font-size-800);
-    font-weight: 800;
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 600;
     letter-spacing: var(--letter-spacing-200);
     padding-block: var(--spacing-300);
 }
@@ -194,16 +199,11 @@ address {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;/* アンカーポイントを中心に */
+    object-position: center; /* アンカーポイントを中心に */
 }
 
 .p-about-hero__body {
     grid-area: body;
-}
-
-.p-about-hero__name {
-    font-size: var(--font-size-750);
-    letter-spacing: var(--letter-spacing-200);
 }
 
 .p-about-hero__subname {
@@ -214,6 +214,8 @@ address {
 }
 
 .p-about-hero__name {
+    font-size: var(--font-size-750);
+    letter-spacing: var(--letter-spacing-200);
     margin: 0;
     line-height: 1;
     letter-spacing: var(--letter-spacing-300);
@@ -348,7 +350,7 @@ address {
 .c-work-card__title {
     margin-top: var(--spacing-300);
     font-size: var(--font-size-600);
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: var(--letter-spacing-300);
 }
 
@@ -371,15 +373,10 @@ address {
     letter-spacing: var(--letter-spacing-300);
 }
 
-
-
-
-
-
 /* Career */
 .p-career {
     --career-date-width: 96px;
-    --career-marker-width:40px;
+    --career-marker-width: 40px;
     --career-month-height: 1rem;
     --career-line-color: rgba(51, 51, 51, 0.28);
     background-color: var(--color-accent-winered);
@@ -389,10 +386,9 @@ address {
 
 .p-career__timeline-title {
     font-size: var(--font-size-400);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: var(--letter-spacing-300);
     line-height: 1.4;
-
 }
 
 .p-career__timeline-subtitle {
@@ -413,7 +409,7 @@ address {
     column-gap: clamp(3rem, vw, 7rem);
 }
 
-.p-career__timeline-list {    
+.p-career__timeline-list {
     position: relative;
     min-height: calc(63 * var(--career-month-height) + 4rem);
 }
@@ -451,7 +447,9 @@ address {
     top: 0.5em;
     border-radius: var(--radius-full);
     background-color: var(--color-base-light);
-    transition: background-color 0.25s ease, transform 0.25s ease;
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
 }
 
 .p-career__timeline-item:last-child::before {
@@ -467,7 +465,10 @@ address {
     width: 1.5px;
     height: calc(var(--career-duration-months) * var(--career-month-height));
     background-color: var(--color-base-light);
-    transition: background-color 0.25s ease, opacity 0.25s ease, width 0.25s ease;
+    transition:
+        background-color 0.25s ease,
+        opacity 0.25s ease,
+        width 0.25s ease;
 }
 
 .p-career__timeline-item:last-child::after {
@@ -540,9 +541,6 @@ address {
     --career-duration-months: 0;
 }
 
-
-
-
 .p-career__details {
     display: grid;
     row-gap: var(--spacing-500);
@@ -555,7 +553,7 @@ address {
 }
 
 .p-career__detail-title {
-    font-size: var(--font-size-700);
+    font-size: var(--font-size-500);
     font-weight: 600;
     line-height: 1.35;
     letter-spacing: var(--letter-spacing-300);
@@ -563,7 +561,7 @@ address {
 
 .p-career__detail-role {
     margin-top: var(--spacing-200);
-    font-size: var(--font-size-200);
+    font-size: var(--font-size-100);
     font-weight: 400;
     line-height: 1.4;
     letter-spacing: var(--letter-spacing-200);
@@ -579,7 +577,7 @@ address {
 
 .p-career__detail-lead {
     margin-top: var(--spacing-500);
-    font-size: var(--font-size-500);
+    font-size: var(--font-size-400);
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: var(--letter-spacing-100);
@@ -587,60 +585,109 @@ address {
 
 .p-career__detail-text {
     margin-top: var(--spacing-100);
-    font-size: var(--font-size-400);
+    font-size: var(--font-size-200);
     font-weight: 400;
     line-height: 1.8;
     letter-spacing: var(--letter-spacing-200);
-    max-width: 32rem;
+    max-width: 33rem;
 }
 
-
-
-.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
-    .p-career__timeline-item--mitsubishi-in::after,
-.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
-    .p-career__timeline-item--2022-01::after,
-.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
-    .p-career__timeline-item--alpha-part::after,
-.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
-    .p-career__timeline-item--2023-01::after,
-.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
-    .p-career__timeline-item--youtube::after,
-.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
-    .p-career__timeline-item--2024-01::after {
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover) .p-career__timeline-item--mitsubishi-in::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover) .p-career__timeline-item--2022-01::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover) .p-career__timeline-item--alpha-part::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover) .p-career__timeline-item--2023-01::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover) .p-career__timeline-item--youtube::after,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover) .p-career__timeline-item--2024-01::after {
     background-color: var(--color-accent-winered);
 }
 
-.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
-    .p-career__timeline-item--mitsubishi-in::before,
-.p-career__body:has(.p-career__detail-card--mitsubishi:hover)
-    .p-career__timeline-item--mitsubishi-out::before {
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover) .p-career__timeline-item--mitsubishi-in::before,
+.p-career__body:has(.p-career__detail-card--mitsubishi:hover) .p-career__timeline-item--mitsubishi-out::before {
     background-color: var(--color-accent-winered);
     transform: scale(1.7);
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* Contact */
-.p-contact__github,
-.p-contact__mail {
-    width: 100%;
-    max-width: 500px;
+.p-contact {
+    padding: var(--spacing-600) 0 var(--spacing-900);
 }
 
 .p-contact__button-wrap {
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-400);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-700);
+    width: 100%;
 }
 
+.p-contact__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-accent-winered);
+    border: 1px solid var(--color-accent-winered);
+    min-width: 12rem;
+    letter-spacing: var(--letter-spacing-200);
+    padding: var(--spacing-400) var(--spacing-900);
+    margin-top: var(--spacing-600);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.35s ease;
+}
 
+.p-contact__button:hover,
+.p-contact__button:focus-visible {
+    color: var(--color-base-light);
+    background-color: var(--color-accent-winered);
+}
+
+/* Footer */
+.p-footer__name {
+    text-align: center;
+    padding-top: var(--spacing-500);
+    font-size: var(--font-size-600);
+    font-weight: 300;
+    font-family: "Shippori Mincho", serif;
+    letter-spacing: var(--spacing-100);
+}
+
+.p-footer__nav {
+    padding-block: var(--spacing-500);
+}
+
+.p-footer__nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-700);
+    font-size: var(--font-size-400);
+}
+
+.p-footer__nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-700);
+    font-family: "Shippori Mincho", serif;
+}
+
+.p-footer__nav-item + .p-footer__nav-item::before {
+    content: "";
+    display: inline-block;
+    background-color: var(--color-base-light);
+    width: 1px;
+    height: 0.8em;
+}
+
+.p-footer__copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: var(--spacing-300);
+    letter-spacing: var(--letter-spacing-200);
+}
+
+.p-footer__copyright-text {
+    font-size: var(--font-size-100);
+    font-family: "Shippori Mincho", serif;
+    font-weight: 400;
+    line-height: 1;
+}

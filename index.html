@@ -18,15 +18,18 @@
         <!-- Google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Zen+Old+Mincho&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Old+Mincho:wght@400;500;600;700;900&display=swap"
+            rel="stylesheet"
+        />
 
         <link rel="stylesheet" href="css/ress.css" />
         <link rel="stylesheet" href="css/style.css" />
     </head>
 
     <body>
-        <header class="l-header">
-            <nav class="p-gnav">
+        <header class="l-header p-header">
+            <nav class="p-gnav" aria-label="ヘッダーナビゲーション">
                 <ul class="p-gnav__list">
                     <li class="p-gnav__item"><a class="p-gnav__link" href="#about">About</a></li>
                     <li class="p-gnav__item"><a class="p-gnav__link" href="#works">Works</a></li>
@@ -36,7 +39,7 @@
             </nav>
         </header>
 
-        <main class="l-main">
+        <main class="l-main p-main">
             <section class="p-about-hero" id="about">
                 <div class="p-about-hero__media">
                     <img class="p-about-hero__media-image" src="images/about-hero.jpg" alt="本川悠真の近影" />
@@ -95,7 +98,9 @@
                             </div>
                             <div class="p-about-hero__strength-body">
                                 <p class="p-about-hero__strength-title">デザイン感覚</p>
-                                <p class="p-about-hero__strength-text">高校生で生徒会長と吹奏楽部部長を兼任、専門学校では1年次に文化祭執行部副委員長、2年次に文化祭執行部委員長、音楽同好会の部長、卓球同好会の副部長を務めた。</p>
+                                <p class="p-about-hero__strength-text">
+                                    高校生で生徒会長と吹奏楽部部長を兼任、専門学校では1年次に文化祭執行部副委員長、2年次に文化祭執行部委員長、音楽同好会の部長、卓球同好会の副部長を務めた。
+                                </p>
                             </div>
                         </li>
                     </ul>
@@ -157,7 +162,10 @@
                                         <h4 class="c-work-card__title">店舗看板</h4>
                                         <p class="c-work-card__type">人物撮影・レタッチ・合成デザイン</p>
                                         <p class="c-work-card__meta">Photoshop・Lightroom Classic・Illustrator / 50h</p>
-                                        <p class="c-work-card__text">香川県高松市にあるCLUB BELLという店舗の看板デザインを担当させていただいた時のものです。2026年6月現在もこちらが使用されています。</p>
+                                        <p class="c-work-card__text">
+                                            香川県高松市にあるCLUB
+                                            BELLという店舗の看板デザインを担当させていただいた時のものです。2026年6月現在もこちらが使用されています。
+                                        </p>
                                     </div>
                                 </article>
                             </li>
@@ -180,7 +188,9 @@
                                         <h4 class="c-work-card__title">明太とろろ鍋</h4>
                                         <p class="c-work-card__type">動画撮影・動画編集</p>
                                         <p class="c-work-card__meta">Premiere Pro / 6h</p>
-                                        <p class="c-work-card__text">香川県高松市にあるBBハウスという飲食店のInstagramリール動画です。</p>
+                                        <p class="c-work-card__text">
+                                            香川県高松市にあるBBハウスという飲Instagramリール動画です。
+                                        </p>
                                     </div>
                                 </article>
                             </li>
@@ -193,8 +203,10 @@
                                     <div class="c-work-card__body">
                                         <h4 class="c-work-card__title">Webサイトバナー</h4>
                                         <p class="c-work-card__type">動画撮影・動画編集</p>
-                                        <p class="c-work-card__meta">After Effects / 10h</p>
-                                        <p class="c-work-card__text">香川県高松市のサービス業のWebサイトバナーを制作いたしました。</p>
+                                        <p class="c-work-card__meta">After Effects / 20h</p>
+                                        <p class="c-work-card__text">
+                                            香川県高松市のサービス業のWebサイトバナーを制作いたしました。
+                                        </p>
                                     </div>
                                 </article>
                             </li>
@@ -375,26 +387,36 @@
             </section>
 
             <section class="p-contact" id="contact">
-                <h2 class="p-section__title p-contact-title">Contact</h2>
-                <p class="p-contact__maintext">お忙しい中ご覧いただきありがとうございました。 ご検討いただけますと幸いです。</p>
+                <h2 class="p-section__title p-contact__title">Contact</h2>
 
                 <div class="p-contact__button-wrap">
-                    <div class="p-contact__mail">
-                        <a class="c-button" href="mailto:yuma.honkawa2026@gmail.com">メールを送る</a>
-                    </div>
-
-                    <div class="p-contact__github">
-                        <a class="c-button" href="https://github.com/yuma-honkawa2026" target="_blank" rel="noopener"
-                            >GitHubを見る</a
-                        >
-                    </div>
+                    <a class="p-contact__button" href="mailto:yuma.honkawa2026@gmail.com">メールを送る</a>
+                    <a class="p-contact__button" href="https://github.com/yuma-honkawa2026" target="_blank" rel="noopener"
+                        >GitHubを見る</a
+                    >
                 </div>
             </section>
         </main>
 
-        <footer class="l-footer">
-            <p class="p-footer__text">
-                <small>&copy; 2026 Yuma Honkawa</small>
+        <footer class="l-footer p-footer">
+            <p class="p-footer__name">本川 悠真のPortfolio Site</p>
+            <nav class="p-footer__nav" aria-label="フッターナビゲーション">
+                <ul class="p-footer__nav-list">
+                    <li class="p-footer__nav-item">
+                        <a class="p-footer__nav-link" href="#about">About</a>
+                    </li>
+
+                    <li class="p-footer__nav-item">
+                        <a class="p-footer__nav-link" href="#works">Works</a>
+                    </li>
+
+                    <li class="p-footer__nav-item">
+                        <a class="p-footer__nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <p class="p-footer__copyright">
+                <small class="p-footer__copyright-text">&copy; 2026 Yuma Honkawa</small>
             </p>
         </footer>
     </body>
