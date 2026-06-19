@@ -59,7 +59,6 @@ body {
     margin: 0; /* ブラウザが初めから持ってるのを消す */
     background-color: var(--color-base-light);
     color: var(--color-base-dark);
-    overflow-x: hidden;
     line-height: 1.5;
 }
 
@@ -110,24 +109,29 @@ address {
 }
 
 /* Layout */
+.l-shell {
+    --l-sidebar-width: 16rem;
+    display: grid;
+    grid-template-columns: var(--l-sidebar-width) 1fr;
+}
 
-.l-header {
-    padding-inline: var(--spacing-900);
-    padding-block: var(--spacing-700);
-    position: fixed;
+.l-sidebar {
+    position: sticky;
     top: 0;
-    width: 100%;
-    z-index: 9999;
+    align-self: start;
+    height: 100vh;
+    overflow-y: auto;
+    border-inline-end: 1px solid rgba(65, 65, 65, 0.1);
 }
 
 .l-main {
-    padding-inline: var(--spacing-900);
-    padding-top: 120px;
+    padding: var(--spacing-400) var(--spacing-900);
 }
 
 .l-footer {
     background-color: #1c1c1c;
     color: var(--color-base-light);
+    padding: var(--spacing-600);
 }
 
 /* Component */
@@ -153,22 +157,16 @@ address {
 
 /* Project */
 /* Nav */
-.p-gnav {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+.p-gnav__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: var(--spacing-400);
 }
 
-.p-gnav__list {
-    grid-column: 2;
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    height: 50px;
-    border-radius: var(--radius-full);
-    background-color: rgba(226, 226, 226, 0.398);
-    padding-inline: 5rem;
-    backdrop-filter: blur(10px);
+.p-gnav__item {
+    text-align: center;
 }
 
 .p-gnav__link {
