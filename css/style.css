@@ -45,8 +45,9 @@
     --radius-full: 9999px; /* 完全な円 */
 }
 
-/* Foundation */
-
+/* ==============================
+    Foundation
+============================== */
 *,
 *::before,
 *::after {
@@ -100,7 +101,9 @@ address {
     font-style: normal;
 }
 
-/* Layout */
+/* ==============================
+    Layout
+============================== */
 .l-shell {
     --l-sidebar-width: 16rem;
     display: grid;
@@ -128,7 +131,9 @@ address {
     padding: var(--spacing-600);
 }
 
-/* Component */
+/* ==============================
+    Component
+============================== */
 .c-button {
     background-color: var(--color-base-light);
     display: flex;
@@ -149,8 +154,9 @@ address {
     padding-block: var(--spacing-300);
 }
 
-/* Project */
-/* Nav */
+/* ==============================
+    Nav
+============================== */
 .p-gnav__list {
     display: flex;
     flex-direction: column;
@@ -196,8 +202,9 @@ address {
     background-color: rgba(51, 51, 51, 0.08);
 }
 
-
-/* about */
+/* ==============================
+    About
+============================== */
 
 .p-about-hero {
     display: grid;
