@@ -333,7 +333,9 @@ address {
     color: var(--color-text-sub);
 }
 
-/* works */
+/* ==============================
+    Works
+============================== */
 .p-works {
     position: relative;
     padding: var(--spacing-600);
@@ -414,7 +416,9 @@ address {
     letter-spacing: var(--letter-spacing-300);
 }
 
-/* Career */
+/* ==============================
+    Career
+============================== */
 .p-career {
     --career-date-width: 96px;
     --career-marker-width: 40px;
@@ -659,7 +663,9 @@ address {
 
 
 
-/* Footer */
+/* ==============================
+    Footer
+============================== */
 .p-footer__name {
     text-align: center;
     padding-top: var(--spacing-500);
