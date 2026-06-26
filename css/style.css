@@ -111,6 +111,8 @@ address {
 }
 
 .l-sidebar {
+    display: flex;
+    flex-direction: column;
     position: sticky;
     align-self: start;
     overflow-y: auto;
@@ -200,6 +202,34 @@ address {
 
 .p-gnav__link:hover {
     background-color: rgba(51, 51, 51, 0.08);
+}
+
+/* ==============================
+    Sidebar-Contact
+============================== */
+.p-sidebar-contact {
+    margin-top: auto;
+}
+
+.p-sidebar-contact__label {
+    margin-bottom: var(--spacing-200);
+    color: var(--color-text-main);
+    font-size: var(--font-size-100);
+    font-weight: 500;
+    letter-spacing: var(--letter-spacing-400);
+    text-transform: uppercase;
+}
+
+.p-sidebar-contact__list {
+    display: grid;
+    gap: var(--spacing-200);
+    margin: 0;
+    padding: 0;
+}
+
+.p-sidebar-contact__link {
+    display: flex;
+    align-items: center;
 }
 
 /* ==============================
@@ -629,35 +659,6 @@ address {
     line-height: 1.8;
     letter-spacing: var(--letter-spacing-200);
     max-width: 33rem;
-}
-
-/* Contact */
-.p-contact {
-    padding: var(--spacing-600);
-}
-
-.p-contact__button-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-700);
-    width: 100%;
-}
-
-.p-contact__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 12rem;
-    letter-spacing: var(--letter-spacing-200);
-    padding: var(--spacing-400) var(--spacing-900);
-    margin-top: var(--spacing-600);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.35s ease;
-}
-
-.p-contact__button:hover,
-.p-contact__button:focus-visible {
-    color: var(--color-text-main);
 }
 
 
