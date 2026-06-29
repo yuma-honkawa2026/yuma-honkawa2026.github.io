@@ -67,6 +67,7 @@
     --letter-spacing-200: 0.04em;
     --letter-spacing-300: 0.08em;
     --letter-spacing-400: 0.12em;
+    --letter-spacing-500: 0.16em;
 
     /* ボーダー半径 */
     --radius-100: 0.25rem;
@@ -302,7 +303,7 @@ address {
     background-color: var(--surface-accent-100);
     color: var(--color-base-light);
     font-weight: 700;
-    letter-spacing: var(--letter-spacing-400);
+    letter-spacing: var(--letter-spacing-500);
 }
 
 .p-gnav__icon,
@@ -623,13 +624,13 @@ address {
     Career
 ============================== */
 .p-career {
-    --career-date-width: 96px;
-    --career-marker-width: 40px;
-    --career-month-height: 1rem;
-    --career-line-color: rgba(51, 51, 51, 0.28);
+    --career-date-width: 96px; /* gridで分けた左側の日付 */
+    --career-marker-width: 40px; /* gridで分けた真ん中の線と丸の幅 */
+    --career-month-height: 1.25rem; /* 縦の間隔 */
+    --career-line-color: var(--color-base-light);
     color: var(--color-base-light);
     background-color: var(--color-accent-winered);
-    padding: var(--spacing-900) var(--spacing-600) var(--spacing-900) calc(var(--l-sidebar-width) + var(--spacing-600));
+    padding: var(--spacing-900) var(--spacing-600) calc(var(--spacing-900) * 2 ) calc(var(--l-sidebar-width) + var(--spacing-600));
 }
 
 .p-career__timeline-title {
@@ -649,7 +650,7 @@ address {
 .p-career__body {
     display: grid;
     grid-template-columns: minmax(360px, 0.9fr) minmax(420px, 1fr);
-    column-gap: clamp(3rem, 5vw, 7rem);
+    column-gap: var(--spacing-100);
 }
 
 .p-career__timeline-list {
@@ -907,4 +908,42 @@ address {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
     }
+}
+
+/* ==============================
+    Modal
+============================== */
+.is-hidden {
+    display: none !important;
+}
+
+.c-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-600);
+    background-color: rgba(10, 10, 10, 0.7);
+    backdrop-filter: var(--blur-200);
+    -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.c-modal__window {
+    width: 100%;
+    min-width: 60vw;
+    max-width: 80vw;
+    min-height: 70vh;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: var(--surface-glass-300);
+    border: 4px solid var(--border-glass-300);
+    border-image: linear-gradient(to bottom right, var(--white), var(--color-text-sub), var(--white)) 1;
+    border-radius: var(--radius-400);
+    box-shadow: var(--shadow-400);
+}
+
+.c-modal__body {
+    padding: var(--spacing-700);
 }

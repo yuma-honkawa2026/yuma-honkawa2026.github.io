@@ -1,4 +1,19 @@
 /* ==============================
+    Modal
+============================== */
+const modal = document.getElementById("js-modal");
+
+/* 閉じる処理 */
+modal.addEventListener("click", () => {
+    modal.classList.add("is-hidden");
+
+/* 中身クリックで閉じないように */
+const modalWindow = document.querySelector(".c-modal__window");
+modalWindow.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+
+});/* ==============================
     Navの現在位置調整
 ============================== */
 const navLinks = document.querySelectorAll(".p-gnav__link");
@@ -37,6 +52,7 @@ document.querySelectorAll("section[id]").forEach((sec) => {
 
 /* ==============================
     Works横ドラッグ + 慣性 + 無限ループ + 自動スクロール
+    ＋カードクリックでモーダルを開く（pointerupに統合）
 ============================== */
 document.querySelectorAll(".p-works__list").forEach((track) => {
     const originalItems = Array.from(track.children);
@@ -65,30 +81,29 @@ document.querySelectorAll(".p-works__list").forEach((track) => {
     let virtualScrollLeft = 0;
     let singleSetWidth = 0;
 
+    let downX = 0;
+    let downY = 0;
+    let downTarget = null;
+
     const friction = 0.94;
     const minVelocity = 0.05;
-    /* スピード変更箇所 */
     const autoSpeed = 0.12;
     const momentumPower = 1.15;
 
     function updateSingleSetWidth() {
         const firstClone = track.querySelector(".p-works__item.is-clone");
         if (!firstClone) return;
-
         singleSetWidth = firstClone.offsetLeft - originalItems[0].offsetLeft;
     }
 
     function normalizeVirtualScrollPosition() {
         if (singleSetWidth <= 0) return;
-
         if (virtualScrollLeft >= singleSetWidth * 2) {
             virtualScrollLeft -= singleSetWidth;
         }
-
         if (virtualScrollLeft <= 0) {
             virtualScrollLeft += singleSetWidth;
         }
-
         track.scrollLeft = virtualScrollLeft;
     }
 
@@ -101,10 +116,8 @@ document.querySelectorAll(".p-works__list").forEach((track) => {
                 velocity = 0;
                 virtualScrollLeft += autoSpeed;
             }
-
             normalizeVirtualScrollPosition();
         }
-
         animationId = requestAnimationFrame(animate);
     }
 
@@ -115,16 +128,13 @@ document.querySelectorAll(".p-works__list").forEach((track) => {
 
     window.addEventListener("load", () => {
         updateSingleSetWidth();
-
         virtualScrollLeft = singleSetWidth;
         track.scrollLeft = virtualScrollLeft;
-
         startAnimation();
     });
 
     window.addEventListener("resize", () => {
         updateSingleSetWidth();
-
         virtualScrollLeft = singleSetWidth;
         track.scrollLeft = virtualScrollLeft;
     });
@@ -139,6 +149,10 @@ document.querySelectorAll(".p-works__list").forEach((track) => {
         lastX = e.clientX;
         startVirtualScrollLeft = virtualScrollLeft;
         velocity = 0;
+
+        downX = e.clientX;
+        downY = e.clientY;
+        downTarget = e.target;
 
         track.setPointerCapture(e.pointerId);
         e.preventDefault();
@@ -166,6 +180,15 @@ document.querySelectorAll(".p-works__list").forEach((track) => {
         track.classList.remove("is-dragging");
 
         track.releasePointerCapture(e.pointerId);
+
+        const movedX = Math.abs(e.clientX - downX);
+        const movedY = Math.abs(e.clientY - downY);
+        if (movedX > 5 || movedY > 5) return;
+
+        const card = downTarget.closest(".p-works__item");
+        if (!card) return;
+
+        modal.classList.remove("is-hidden");
     });
 
     track.addEventListener("pointercancel", () => {
@@ -173,3 +196,4 @@ document.querySelectorAll(".p-works__list").forEach((track) => {
         track.classList.remove("is-dragging");
     });
 });
+
