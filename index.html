@@ -25,7 +25,7 @@
 
         <link rel="stylesheet" href="css/ress.css" />
         <link rel="stylesheet" href="css/style.css" />
-        <script src="./js/main.js" defer></script>
+        <script src="./js/main.js?v=2" defer></script>
     </head>
 
     <body>
@@ -233,16 +233,7 @@
 
             <main class="l-main">
                 <section class="p-about-hero" id="about">
-                    <div class="p-about-hero__profile-panel">
-                        <div class="p-about-hero__body">
-                            <p class="p-about-hero__name-en">Honkawa Yuma</p>
-                            <h1 class="p-about-hero__name-ja">本川 悠真</h1>
-                            <div class="p-about-hero__meta-group">
-                                <p class="p-about-hero__meta">東京デザイン専門学校</p>
-                                <p class="p-about-hero__meta">グラフィックデザイン科 Web・映像専攻</p>
-                            </div>
-                        </div>
-
+                    <div class="p-about-hero__wrap">
                         <div class="p-about-hero__media">
                             <img
                                 class="p-about-hero__image"
@@ -252,11 +243,20 @@
                                 decoding="async"
                             />
                         </div>
+
+                        <div class="p-about-hero__body">
+                            <p class="p-about-hero__name-en">Honkawa Yuma</p>
+                            <h1 class="p-about-hero__name-ja">本川 悠真</h1>
+                            <div class="p-about-hero__meta-group">
+                                <p class="p-about-hero__meta">東京デザイン専門学校</p>
+                                <p class="p-about-hero__meta">グラフィックデザイン科 Web・映像専攻</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="p-about-hero__strengths">
                         <ul class="p-about-hero__strength-list">
-                            <li class="p-about-hero__strength-card c-card">
+                            <li class="p-about-hero__strength-card">
                                 <div class="p-about-hero__strength-media">
                                     <img
                                         class="p-about-hero__strength-image"
@@ -274,7 +274,7 @@
                                 </div>
                             </li>
 
-                            <li class="p-about-hero__strength-card c-card">
+                            <li class="p-about-hero__strength-card">
                                 <div class="p-about-hero__strength-media">
                                     <img
                                         class="p-about-hero__strength-image"
@@ -309,24 +309,6 @@
                                     </p>
                                 </div>
                             </li>
-
-                            <li class="p-about-hero__strength-card">
-                                <div class="p-about-hero__strength-media">
-                                    <img
-                                        class="p-about-hero__strength-image"
-                                        src="images/design.jpg"
-                                        alt="品質管理を感じる写真？未定"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </div>
-                                <div class="p-about-hero__strength-body">
-                                    <p class="p-about-hero__strength-title">品質への責任感</p>
-                                    <p class="p-about-hero__strength-text">
-                                        前職では製造管理に従事し、ISO・品質規格や環境関連法令を順守し700種類以上の化学薬品の管理など環境業務全般を担当。
-                                    </p>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </section>
@@ -343,7 +325,7 @@
                             </div>
 
                             <ul class="p-works__list">
-                                <li class="p-works__item">
+                                <li class="p-works__item" data-work="adobe">
                                     <article class="c-card">
                                         <div class="c-card__visual">
                                             <img
@@ -404,7 +386,7 @@
                                         <div class="c-card__body">
                                             <h4 class="c-card__title">店舗看板</h4>
                                             <p class="c-card__type">人物撮影・レタッチ・合成デザイン</p>
-                                            <p class="c-card__meta">Photoshop・Lightroom Classic・<br>Illustrator / 50h</p>
+                                            <p class="c-card__meta">Photoshop・Lightroom Classic・<br />Illustrator / 50h</p>
                                             <p class="c-card__text">
                                                 香川県高松市にあるCLUB
                                                 BELLという店舗の看板デザインを担当させていただいた時のものです。2026年6月現在もこちらが使用されています。
@@ -427,7 +409,7 @@
                                         <div class="c-card__body">
                                             <h4 class="c-card__title">店舗看板</h4>
                                             <p class="c-card__type">人物撮影・レタッチ・合成デザイン</p>
-                                            <p class="c-card__meta">Photoshop・Lightroom Classic・<br>Illustrator / 50h</p>
+                                            <p class="c-card__meta">Photoshop・Lightroom Classic・<br />Illustrator / 50h</p>
                                             <p class="c-card__text">
                                                 香川県高松市にあるCLUB
                                                 BELLという店舗の看板デザインを担当させていただいた時のものです。2026年6月現在もこちらが使用されています。
@@ -691,11 +673,8 @@
 
                 <div class="c-modal is-hidden" id="js-modal">
                     <div class="c-modal__window">
-                        <div class="c-modal__body">
-                            <!-- ここに本体を入れるらしい -->
-                        </div>
-                    </div> 
-
+                        <div class="c-modal__body"></div>
+                    </div>
                 </div>
             </main>
         </div>

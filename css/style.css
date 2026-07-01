@@ -414,46 +414,26 @@ address {
     About
 ============================== */
 .p-about-hero {
-    display: grid;
-    grid-template-columns: minmax(700px, 1fr) 430px;
-    height: 600px;
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-500);
-    padding: var(--spacing-900) var(--spacing-600) var(--spacing-800) calc(var(--l-sidebar-width) + var(--spacing-600));
-    background-color: var(--color-accent-winered);
 }
 
-@media (max-width: 1100px) {
-    .p-about-hero {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-}
-
-
-.p-about-hero__profile-panel {
-    display: grid;
-    grid-template-columns: 300px minmax(40px, 1fr);
-    gap: var(--spacing-200);
-    align-items: stretch;
-    background: linear-gradient(135deg, #f0efef 0%, #f7f7f7 100%);
-    border: 1px solid rgba(0, 0, 0, 0.16);
-    border-radius: var(--radius-300);
-    overflow: hidden;
+.p-about-hero__wrap {
+    position: relative;
 }
 
 .p-about-hero__body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: var(--spacing-600);
+    position: absolute;
+    top: 30%;
+    right: 20%;
 }
 
 .p-about-hero__name-en {
-    margin: 0 0 var(--spacing-100);
     font-size: var(--font-size-200);
     font-weight: 400;
     letter-spacing: var(--letter-spacing-400);
-    color: var(--color-text-sub);
+    color: var(--color-base-light);
     text-transform: uppercase;
 }
 
@@ -462,7 +442,7 @@ address {
     font-size: var(--font-size-750);
     letter-spacing: var(--letter-spacing-100);
     line-height: 1;
-    color: var(--color-text-main);
+    color: var(--color-base-light);
 }
 
 .p-about-hero__meta-group {
@@ -474,52 +454,41 @@ address {
     font-size: var(--font-size-200);
     line-height: 1.7;
     letter-spacing: var(--letter-spacing-300);
-    color: var(--color-text-sub);
-}
-
-.p-about-hero__media {
-    height: 100%;
-    min-height: 0;
-    overflow: hidden;
-    border-radius: var(--radius-300);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
-}
-
-.p-about-hero__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center; /* アンカーポイントを中心に */
+    color: var(--color-base-light);
 }
 
 .p-about-hero__strengths {
-    min-height: 0;
+    padding: var(--spacing-300) var(--spacing-600) var(--spacing-600) calc(var(--l-sidebar-width) + var(--spacing-600));
 }
 
 .p-about-hero__strength-list {
     display: grid;
-    grid-template-rows: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-300);
-    height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 .p-about-hero__strength-card {
-    display: grid;
-    grid-template-columns: minmax(136px, 36%) minmax(0, 1fr);
-    gap: var(--spacing-400);
-    background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%);
-    border-radius: var(--radius-300);
+    position: relative;
+    height: 150px;
     overflow: hidden;
 }
 
+.p-about-hero__strength-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(105, 5, 5, 0.811) 0%,
+        rgba(173, 19, 19, 0.599) 50%,
+        rgba(155, 31, 31, 0.436) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
 .p-about-hero__strength-media {
-    width: 100%;
-    min-height: 0;
-    overflow: hidden;
-    border-radius: var(--radius-300);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.16);
+    height: 100%;
 }
 
 .p-about-hero__strength-image {
@@ -527,11 +496,18 @@ address {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center center;
 }
 
+
 .p-about-hero__strength-body {
-    padding: var(--spacing-200) var(--spacing-300) var(--spacing-300) 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: var(--spacing-500) var(--spacing-500) var(--spacing-300);
+    z-index: 2;
 }
 
 .p-about-hero__strength-title {
@@ -539,7 +515,8 @@ address {
     font-size: var(--font-size-300);
     font-weight: 600;
     letter-spacing: var(--letter-spacing-300);
-    color: var(--color-text-main);
+    color: var(--color-base-light);
+    text-align: center;
 }
 
 .p-about-hero__strength-text {
@@ -547,7 +524,7 @@ address {
     font-weight: 400;
     letter-spacing: var(--letter-spacing-300);
     line-height: 1.7;
-    color: var(--color-text-sub);
+    color: var(--color-base-light);
 }
 
 /* ==============================
@@ -934,7 +911,6 @@ address {
     width: 100%;
     min-width: 60vw;
     max-width: 80vw;
-    min-height: 70vh;
     max-height: 80vh;
     overflow-y: auto;
     background-color: var(--surface-glass-300);
@@ -945,5 +921,52 @@ address {
 }
 
 .c-modal__body {
+    display: flex;
     padding: var(--spacing-700);
+}
+
+.c-modal__media {
+    flex: 0 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-modal__image {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: var(--radius-300);
+}
+
+.c-modal__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.c-modal__title {
+    font-size: var(--font-size-600);
+    font-weight: 600;
+    letter-spacing: var(--letter-spacing-300);
+}
+
+.c-modal__type {
+    margin-top: var(--spacing-200);
+    font-size: var(--font-size-200);
+    color: var(--color-text-sub);
+}
+
+.c-modal__tools {
+    margin-top: var(--spacing-100);
+    font-size: var(--font-size-200);
+    color: var(--color-text-sub);
+}
+
+.c-modal__desc {
+    margin-top: var(--spacing-500);
+    font-size: var(--font-size-300);
+    line-height: 1.5;
+    letter-spacing: var(--letter-spacing-200);
 }

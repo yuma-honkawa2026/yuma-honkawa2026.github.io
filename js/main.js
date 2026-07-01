@@ -3,9 +3,43 @@
 ============================== */
 const modal = document.getElementById("js-modal");
 
+const modalBody = document.querySelector(".c-modal__body");
+
+/* 作品データ */
+const works = {
+    adobe: {
+        title:"Adobe広告",
+        type:"人物撮影・合成デザイン",
+        tools:"Photoshop・Lightroom Classic",
+        images:["images/works-graphic_01.jpg"],
+        description:"本作はAdobeブランドの「創造性の解放」をテーマにしたビジュアル広告です。被写体が宙に舞う構図によって、内面から湧き上がるアイデアの躍動を表現しました。",
+    },
+};
+
+/* 作品データを受け取り、モーダルの中身（c-modal__body）を組み立てる */
+function buildModalContent(data) {
+    const imageHtml = data.images
+    .map((src) => `<img class="c-modal__image" src="${src}" alt="${data.title}">`)
+    .join("");
+
+    return `
+        <div class="c-modal__media">
+            ${imageHtml}
+        </div>
+        <div class="c-modal__info">
+            <h3 class="c-modal__title">${data.title}</h3>
+            <p class="c-modal__type">${data.type}</p>
+            <p class="c-modal__tools">${data.tools}</p>
+            <p class="c-modal__desc">${data.description}</p>
+        </div>
+        `;
+}
+
+
 /* 閉じる処理 */
 modal.addEventListener("click", () => {
     modal.classList.add("is-hidden");
+});
 
 /* 中身クリックで閉じないように */
 const modalWindow = document.querySelector(".c-modal__window");
@@ -13,7 +47,7 @@ modalWindow.addEventListener("click", (e) => {
     e.stopPropagation();
 });
 
-});/* ==============================
+/* ==============================
     Navの現在位置調整
 ============================== */
 const navLinks = document.querySelectorAll(".p-gnav__link");
@@ -140,6 +174,7 @@ document.querySelectorAll(".p-works__list").forEach((track) => {
     });
 
     track.addEventListener("pointerdown", (e) => {
+
         if (e.button !== 0) return;
 
         isDragging = true;
@@ -183,11 +218,20 @@ document.querySelectorAll(".p-works__list").forEach((track) => {
 
         const movedX = Math.abs(e.clientX - downX);
         const movedY = Math.abs(e.clientY - downY);
+
         if (movedX > 5 || movedY > 5) return;
 
         const card = downTarget.closest(".p-works__item");
         if (!card) return;
 
+        const workId = card.dataset.work;
+
+        if (!workId) return;
+
+        const data = works[workId];
+        if (!data) return;
+
+        modalBody.innerHTML = buildModalContent(data);
         modal.classList.remove("is-hidden");
     });
 
