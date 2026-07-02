@@ -14,6 +14,49 @@ const works = {
         images:["images/works-graphic_01.jpg"],
         description:"本作はAdobeブランドの「創造性の解放」をテーマにしたビジュアル広告です。被写体が宙に舞う構図によって、内面から湧き上がるアイデアの躍動を表現しました。",
     },
+    realgold: {
+        title: "リアルゴールド広告",
+        type: "物撮り・合成デザイン",
+        tools: "Photoshop・Lightroom Classic",
+        images: ["images/works-graphic_02.jpg"],
+        description: "清涼飲料水「リアルゴールド」の広告デザインです。自ら撮影した素材をベースに、緻密な合成技術で金の重厚な質感を再現。宇宙空間を舞台にすることで日常を超えるスケール感を演出し、飲むことで得られる覚醒を直感的に表現しました。",
+    },
+    clubbell: {
+        title: "店舗看板",
+        type: "人物撮影・レタッチ・合成デザイン",
+        tools: "Photoshop・Lightroom Classic・Illustrator",
+        images: ["images/works-graphic_03.jpg"],
+        description: "香川県高松市にあるCLUB BELLという店舗の看板デザインを担当させていただいた時のものです。2026年6月現在もこちらが使用されています。",
+    },
+
+    /* Movie */
+    mentai: {
+        title: "明太とろろ鍋",
+        type: "動画撮影・動画編集",
+        tools: "Premiere Pro",
+        video: "videos/work-movie_01.mp4",
+        poster: "images/work-movie_01.png",
+        description: "香川県高松市にあるBBハウスという飲食店のInstagramリール動画です。",
+        links: [
+            { label: "Instagramで見る", url: "https://www.instagram.com/reel/DUkofFpk-L3/?igsh=NDR4dmx0NWMwdzh0" },
+        ],
+    },
+    banner: {
+        title: "Webサイトバナー",
+        type: "動画撮影・動画編集",
+        tools: "After Effects",
+        video: "videos/work-movie_02.mp4",
+        poster: "images/work-movie_02.png",
+        description: "香川県高松市のサービス業のWebサイトバナーを制作いたしました。",
+    },
+    ryori: {
+        title: "料理宣伝",
+        type: "動画撮影・動画編集",
+        tools: "Premiere Pro",
+        video: "videos/work-movie_03.mp4",
+        poster: "images/work-movie_03.png",
+        description: "香川県高松市にあるBBハウスという飲食店の料理宣伝動画です。"
+    },
 };
 
 /* 作品データを受け取り、モーダルの中身（c-modal__body）を組み立てる */
