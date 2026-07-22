@@ -99,7 +99,7 @@ const works = {
         title: "明太とろろ鍋 PRリール",
         type: "動画撮影・動画編集",
         tools: "Premiere Pro / 6h",
-        images: ["images/work-movie_01.jpg"],
+        video: "videos/work-movie_01.mp4",
         description:
             "香川県高松市の飲食店・BBハウスの冬限定メニューを告知するInstagramリール。「イタリアンなのに鍋」という意外性が冒頭1秒で伝わるよう、テキストの見せ方を設計しました。撮影から編集まで担当し、店舗アカウントで実際に配信されています。",
         links: [
@@ -120,7 +120,7 @@ const works = {
         title: "BBハウス 屋外サイネージ動画",
         type: "動画撮影・動画編集",
         tools: "Premiere Pro / 8h",
-        images: ["images/work-movie_03.jpg"],
+        video: "videos/work-movie_03.mp4",
         description:
             "香川県高松市の飲食店・BBハウスの料理PR動画。屋外のデジタルサイネージで放映する前提のため、音声なしでもシズル感が伝わるよう、湯気と照りが際立つカットを軸に構成しました。",
     },
@@ -279,7 +279,7 @@ document.querySelectorAll(".p-works__list").forEach((track, trackIndex) => {
 
     const friction = 0.94;
     const minVelocity = 0.05;
-    const autoSpeed = 0.12;
+    const autoSpeed = 0.24;
     const momentumPower = 1.15;
 
     function updateSingleSetWidth() {
