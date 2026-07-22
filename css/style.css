@@ -245,6 +245,51 @@ address {
     transition: transform 0.6s var(--ease-out);
 }
 
+/* サムネ位置調整 */
+[data-work="adobe"] .c-card__image {
+    object-position: center 27%;
+}
+
+[data-work="realgold"] .c-card__image {
+    object-position: center 54%;
+}
+
+[data-work="clubbell"] .c-card__image {
+    object-position: center 10%;
+}
+
+[data-work="bbflyer"] .c-card__image {
+    object-position: center 80%;
+}
+
+[data-work="seijinshiki"] .c-card__image {
+    object-position: center 15%;
+}
+
+[data-work="kagawa"] .c-card__image {
+    object-position: center 50%;
+}
+
+[data-work="mentai"] .c-card__image {
+    object-position: center 40%;
+}
+
+[data-work="kitchen"] .c-card__image {
+    object-position: center 10%;
+}
+
+[data-work="portrait"] .c-card__image {
+    object-position: center 30%;
+}
+
+[data-work="banner"] .c-card__image {
+    object-position: center 10%;
+}
+
+[data-work="ryori"] .c-card__image {
+    object-position: center 10%;
+}
+
 .c-card:hover .c-card__image {
     transform: scale(1.05);
 }
