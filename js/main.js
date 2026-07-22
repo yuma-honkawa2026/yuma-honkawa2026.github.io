@@ -32,7 +32,7 @@ const works = {
         tools: "Photoshop・Lightroom Classic / 6h",
         images: ["images/work-graphic_02.jpg"],
         description:
-            "「REAL GOLD」の名を文字どおり画面の主役に据えた広告ポスター。自分で物撮りした缶を宇宙空間に浮かべ、金の稲妻が貫く瞬間を合成しました。ロゴタイプにも金属の質感を与え、エナジードリンクの爆発力を一枚に凝縮しています。",
+            "「REAL GOLD」の名を文字どおり画面の主役に据えた広告ポスター。物撮りした缶を宇宙空間に浮かべ、金の稲妻が貫く瞬間を合成しました。ロゴタイプにも金属の質感を与えエナジードリンクの爆発力を一枚に凝縮しています。",
     },
     clubbell: {
         badge: "Client Work",
@@ -41,7 +41,7 @@ const works = {
         tools: "Photoshop・Lightroom Classic・Illustrator / 50h",
         images: ["images/work-graphic_03.jpg"],
         description:
-            "香川県高松市の店舗から依頼を受けて制作した看板ビジュアル。華やかさが第一に求められる業態に合わせ、人物を光の装飾で包む画面構成と、離れた場所からでも読める料金表の情報設計を両立させました。2026年6月現在も店頭で使用されています。",
+            "香川県高松市の店舗から依頼を受けて制作した看板ビジュアル。華やかさが第一に求められる業態に合わせ、人物を光の装飾で包む画面構成と離れた場所からでも読める料金表の情報設計を両立させました。2026年7月現在も店頭で使用されています。",
     },
     bbflyer: {
         badge: "Client Work",
@@ -50,7 +50,7 @@ const works = {
         tools: "Photoshop・Illustrator / 30h",
         images: ["images/work-graphic_04.jpg"],
         description:
-            "香川県高松市の店舗・BBから依頼を受けた、13周年の告知フライヤー。店の顔であるロゴの雰囲気を崩さずに記念日の特別感を出すことが求められた案件です。ロゴを主役に据え、羽と光の粒で華やかな祝祭感に仕上げました。",
+            "香川県高松市の店舗から依頼を受けた13周年の告知フライヤー。店の顔であるロゴの雰囲気を崩さずに記念日の特別感を出すことが求められた案件です。ロゴを主役に据え、羽と光の粒で華やかな祝祭感に仕上げました。",
     },
 
     /* Photo */
@@ -70,7 +70,7 @@ const works = {
         tools: "Lightroom Classic・Photoshop",
         images: ["images/work-photo_02.jpg"],
         description:
-            "成人式の前撮りとして依頼を受けた一枚。レースの扇から覗く視線が主役になるよう、小物と目線の位置関係を調整しながら撮影しました。",
+            "成人式の前撮りとして依頼を受けた一枚。レースの扇から覗く視線が主役になるように小物と目線の位置関係を調整しながら撮影しました。",
     },
     kitchen: {
         badge: "Client Work",
@@ -79,7 +79,7 @@ const works = {
         tools: "Lightroom Classic・Photoshop",
         images: ["images/work-photo_03.jpg"],
         description:
-            "BBハウスのオーナーを厨房で撮影した一枚。立ち上る炎を主役に据え、逆光気味の照明で臨場感を強調しました。店舗のInstagramでも使用されています。",
+            "BBハウスのオーナーを厨房で撮影した一枚。立ち上る炎を主役に据え逆光気味の照明で臨場感を強調しました。店舗のInstagramでも使用されています。",
         links: [
             { label: "Instagramで見る", url: "https://www.instagram.com/p/DU71IE7kyZ0/?igsh=NjdiN2ZpZnU3MnMz" },
         ],
@@ -90,7 +90,7 @@ const works = {
         tools: "Lightroom Classic・Photoshop",
         images: ["images/work-photo_04.jpg"],
         description:
-            "地元・香川の高屋神社「天空の鳥居」。夕方に撮影した一枚を、レタッチで夜明け前のような静けさの青に振り切りました。肉眼の色から離れて、記憶に残る色をつくるのが狙いです。",
+            "香川県の高屋神社「天空の鳥居」。夕方に撮影した一枚をレタッチで夜明け前のような静けさの青に振り切りました。肉眼の色から離れて記憶に残る色をつくるのが狙いです。",
     },
 
     /* Movie */
@@ -101,7 +101,7 @@ const works = {
         tools: "Premiere Pro / 6h",
         video: "videos/work-movie_01.mp4",
         description:
-            "香川県高松市の飲食店・BBハウスの冬限定メニューを告知するInstagramリール。「イタリアンなのに鍋」という意外性が冒頭1秒で伝わるよう、テキストの見せ方を設計しました。撮影から編集まで担当し、店舗アカウントで実際に配信されています。",
+            "香川県高松市の飲食店の冬限定メニューを告知するInstagramリール。料理の美味しそうなイメージが冒頭1秒で伝わるように動画撮影の段階から意識しました。撮影から編集まで担当し、店舗アカウントで実際に配信されています。",
         links: [
             { label: "Instagramで見る", url: "https://www.instagram.com/reel/DUkofFpk-L3/?igsh=NDR4dmx0NWMwdzh0" },
         ],
@@ -113,7 +113,7 @@ const works = {
         tools: "After Effects / 20h",
         video: "videos/work-movie_02.mp4",
         poster: "images/work-movie_02.jpg",
-        description: "香川県高松市のサービス業のWebサイト向けに制作したメインビジュアル動画。",
+        description: "香川県高松市のサービス業のWebサイト向けに制作したメインビジュアル動画。撮影から編集まで担当しました。",
     },
     ryori: {
         badge: "Client Work",
@@ -122,7 +122,7 @@ const works = {
         tools: "Premiere Pro / 8h",
         video: "videos/work-movie_03.mp4",
         description:
-            "香川県高松市の飲食店・BBハウスの料理PR動画。屋外のデジタルサイネージで放映する前提のため、音声なしでもシズル感が伝わるよう、湯気と照りが際立つカットを軸に構成しました。",
+            "香川県高松市の飲食店・BBハウスの料理PR動画。屋外のデジタルサイネージで放映する前提のため音声なしでもシズル感が伝わるように湯気と照りが際立つカットを軸に構成しました。",
     },
 };
 
