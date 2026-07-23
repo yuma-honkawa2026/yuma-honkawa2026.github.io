@@ -1340,13 +1340,27 @@ address {
         letter-spacing: var(--letter-spacing-200);
     }
 
+    .l-footer {
+        padding-top: var(--spacing-600);
+        padding-bottom: var(--spacing-500);
+    }
+
     .p-footer__name {
-        font-size: var(--font-size-500);
+        font-size: var(--font-size-400);
+        margin-bottom: var(--spacing-400);
+    }
+
+    .p-footer__nav {
+        margin-bottom: var(--spacing-500);
+    }
+
+    .p-footer__nav-list {
+        gap: var(--spacing-500);
+        font-size: var(--font-size-200);
     }
 
     .p-career__body {
-        /* 1fr だけだと中身の幅で列が膨らんで画面からはみ出す */
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
         row-gap: var(--spacing-700);
     }
 
