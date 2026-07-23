@@ -203,14 +203,6 @@ address {
     border-radius: var(--radius-400);
     padding: var(--spacing-300);
     height: 100%;
-    transition:
-        transform 0.35s var(--ease-out),
-        box-shadow 0.35s var(--ease-out);
-}
-
-.c-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-200);
 }
 
 .c-card__visual {
@@ -574,15 +566,11 @@ address {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    /* 顔が右に寄りすぎるので左側を見せる */
+    object-position: 35% top;
     opacity: 0;
     transform: scale(1.03);
     transition: opacity 1.6s var(--ease-out);
-}
-
-/* ピアノの写真だけ顔が切れるので左に寄せる */
-.p-about-hero__image[src$="about-hero_02.jpg"] {
-    object-position: 35% top;
 }
 
 .p-about-hero__image.is-active {
@@ -774,13 +762,7 @@ address {
     background-color: rgba(21, 21, 21, 0.45);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    opacity: 0;
-    transition: opacity 0.4s var(--ease-out);
     pointer-events: none;
-}
-
-.p-about-hero__strength-card:hover::after {
-    opacity: 1;
 }
 
 .p-about-hero__strength-media {
@@ -801,16 +783,6 @@ address {
     position: relative;
     z-index: 1;
     padding: var(--spacing-500);
-    opacity: 0;
-    transform: translateY(4px);
-    transition:
-        opacity 0.4s var(--ease-out) 0.05s,
-        transform 0.4s var(--ease-out) 0.05s;
-}
-
-.p-about-hero__strength-card:hover .p-about-hero__strength-body {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .p-about-hero__strength-num {
@@ -950,42 +922,19 @@ address {
     min-width: 0;
 }
 
-/* カードホバー時に在籍期間を光らせるバー */
-.p-career__range {
-    position: absolute;
-    left: calc(var(--career-date-width) + var(--career-marker-width) / 2 - 2px);
-    top: calc(var(--range-start) * var(--career-month-height) + 0.5em + 5px);
-    width: 4px;
-    height: calc(var(--range-span) * var(--career-month-height));
-    border-radius: var(--radius-full);
-    background-color: var(--color-base-lighter);
-    box-shadow: 0 0 12px rgba(241, 241, 241, 0.8);
-    opacity: 0;
-    transition: opacity var(--duration-base) var(--ease-out);
-    pointer-events: none;
-}
-
-.p-career__range.is-active {
-    opacity: 0.9;
-}
-
-.p-career__timeline-item.is-active::before {
-    background-color: var(--white);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
-}
-
-.p-career__timeline-item.is-active .p-career__timeline-title {
-    color: var(--white);
-}
-
 .p-career__timeline-list {
     position: relative;
     min-height: calc(63 * var(--career-month-height) + 2rem);
 }
 
+/*
+    項目は在籍月数どおりの位置に絶対配置している。
+    間隔が数ヶ月しかない箇所は文字が重なるため、--career-shift で表示位置だけ下にずらす。
+    実際の月数（--career-start / --career-span）はデータとして保つ。
+*/
 .p-career__timeline-item {
     position: absolute;
-    top: calc(var(--career-start) * var(--career-month-height));
+    top: calc((var(--career-start) + var(--career-shift, 0)) * var(--career-month-height));
     left: 0;
 
     display: grid;
@@ -1055,7 +1004,8 @@ address {
     position: relative;
     top: calc(0.5em + 5px);
     width: 1.5px;
-    height: calc(var(--career-span) * var(--career-month-height));
+    /* ずらした分だけ線を詰めて、終点が次の項目とずれないようにする */
+    height: calc((var(--career-span) - var(--career-shift, 0)) * var(--career-month-height));
     background-color: var(--career-line-color);
 }
 
@@ -1077,14 +1027,6 @@ address {
     border: 1px solid rgba(241, 241, 241, 0.08);
     padding: var(--spacing-500) var(--spacing-600);
     border-radius: var(--radius-300);
-    transition:
-        flex-grow 0.5s var(--ease-out),
-        background-color var(--duration-base) var(--ease-out);
-}
-
-.p-career__detail-card:hover {
-    flex-grow: 3;
-    background-color: rgba(21, 21, 21, 0.34);
 }
 
 .p-career__detail-head {
@@ -1142,18 +1084,6 @@ address {
     line-height: 1.9;
     letter-spacing: var(--letter-spacing-200);
     color: rgba(241, 241, 241, 0.78);
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition:
-        max-height 0.5s var(--ease-out),
-        opacity 0.35s var(--ease-out),
-        margin-top 0.5s var(--ease-out);
-}
-
-.p-career__detail-card:hover .p-career__detail-text {
-    max-height: 240px;
-    opacity: 1;
     margin-top: var(--spacing-200);
 }
 
@@ -1224,30 +1154,6 @@ address {
 
 /* タッチ端末はホバー装飾を全部止める */
 @media (hover: none) {
-    .c-card:hover {
-        transform: none;
-        box-shadow: var(--shadow-100);
-    }
-
-    .p-about-hero__strength-card::after {
-        opacity: 1;
-    }
-
-    .p-about-hero__strength-body {
-        opacity: 1;
-        transform: none;
-    }
-
-    .p-career__detail-card:hover {
-        background-color: rgba(21, 21, 21, 0.22);
-    }
-
-    .p-career__detail-text {
-        max-height: none;
-        opacity: 1;
-        margin-top: var(--spacing-200);
-    }
-
     .p-about-hero__skill-chip[data-name]:hover::after {
         display: none;
     }
@@ -1399,18 +1305,38 @@ address {
         transform: none;
     }
 
-    /* 幅が狭いと会社名が折り返し、月数で配置している項目同士が重なるので詰める */
+    .p-section__title {
+        font-size: var(--font-size-700);
+        margin-bottom: var(--spacing-400);
+    }
+
+    /* 幅が狭いと会社名が折り返して重なるので、日付欄と文字を詰めて高さを稼ぐ */
     .p-career {
         --career-date-width: 76px;
-        --career-month-height: 1.35rem;
+        --career-month-height: 0.85rem;
+        padding-top: var(--spacing-750);
+        padding-bottom: var(--spacing-700);
     }
 
     .p-career__timeline-title {
-        font-size: var(--font-size-300);
+        font-size: var(--font-size-200);
     }
 
     .p-career__detail-title {
         font-size: var(--font-size-400);
+        letter-spacing: var(--letter-spacing-200);
+    }
+
+    .p-career__detail-lead {
+        font-size: var(--font-size-300);
+    }
+
+    .p-career__detail-text {
+        letter-spacing: var(--letter-spacing-100);
+    }
+
+    .c-card__badge {
+        padding: var(--spacing-100) var(--spacing-300);
         letter-spacing: var(--letter-spacing-200);
     }
 
@@ -1419,7 +1345,8 @@ address {
     }
 
     .p-career__body {
-        grid-template-columns: 1fr;
+        /* 1fr だけだと中身の幅で列が膨らんで画面からはみ出す */
+        grid-template-columns: minmax(0, 1fr);
         row-gap: var(--spacing-700);
     }
 

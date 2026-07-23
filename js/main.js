@@ -415,21 +415,4 @@ if (heroImages.length > 1) {
     }, 4500);
 }
 
-document.querySelectorAll(".p-career__detail-card[data-org]").forEach((card) => {
-    // タッチ端末はホバーがないので何もしない
-    if (!window.matchMedia("(hover: hover)").matches) return;
-
-    const org = card.dataset.org;
-    const targets = document.querySelectorAll(
-        `.p-career__timeline-item[data-org="${org}"], .p-career__range[data-org="${org}"]`
-    );
-
-    card.addEventListener("mouseenter", () => {
-        targets.forEach((el) => el.classList.add("is-active"));
-    });
-
-    card.addEventListener("mouseleave", () => {
-        targets.forEach((el) => el.classList.remove("is-active"));
-    });
-});
 
