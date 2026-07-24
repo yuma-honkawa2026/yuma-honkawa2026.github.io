@@ -902,6 +902,7 @@ address {
     --career-date-width: 112px;
     --career-marker-width: 40px;
     --career-month-height: 1rem;
+    --career-months: 63;
     --career-line-color: var(--color-base-light);
     background-color: var(--color-accent-winered);
     box-shadow:
@@ -924,17 +925,18 @@ address {
 
 .p-career__timeline-list {
     position: relative;
-    min-height: calc(63 * var(--career-month-height) + 2rem);
+    min-height: calc(var(--career-months) * var(--career-month-height) + 2rem);
 }
 
 /*
     項目は在籍月数どおりの位置に絶対配置している。
     間隔が数ヶ月しかない箇所は文字が重なるため、--career-shift で表示位置だけ下にずらす。
+    逆に間隔が空きすぎる箇所は --career-trim で線を詰め、以降の項目を --career-lift で同じ分だけ上げる。
     実際の月数（--career-start / --career-span）はデータとして保つ。
 */
 .p-career__timeline-item {
     position: absolute;
-    top: calc((var(--career-start) + var(--career-shift, 0)) * var(--career-month-height));
+    top: calc((var(--career-start) + var(--career-shift, 0) - var(--career-lift, 0)) * var(--career-month-height));
     left: 0;
 
     display: grid;
@@ -1005,7 +1007,7 @@ address {
     top: calc(0.5em + 5px);
     width: 1.5px;
     /* ずらした分だけ線を詰めて、終点が次の項目とずれないようにする */
-    height: calc((var(--career-span) - var(--career-shift, 0)) * var(--career-month-height));
+    height: calc((var(--career-span) - var(--career-shift, 0) - var(--career-trim, 0)) * var(--career-month-height));
     background-color: var(--career-line-color);
 }
 
@@ -1013,7 +1015,7 @@ address {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-400);
-    height: calc(63 * var(--career-month-height) + 2rem);
+    height: calc(var(--career-months) * var(--career-month-height) + 2rem);
 }
 
 .p-career__detail-card {
@@ -1394,6 +1396,46 @@ address {
 
     .c-modal__media {
         flex: none;
+    }
+}
+
+/* スマホ幅の微調整 ここから */
+@media (max-width: 600px) {
+    /* ロゴ・ナビ・アイコンが横一列に収まらず右にはみ出すので、幅を詰める */
+    .l-sidebar {
+        gap: var(--spacing-200);
+        padding-inline: var(--spacing-300);
+    }
+
+    .p-sidebar-logo__image {
+        width: 64px;
+    }
+
+    .p-gnav__link {
+        font-size: var(--font-size-100);
+        padding: var(--spacing-200) var(--spacing-100);
+    }
+
+    .p-sidebar-contact__list {
+        gap: var(--spacing-100);
+    }
+
+    /* 縦に長くなりすぎるので、間隔の空いた最初の2区間だけ表示上を2/3にする */
+    .p-career {
+        --career-months: 53;
+    }
+
+    .p-career__timeline-item:nth-child(1) {
+        --career-trim: 5;
+    }
+
+    .p-career__timeline-item:nth-child(2) {
+        --career-trim: 5;
+        --career-lift: 5;
+    }
+
+    .p-career__timeline-item:nth-child(n + 3) {
+        --career-lift: 10;
     }
 }
 
