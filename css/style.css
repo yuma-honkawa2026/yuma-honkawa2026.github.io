@@ -901,7 +901,7 @@ address {
 .p-career {
     --career-date-width: 112px;
     --career-marker-width: 40px;
-    --career-month-height: 1rem;
+    --career-month-height: 1.2rem;
     --career-months: 63;
     --career-line-color: var(--color-base-light);
     background-color: var(--color-accent-winered);
@@ -921,6 +921,35 @@ address {
 .p-career__timeline {
     position: relative;
     min-width: 0;
+}
+
+/* カードホバー時に在籍期間を光らせるバー */
+.p-career__range {
+    position: absolute;
+    left: calc(var(--career-date-width) + var(--career-marker-width) / 2 - 2px);
+    /* 項目を --career-shift でずらした会社は、バーも同じだけずらす */
+    top: calc((var(--range-start) + var(--range-shift, 0)) * var(--career-month-height) + 0.5em + 5px);
+    width: 4px;
+    height: calc((var(--range-span) - var(--range-shift, 0)) * var(--career-month-height));
+    border-radius: var(--radius-full);
+    background-color: var(--color-base-lighter);
+    box-shadow: 0 0 12px rgba(241, 241, 241, 0.8);
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--ease-out);
+    pointer-events: none;
+}
+
+.p-career__range.is-active {
+    opacity: 0.9;
+}
+
+.p-career__timeline-item.is-active::before {
+    background-color: var(--white);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.p-career__timeline-item.is-active .p-career__timeline-title {
+    color: var(--white);
 }
 
 .p-career__timeline-list {
@@ -1029,6 +1058,14 @@ address {
     border: 1px solid rgba(241, 241, 241, 0.08);
     padding: var(--spacing-500) var(--spacing-600);
     border-radius: var(--radius-300);
+    transition:
+        flex-grow 0.5s var(--ease-out),
+        background-color var(--duration-base) var(--ease-out);
+}
+
+.p-career__detail-card:hover {
+    flex-grow: 3;
+    background-color: rgba(21, 21, 21, 0.34);
 }
 
 .p-career__detail-head {
@@ -1086,6 +1123,18 @@ address {
     line-height: 1.9;
     letter-spacing: var(--letter-spacing-200);
     color: rgba(241, 241, 241, 0.78);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+        max-height 0.5s var(--ease-out),
+        opacity 0.35s var(--ease-out),
+        margin-top 0.5s var(--ease-out);
+}
+
+.p-career__detail-card:hover .p-career__detail-text {
+    max-height: 420px;
+    opacity: 1;
     margin-top: var(--spacing-200);
 }
 
@@ -1156,6 +1205,17 @@ address {
 
 /* タッチ端末はホバー装飾を全部止める */
 @media (hover: none) {
+    .p-career__detail-card:hover {
+        background-color: rgba(21, 21, 21, 0.22);
+    }
+
+    /* ホバーで開けないので、本文は最初から出しておく */
+    .p-career__detail-text {
+        max-height: none;
+        opacity: 1;
+        margin-top: var(--spacing-200);
+    }
+
     .p-about-hero__skill-chip[data-name]:hover::after {
         display: none;
     }
@@ -1164,6 +1224,39 @@ address {
     .p-gnav__link:hover,
     .p-gnav__sublink:hover {
         background-color: transparent;
+    }
+}
+
+/* 横に2列だと解説カードの中身が収まらない幅から、経歴を縦に積む */
+@media (max-width: 1200px) {
+    /* 縦積みでは解説カードと高さを合わせる必要がないので、月の間隔を戻す */
+    .p-career {
+        --career-month-height: 1rem;
+    }
+
+    .p-career__body {
+        grid-template-columns: 1fr;
+        row-gap: var(--spacing-700);
+    }
+
+    .p-career__details {
+        height: auto;
+    }
+
+    .p-career__detail-card {
+        flex: none;
+    }
+
+    /* 縦積みではカードが伸びるので、本文は開いたままにする */
+    .p-career__detail-text {
+        max-height: none;
+        opacity: 1;
+        margin-top: var(--spacing-200);
+    }
+
+    /* カードと時系列が縦に離れるので、在籍期間のバーは出さない */
+    .p-career__range {
+        display: none;
     }
 }
 
@@ -1359,25 +1452,6 @@ address {
     .p-footer__nav-list {
         gap: var(--spacing-500);
         font-size: var(--font-size-200);
-    }
-
-    .p-career__body {
-        grid-template-columns: 1fr;
-        row-gap: var(--spacing-700);
-    }
-
-    .p-career__details {
-        height: auto;
-    }
-
-    .p-career__detail-card {
-        flex: none;
-    }
-
-    .p-career__detail-text {
-        max-height: none;
-        opacity: 1;
-        margin-top: var(--spacing-200);
     }
 
     .c-modal__window {

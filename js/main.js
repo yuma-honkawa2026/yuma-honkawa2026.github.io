@@ -100,6 +100,7 @@ const works = {
         type: "動画撮影・動画編集",
         tools: "Premiere Pro / 6h",
         video: "videos/work-movie_01.mp4",
+        poster: "images/work-movie_01_poster.jpg",
         description:
             "香川県高松市の飲食店の冬限定メニューを告知するInstagramリール。料理の美味しそうなイメージが冒頭1秒で伝わるように動画撮影の段階から意識しました。撮影から編集まで担当し、店舗アカウントで実際に配信されています。",
         links: [
@@ -121,6 +122,7 @@ const works = {
         type: "動画撮影・動画編集",
         tools: "Premiere Pro / 8h",
         video: "videos/work-movie_03.mp4",
+        poster: "images/work-movie_03_poster.jpg",
         description:
             "香川県高松市の飲食店・BBハウスの料理PR動画。屋外のデジタルサイネージで放映する前提のため音声なしでもシズル感が伝わるように湯気と照りが際立つカットを軸に構成しました。",
     },
@@ -402,6 +404,24 @@ document.querySelectorAll(".p-works__list").forEach((track, trackIndex) => {
 /* ==============================
     Careerカードホバーで在籍期間をハイライト
 ============================== */
+document.querySelectorAll(".p-career__detail-card[data-org]").forEach((card) => {
+    // タッチ端末はホバーがないので何もしない
+    if (!window.matchMedia("(hover: hover)").matches) return;
+
+    const org = card.dataset.org;
+    const targets = document.querySelectorAll(
+        `.p-career__timeline-item[data-org="${org}"], .p-career__range[data-org="${org}"]`
+    );
+
+    card.addEventListener("mouseenter", () => {
+        targets.forEach((el) => el.classList.add("is-active"));
+    });
+
+    card.addEventListener("mouseleave", () => {
+        targets.forEach((el) => el.classList.remove("is-active"));
+    });
+});
+
 /* ==============================
     Heroの写真をゆっくり切り替える
 ============================== */
