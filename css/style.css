@@ -8,20 +8,20 @@
     --color-base-darker: #151515;
     --color-base-light: #cacaca;
     --color-base-lighter: #f1f1f1;
-    --color-accent-winered: #6f1d2d;
+    --color-accent-accent: #161e51;
 
     /* サーフェス */
     --surface-glass-100: rgba(255, 255, 255, 0.2);
     --surface-glass-200: rgba(255, 255, 255, 0.4);
     --surface-glass-300: rgba(255, 255, 255, 0.7);
     --surface-glass-400: rgba(255, 255, 255, 0.9);
-    --surface-accent-100: rgba(130, 20, 40, 0.8);
+    --surface-accent-100: rgba(20, 37, 130, 0.8);
 
     /* ボーダー */
     --border-glass-100: rgba(255, 255, 255, 0.2);
     --border-glass-200: rgba(255, 255, 255, 0.4);
     --border-glass-300: rgba(255, 255, 255, 0.7);
-    --border-accent-100: rgba(130, 20, 40, 0.8);
+    --border-accent-100: rgba(20, 37, 130, 0.8);
 
     /* シャドウ */
     --shadow-100: 0 0.5rem 1rem rgba(56, 56, 56, 0.08);
@@ -51,9 +51,8 @@
     --font-size-900: 5rem; /* 80px */
 
     /* font-family */
-    --font-family-noto-serif-jp: "Noto Serif JP", serif;
-    --font-family-shippori-mincho: "Shippori Mincho", serif;
-    --font-family-ibm-plex-sans-jp: "IBM Plex Sans JP", sans-serif;
+    --font-family-base: "Noto Sans JP", sans-serif;
+    --font-family-en: "Lato", "Noto Sans JP", sans-serif;
 
     /* 余白 */
     --spacing-100: 0.25rem; /* 4px */
@@ -90,25 +89,17 @@
 /* ==============================
     Foundation
 ============================== */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 html {
     scroll-behavior: smooth; /* ページ内スクロール時にスムーズに移動 */
 }
 
 body {
     margin: 0;
-    background-color: #d9d4c8;
-    color: var(--color-base-dark);
+    background-color: #ffffff;
+    color: var(--color-text-main);
     line-height: 1.5;
-    overflow-x: hidden;
-    overflow-anchor: none; /* カルーセルのDOM書き換えで上スクロールが固まるのを防ぐ */
     min-width: 0;
-    font-family: var(--font-family-ibm-plex-sans-jp);
+    font-family: var(--font-family-base);
 }
 
 a {
