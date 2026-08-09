@@ -31,9 +31,9 @@
 
     <body>
         <header class="l-header">
-            <a class="l-header__logo" href="#">YUMA HONKAWA</a>
-
             <nav class="p-gnav" aria-label="グローバルナビゲーション">
+                <a class="l-header__logo" href="/">YUMA HONKAWA</a>
+
                 <ul class="p-gnav__list">
                     <li class="p-gnav__item"><a class="p-gnav__link" href="#works">Works</a></li>
                     <li class="p-gnav__item"><a class="p-gnav__link" href="#about">About</a></li>
@@ -45,20 +45,22 @@
 
         <main class="l-main">
             <section class="p-hero">
-                <img class="p-hero__photo" src="images/hero-honkawa.webp" alt="本川悠真のポートレート" />
+                <img class="p-hero__image" src="images/hero-honkawa.webp" alt="本川悠真のポートレート" />
 
-                <div class="p-hero__name">
-                    <p class="p-hero__name-en">HONKAWA YUMA</p>
-                    <h1 class="p-hero__name-ja">本川 悠真</h1>
+                <div class="p-hero__detail">
+                    <div class="p-hero__name">
+                        <p class="p-hero__name-en">HONKAWA YUMA</p>
+                        <h1 class="p-hero__name-ja">本川 悠真</h1>
+                    </div>
+
+                    <p class="p-hero__school">
+                        東京デザイン専門学校 グラフィックデザイン科 Web・映像専攻<br />
+                        2027年3月 卒業予定
+                    </p>
                 </div>
-
-                <p class="p-hero__school">
-                    東京デザイン専門学校 グラフィックデザイン科 Web・映像専攻<br />
-                    2027年3月 卒業予定
-                </p>
             </section>
 
-            <section class="p-works" id="works">
+            <section class="p-work l-section" id="works">
                 <h2 class="c-section-title">WORKS</h2>
                 <p class="c-section-subtitle">制作実績</p>
 
@@ -119,192 +121,201 @@
                 </ul>
             </section>
 
-            <section class="p-about" id="about">
+            <section class="p-about l-section" id="about">
                 <div class="l-inner">
                     <h2 class="c-section-title">ABOUT</h2>
                     <p class="c-section-subtitle">私について</p>
                     <p class="p-about__text">
                         香川県出身。現在は会社員として広報制作と業務改善に携わりながら、東京デザイン専門学校でWebを学んでいます。
                         高校卒業後は三菱電機に入社し、製造管理の業務を3年半経験しました。業務の中で部署のポータル更新を担当したことが、Webやデザインに興味を持つきっかけになりました。
-                        現在の勤務先では、7店舗で使う社内Webシステムを要件整理から画面・データベースの設計、実装まで担当しています。
+                        現在の勤務先では、Webサイトを要件整理から実装まで担当しています。
                         趣味はピアノ、ドラム、ルービックキューブ（6面を50秒で揃えられる程度）です。
                     </p>
                 </div>
             </section>
 
-            <section class="p-skills">
-                <h2 class="c-section-title">SKILLS</h2>
-                <p class="c-section-subtitle">使用してきたツール</p>
+            <section class="p-skills l-section">
+                <div class="l-inner">
+                    <h2 class="c-section-title">SKILLS</h2>
+                    <p class="c-section-subtitle">スキル</p>
 
-                <p class="p-skills__text">
-                    HTML / CSS / JavaScript / Figma / Git <br />
-                    Photoshop / Illustrator / Premiere Pro / After Effects
-                </p>
+                    <p class="p-skills__text">
+                        HTML / CSS / JavaScript / Figma / GitHub <br>
+                        Photoshop / Illustrator / Premiere Pro / After Effects <br>
+                        Claude Code / Codex
+                    </p>
+                </div>
             </section>
 
-            <section class="p-career" id="career">
-                <h2 class="c-section-title">CAREER</h2>
-                <p class="c-section-subtitle">経歴</p>
+            <section class="p-career l-section" id="career">
+                <div class="l-inner">
+                    <h2 class="c-section-title">CAREER</h2>
+                    <p class="c-section-subtitle">経歴</p>
 
-                <div class="p-career__body">
-                    <div class="p-timeline">
-                        <ol class="p-timeline__list">
-                            <li class="p-timeline__item" data-org="mitsubishi" style="--career-start: 0; --career-span: 16">
-                                <time class="p-timeline__date" datetime="2021-04">2021.04</time>
+                    <div class="p-career__body">
+                        <div class="p-timeline">
+                            <ol class="p-timeline__list">
+                                <li class="p-timeline__item" data-org="mitsubishi" style="--career-start: 0; --career-span: 16">
+                                    <time class="p-timeline__date" datetime="2021-04">2021.04</time>
 
-                                <div class="p-timeline__body">
-                                    <h3 class="p-timeline__title">三菱電機株式会社 入社</h3>
-                                    <p class="p-timeline__subtitle">生産システム部 製造管理課</p>
-                                </div>
-                            </li>
+                                    <div class="p-timeline__body">
+                                        <h3 class="p-timeline__title">三菱電機株式会社 入社</h3>
+                                        <p class="p-timeline__subtitle">生産システム部 製造管理課</p>
+                                    </div>
+                                </li>
 
-                            <li class="p-timeline__item" data-org="alpha" style="--career-start: 16; --career-span: 14">
-                                <time class="p-timeline__date" datetime="2022-08">2022.08</time>
+                                <li class="p-timeline__item" data-org="alpha" style="--career-start: 16; --career-span: 14">
+                                    <time class="p-timeline__date" datetime="2022-08">2022.08</time>
 
-                                <div class="p-timeline__body">
-                                    <h3 class="p-timeline__title">合同会社アルファ アルバイト入社</h3>
-                                    <p class="p-timeline__subtitle">DX推進部</p>
-                                </div>
-                            </li>
+                                    <div class="p-timeline__body">
+                                        <h3 class="p-timeline__title">合同会社アルファ アルバイト入社</h3>
+                                        <p class="p-timeline__subtitle">DX推進部</p>
+                                    </div>
+                                </li>
 
-                            <li class="p-timeline__item" data-org="youtube" style="--career-start: 30; --career-span: 10">
-                                <time class="p-timeline__date" datetime="2023-10">2023.10</time>
+                                <li class="p-timeline__item" data-org="youtube" style="--career-start: 30; --career-span: 10">
+                                    <time class="p-timeline__date" datetime="2023-10">2023.10</time>
 
-                                <div class="p-timeline__body">
-                                    <h3 class="p-timeline__title">YouTube動画編集</h3>
-                                    <p class="p-timeline__subtitle">ショート動画 専属編集者</p>
-                                </div>
-                            </li>
+                                    <div class="p-timeline__body">
+                                        <h3 class="p-timeline__title">YouTube動画編集</h3>
+                                        <p class="p-timeline__subtitle">ショート動画 専属編集者</p>
+                                    </div>
+                                </li>
 
-                            <li class="p-timeline__item" data-org="mitsubishi" style="--career-start: 40; --career-span: 5">
-                                <time class="p-timeline__date" datetime="2024-08">2024.08</time>
+                                <li class="p-timeline__item" data-org="mitsubishi" style="--career-start: 40; --career-span: 5">
+                                    <time class="p-timeline__date" datetime="2024-08">2024.08</time>
 
-                                <div class="p-timeline__body">
-                                    <h3 class="p-timeline__title">三菱電機株式会社 退職</h3>
-                                    <p class="p-timeline__subtitle">生産システム部 製造管理課</p>
-                                </div>
-                            </li>
+                                    <div class="p-timeline__body">
+                                        <h3 class="p-timeline__title">三菱電機株式会社 退職</h3>
+                                        <p class="p-timeline__subtitle">生産システム部 製造管理課</p>
+                                    </div>
+                                </li>
 
-                            <li
-                                class="p-timeline__item"
-                                data-org="alpha"
-                                style="--career-start: 42; --career-span: 9; --career-shift: 3"
-                            >
-                                <time class="p-timeline__date" datetime="2024-10">2024.10</time>
+                                <li
+                                    class="p-timeline__item"
+                                    data-org="alpha"
+                                    style="--career-start: 42; --career-span: 9; --career-shift: 3"
+                                >
+                                    <time class="p-timeline__date" datetime="2024-10">2024.10</time>
 
-                                <div class="p-timeline__body">
-                                    <h3 class="p-timeline__title">合同会社アルファ 正社員登用</h3>
-                                    <p class="p-timeline__subtitle">広報部</p>
-                                </div>
-                            </li>
+                                    <div class="p-timeline__body">
+                                        <h3 class="p-timeline__title">合同会社アルファ 正社員登用</h3>
+                                        <p class="p-timeline__subtitle">広報部</p>
+                                    </div>
+                                </li>
 
-                            <li
-                                class="p-timeline__item"
-                                data-org="tda"
-                                style="--career-start: 48; --career-span: 12; --career-shift: 3"
-                            >
-                                <time class="p-timeline__date" datetime="2025-04">2025.04</time>
+                                <li
+                                    class="p-timeline__item"
+                                    data-org="tda"
+                                    style="--career-start: 48; --career-span: 12; --career-shift: 3"
+                                >
+                                    <time class="p-timeline__date" datetime="2025-04">2025.04</time>
 
-                                <div class="p-timeline__body">
-                                    <h3 class="p-timeline__title">東京デザイン専門学校 入学</h3>
-                                    <p class="p-timeline__subtitle">グラフィックデザイン科</p>
-                                </div>
-                            </li>
+                                    <div class="p-timeline__body">
+                                        <h3 class="p-timeline__title">東京デザイン専門学校 入学</h3>
+                                        <p class="p-timeline__subtitle">グラフィックデザイン科</p>
+                                    </div>
+                                </li>
 
-                            <li class="p-timeline__item" data-org="tda" style="--career-start: 60; --career-span: 3">
-                                <time class="p-timeline__date" datetime="2026-04">2026.04</time>
+                                <li class="p-timeline__item" data-org="tda" style="--career-start: 60; --career-span: 3">
+                                    <time class="p-timeline__date" datetime="2026-04">2026.04</time>
 
-                                <div class="p-timeline__body">
-                                    <h3 class="p-timeline__title">東京デザイン専門学校 進級</h3>
-                                    <p class="p-timeline__subtitle">グラフィックデザイン科 Web・映像専攻</p>
-                                </div>
-                            </li>
-                        </ol>
+                                    <div class="p-timeline__body">
+                                        <h3 class="p-timeline__title">東京デザイン専門学校 進級</h3>
+                                        <p class="p-timeline__subtitle">グラフィックデザイン科 Web・映像専攻</p>
+                                    </div>
+                                </li>
+                            </ol>
 
-                        <div class="p-timeline__ranges" aria-hidden="true">
-                            <span
-                                class="p-timeline__range"
-                                data-org="mitsubishi"
-                                style="--range-start: 0; --range-span: 40"
-                            ></span>
-                            <span class="p-timeline__range" data-org="alpha" style="--range-start: 16; --range-span: 47"></span>
-                            <span class="p-timeline__range" data-org="youtube" style="--range-start: 30; --range-span: 13"></span>
-                            <span
-                                class="p-timeline__range"
-                                data-org="tda"
-                                style="--range-start: 48; --range-span: 15; --range-shift: 3"
-                            ></span>
+                            <div class="p-timeline__ranges" aria-hidden="true">
+                                <span
+                                    class="p-timeline__range"
+                                    data-org="mitsubishi"
+                                    style="--range-start: 0; --range-span: 40"
+                                ></span>
+                                <span
+                                    class="p-timeline__range"
+                                    data-org="alpha"
+                                    style="--range-start: 16; --range-span: 47"
+                                ></span>
+                                <span
+                                    class="p-timeline__range"
+                                    data-org="youtube"
+                                    style="--range-start: 30; --range-span: 13"
+                                ></span>
+                                <span
+                                    class="p-timeline__range"
+                                    data-org="tda"
+                                    style="--range-start: 48; --range-span: 15; --range-shift: 3"
+                                ></span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="p-career__cards">
-                        <article class="p-career-card p-career-card--mitsubishi" data-org="mitsubishi">
-                            <div class="p-career-card__head">
-                                <h3 class="p-career-card__title">三菱電機株式会社</h3>
-                                <p class="p-career-card__period">2021.04 - 2024.08</p>
-                            </div>
-                            <p class="p-career-card__role">生産システム部 製造管理課</p>
-                            <p class="p-career-card__lead">10,000枚超の技術文書の精査と法規管理</p>
-                            <p class="p-career-card__text">
-                                1,000種類以上の化学物質に付随する取扱説明書・SDS（安全データシート）計10,000枚超を精査。法令違反が許されない環境で、大気汚染防止法などに基づく排出物（ガス・水質）の適合性確認を3年間担った。
-                            </p>
-                            <p class="p-career-card__lead">1,000項目超の資産管理データの運用</p>
-                            <p class="p-career-card__text">
-                                数千行規模のExcelデータで、在庫・使用状況1,000項目超を管理。台帳と現場の乖離を早期に是正し、事故を未然に防ぐ体制を維持した。
-                            </p>
-                        </article>
+                        <div class="p-career__cards">
+                            <article class="p-career-card p-career-card--mitsubishi" data-org="mitsubishi">
+                                <div class="p-career-card__head">
+                                    <h3 class="p-career-card__title">三菱電機株式会社</h3>
+                                    <p class="p-career-card__period">2021.04 - 2024.08</p>
+                                </div>
+                                <p class="p-career-card__role">生産システム部 製造管理課</p>
+                                <p class="p-career-card__lead">SDS 10,000枚超と環境管理</p>
+                                <p class="p-career-card__text">
+                                    化学物質のSDS（安全データシート）を計10,000枚以上確認し、大気汚染防止法などに基づく排出物の適合確認を3年間担当しました。ISO 14001では、文書更新と実績集計、内部監査、外部審査対応、環境目標の管理まで、一連の運用を担当しました。廃棄物処理も担当しました。
+                                </p>
+                                <p class="p-career-card__lead">1,000種類以上の化学物質を管理</p>
+                                <p class="p-career-card__text">
+                                    数千行のExcelデータで、1,000種類以上の化学物質の在庫と使用状況を管理しました。部署ポータルの記事作成と更新にも携わりました。
+                                </p>
+                            </article>
 
-                        <article class="p-career-card p-career-card--alpha" data-org="alpha">
-                            <div class="p-career-card__head">
-                                <h3 class="p-career-card__title">合同会社アルファ</h3>
-                                <p class="p-career-card__period">2022.08 - 現在</p>
-                            </div>
-                            <p class="p-career-card__role">DX推進部 広報部</p>
-                            <p class="p-career-card__lead">系列店舗の販促ビジュアル制作</p>
-                            <p class="p-career-card__text">
-                                系列店舗のブランディングを目的に、Web・SNS・店頭広告のクリエイティブを担当。店舗の特性に合わせた制作と展開を、3名のチームで進めている。
-                            </p>
-                            <p class="p-career-card__lead">制作案件の進行管理と部門間の調整</p>
-                            <p class="p-career-card__text">
-                                フルリモート環境で自律的に業務を遂行。マーケティングや動画制作の進捗を管理し、部門間をつなぐ業務フローを最適化している。
-                            </p>
-                            <p class="p-career-card__lead">業務改善の提案から定着まで</p>
-                            <p class="p-career-card__text">
-                                紙の案件管理をNotionで再設計し、社長に提案して導入。5名のチームで3年間運用が続いている。配車業務では1年間ドライバーとして現場に入り、ツールと運用ルールを見直した。この実績が評価され、正社員に登用された。
-                            </p>
-                        </article>
+                            <article class="p-career-card p-career-card--alpha" data-org="alpha">
+                                <div class="p-career-card__head">
+                                    <h3 class="p-career-card__title">合同会社アルファ</h3>
+                                    <p class="p-career-card__period">2022.08 - 現在</p>
+                                </div>
+                                <p class="p-career-card__role">DX推進部 広報部</p>
+                                <p class="p-career-card__lead">紙の案件管理をNotionへ移行</p>
+                                <p class="p-career-card__text">
+                                    アルバイトとして業務改善に携わり、紙で管理していた案件情報をNotionへ移しました。5名体制で導入し、月約30件の案件管理に3年間使われています。
+                                </p>
+                                <p class="p-career-card__lead">担当領域を広げ、正社員へ</p>
+                                <p class="p-career-card__text">
+                                    撮影、動画編集、デザイン、SNS運用、Web制作へ担当を広げ、2024年10月に正社員へ登用されました。SNS運用では、月間閲覧数を2か月で約2万から約10万へ伸ばしました。
+                                </p>
+                            </article>
 
-                        <article class="p-career-card p-career-card--youtube" data-org="youtube">
-                            <div class="p-career-card__head">
-                                <h3 class="p-career-card__title">YouTube動画編集</h3>
-                                <p class="p-career-card__period">2023.10 - 2024.11</p>
-                            </div>
-                            <p class="p-career-card__role">ショート動画 専属編集者</p>
-                            <p class="p-career-card__lead">累計2,000万回再生のショート動画編集</p>
-                            <p class="p-career-card__text">
-                                登録者数30万人規模のチャンネルで、専属の編集担当として月間約20本を継続的に納品した。
-                            </p>
-                            <p class="p-career-card__lead">効率化による制作体制の構築</p>
-                            <p class="p-career-card__text">
-                                独自テンプレートと編集工程の仕組み化により、高頻度の投稿でも品質と納期を1年以上守り続けた。
-                            </p>
-                        </article>
+                            <article class="p-career-card p-career-card--youtube" data-org="youtube">
+                                <div class="p-career-card__head">
+                                    <h3 class="p-career-card__title">YouTube動画編集</h3>
+                                    <p class="p-career-card__period">2023.10 - 2024.11</p>
+                                </div>
+                                <p class="p-career-card__role">ショート動画 専属編集者</p>
+                                <p class="p-career-card__lead">月約20本を1年2か月継続</p>
+                                <p class="p-career-card__text">
+                                    Premiere ProとAfter Effectsを使用し、ショート動画を月約20本、1年2か月にわたり納品しました。
+                                </p>
+                                <p class="p-career-card__lead">担当動画の累計2,000万回再生</p>
+                                <p class="p-career-card__text">
+                                    登録者30万人のチャンネルで、専属の編集担当を務めました。自分が編集した動画だけで、累計再生数は2,000万回を超えています。
+                                </p>
+                            </article>
 
-                        <article class="p-career-card p-career-card--tda" data-org="tda">
-                            <div class="p-career-card__head">
-                                <h3 class="p-career-card__title">東京デザイン専門学校</h3>
-                                <p class="p-career-card__period">2025.04 - 現在</p>
-                            </div>
-                            <p class="p-career-card__role">グラフィックデザイン科 Web・映像専攻</p>
-                            <p class="p-career-card__lead">デザインの基礎理論とDTP実務の習得</p>
-                            <p class="p-career-card__text">
-                                レイアウト・配色・タイポグラフィの基礎を体系的に習得。印刷規格に沿った制作から入稿までを実践形式で学んでいる。
-                            </p>
-                            <p class="p-career-card__lead">GPA 3.71、出席率98%</p>
-                            <p class="p-career-card__text">
-                                1年次の成績です。学校内の成績優秀者3名が選ばれる校友会奨学金の選考に採用されました。
-                            </p>
-                        </article>
+                            <article class="p-career-card p-career-card--tda" data-org="tda">
+                                <div class="p-career-card__head">
+                                    <h3 class="p-career-card__title">東京デザイン専門学校</h3>
+                                    <p class="p-career-card__period">2025.04 - 現在</p>
+                                </div>
+                                <p class="p-career-card__role">グラフィックデザイン科 Web・映像専攻</p>
+                                <p class="p-career-card__lead">デザインの基礎をWeb制作へ</p>
+                                <p class="p-career-card__text">
+                                    1年次はレイアウト、配色、タイポグラフィなど、デザインの基礎を学びました。2年次からはWeb・映像専攻に進み、HTML、CSS、JavaScriptによるWeb制作に取り組んでいます。デザインとコーディングの両方から画面を考えています。
+                                </p>
+                                <p class="p-career-card__lead">GPA 3.71、出席率98%</p>
+                                <p class="p-career-card__text">
+                                    1年次のGPAは3.71、出席率は98%です。書類選考と面接を通過し、12万円の校友会奨学金に採用されました。
+                                </p>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -312,8 +323,13 @@
 
         <footer class="l-footer" id="contact">
             <div class="p-contact">
-                <a class="p-contact__mail" href="mailto:yuma.honkawa2026@gmail.com">yuma.honkawa2026@gmail.com</a>
-                <a class="p-contact__github" href="https://github.com/yuma-honkawa2026" target="_blank" rel="noopener">GitHub</a>
+                <h2 class="c-section-title">CONTACT</h2>
+                <p class="c-section-subtitle">連絡先</p>
+
+                <div class="p-contact__wrap">
+                    <a class="p-contact__mail" href="mailto:yuma.honkawa2026@gmail.com">yuma.honkawa2026@gmail.com</a>
+                    <a class="p-contact__github" href="https://github.com/yuma-honkawa2026" target="_blank" rel="noopener">GitHub</a>
+                </div>
             </div>
 
             <nav class="p-fnav" aria-label="フッターナビゲーション">
@@ -325,9 +341,7 @@
                 </ul>
             </nav>
 
-            <small class="l-footer__copy">
-                &copy; 2026 YUMA HONKAWA
-            </small>
+            <small class="l-footer__copy"> &copy; 2026 YUMA HONKAWA </small>
         </footer>
     </body>
 </html>
