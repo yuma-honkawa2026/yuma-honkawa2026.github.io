@@ -25,25 +25,14 @@
 
     /* シャドウ */
     /* シャドウ */
-        /* シャドウ（段数だけ変えて、落ち方の型は統一） */
-    --shadow-100:
-        0 1px 1px hsl(0deg 0% 0% / 0.06),
-        0 2px 2px hsl(0deg 0% 0% / 0.06),
-        0 4px 4px hsl(0deg 0% 0% / 0.06);
+    /* シャドウ（段数だけ変えて、落ち方の型は統一） */
+    --shadow-100: 0 1px 1px hsl(0deg 0% 0% / 0.06), 0 2px 2px hsl(0deg 0% 0% / 0.06), 0 4px 4px hsl(0deg 0% 0% / 0.06);
     --shadow-200:
-        0 1px 1px hsl(0deg 0% 0% / 0.075),
-        0 2px 2px hsl(0deg 0% 0% / 0.075),
-        0 4px 4px hsl(0deg 0% 0% / 0.075),
-        0 8px 8px hsl(0deg 0% 0% / 0.075),
-        0 16px 16px hsl(0deg 0% 0% / 0.075);
+        0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+        0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
     --shadow-300:
-        0 1px 1px hsl(0deg 0% 0% / 0.075),
-        0 2px 2px hsl(0deg 0% 0% / 0.075),
-        0 4px 4px hsl(0deg 0% 0% / 0.075),
-        0 8px 8px hsl(0deg 0% 0% / 0.075),
-        0 16px 16px hsl(0deg 0% 0% / 0.075),
-        0 32px 32px hsl(0deg 0% 0% / 0.075);
-
+        0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+        0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075), 0 32px 32px hsl(0deg 0% 0% / 0.075);
 
     /* ぼかし（ガラス） */
     --blur-100: blur(0.5rem);
@@ -54,7 +43,6 @@
     --color-text-main: #333333;
     --color-text-sub: #666666;
 
-    /* 文字大きさ（Googleのデザインシステムが採用しているらしいものをベースに） */
     --font-size-100: 0.75rem; /* 12px */
     --font-size-200: 0.875rem; /* 14px */
     --font-size-300: 1rem; /* 16px */
@@ -176,6 +164,10 @@ address {
     padding-block: 80px;
 }
 
+/* ==============================
+    共通
+============================== */
+
 .c-section-title {
     font-size: var(--font-size-700);
     font-family: var(--font-family-en);
@@ -196,6 +188,21 @@ address {
     text-align: center;
 }
 
+.p-gnav__link,
+.p-fnav__link,
+.p-contact__mail,
+.p-contact__github {
+    transition: color var(--duration-base) var(--ease-out);
+}
+
+.p-gnav__link:hover,
+.p-fnav__link:hover,
+.p-contact__mail:hover,
+.p-contact__github:hover {
+    color: var(--color-accent-accent);
+}
+
+
 /* ==============================
     header
 ============================== */
@@ -210,12 +217,12 @@ address {
 .p-gnav__list {
     display: flex;
     gap: var(--spacing-800);
-    margin-right: var(--spacing-300);
 }
 
 .l-header__logo {
     font-size: var(--font-size-600);
     font-weight: 500;
+    font-family: var(--font-family-en);
     letter-spacing: var(--letter-spacing-400);
 }
 
@@ -252,8 +259,38 @@ address {
 .p-hero__detail {
     position: absolute;
     top: 30%;
-    left: 10%;
+    left: max(var(--spacing-800), (100% - 960px) / 2);
     z-index: 2;
+}
+
+.p-hero__name-en {
+    font-size: var(--font-size-400);
+    font-weight: 600;
+    letter-spacing: var(--letter-spacing-500);
+    line-height: 1.3;
+}
+
+.p-hero__name-ja {
+    font-size: var(--font-size-800);
+    font-weight: 700;
+    letter-spacing: var(--letter-spacing-300);
+    line-height: 1;
+}
+
+.p-hero__school {
+    font-size: var(--font-size-400);
+    font-weight: 500;
+    letter-spacing: var(--letter-spacing-500);
+    line-height: 1.8;
+    margin-top: var(--spacing-800);
+}
+
+.p-hero__school-info {
+    font-size: var(--font-size-400);
+    font-weight: 500;
+    letter-spacing: var(--letter-spacing-500);
+    line-height: 1.8;
+    margin-top: var(--spacing-300);
 }
 
 /* ==============================
@@ -263,80 +300,105 @@ address {
     margin-bottom: var(--spacing-800);
 }
 .p-work__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-900) var(--spacing-800);
+    padding-inline: 0;
+}
+
+.p-work__item {
+    width: auto;
     display: flex;
-    justify-content: center;
-    gap: var(--spacing-800);
-    padding-inline: 5%;
+    flex-direction: column;
 }
 
 .p-work__image {
-    width: 400px;
-}
-
-.p-work__media {
-    position: relative;
-    display: block;
-    overflow: hidden;
+    width: auto;
+    height: auto;
     box-shadow: var(--shadow-200);
 }
 
-.p-work__image {
-    transition: transform 0.8s var(--ease-out);
-}
-
-.p-work__media:hover .p-work__image {
-    transform: scale(1.07);
-}
-
-.p-work__overlay {
-    position: absolute;
-    inset: 0; /* top: 0; right: 0; bottom: 0; left: 0; の4行をまとめた書き方。4辺を全部0にする＝親と同じ大きさに広がる */
+.p-work__detail {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 30px 20px;
-    background-color: rgba(10, 10, 10, 0.6);
-    backdrop-filter: var(--blur-100);
-    color: var(--color-base-lighter);
-    opacity: 0;
-    transition: opacity var(--duration-base) var(--ease-out);
+    flex: 1;
 }
 
-.p-work__title {
-    font-size: var(--font-size-550);
-    font-weight: 700;
-    font-family: var(--font-family-base);
-    letter-spacing: var(--letter-spacing-100);
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.p-work__text {
-    font-size: var(--font-size-400);
-    font-weight: 300;
-    font-family: var(--font-family-base);
+.p-work__detail-label {
+    font-size: var(--font-size-100);
+    font-weight: 100;
+    margin: var(--spacing-600) 0 var(--spacing-100) 0;
     line-height: 1.5;
-    color: var(--color-base-light);
-    letter-spacing: var(--letter-spacing-100);
-    text-align: center;
+    letter-spacing: var(--letter-spacing-300);
+    color: var(--color-base-lighter);
+    background-color: var(--color-base-dark);
+    padding: 2px 10px;
+    width: fit-content;
 }
 
-.p-work__role {
-    margin-top: 20px;
-    font-size: var(--font-size-200);
-    font-weight: 400;
+.p-work__detail-title {
+    font-size: var(--font-size-600);
+    font-weight: 500;
     letter-spacing: var(--letter-spacing-200);
-    text-align: center;
+    line-height: 1;
 }
 
-.p-work__media:hover .p-work__overlay,
-.p-work__media:focus-visible .p-work__overlay {
-    opacity: 1;
+.p-work__detail-text {
+    font-size: var(--font-size-300);
+    font-weight: 300;
+    letter-spacing: var(--letter-spacing-200);
+    line-height: 1.5;
+    margin-block: var(--spacing-500);
 }
 
-@media (hover: none) {
-    .p-work__overlay {
-        opacity: 1;
+.p-work__detail-role {
+    font-size: var(--font-size-200);
+    font-weight: 200;
+    letter-spacing: var(--letter-spacing-100);
+    line-height: 1.7;
+    color: var(--color-text-sub);
+    border-top: 1px solid var(--color-text-sub);
+    padding-top: var(--spacing-500);
+    margin-top: auto;
+}
+
+.p-work__detail-row {
+    display: flex;
+}
+
+.p-work__detail-term {
+    flex: none;
+}
+
+.p-work__detail-term::after {
+    content: "：";
+}
+
+.p-work__detail-desc {
+    margin: 0;
+}
+
+.p-work__detail-link {
+    text-decoration: underline;
+    text-underline-offset: var(--spacing-100);
+    text-decoration-thickness: 1px;
+}
+
+.p-work__detail-link::after {
+    content: "↗︎";
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.25s var(--ease-out);
+}
+
+.p-work__detail-link:hover::after {
+    transform: translate(3px, -3px);
+}
+
+@media (max-width: 1060px) {
+    .p-work__list {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -353,6 +415,8 @@ address {
     font-weight: 400;
     line-height: 2;
     letter-spacing: var(--letter-spacing-200);
+    max-width: 40em;
+    margin-inline: auto;
 }
 
 /* ==============================
@@ -611,7 +675,7 @@ address {
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1060px) {
     .p-career {
         --career-month-height: 1rem;
     }
@@ -619,6 +683,11 @@ address {
     .p-career__body {
         grid-template-columns: 1fr;
         row-gap: var(--spacing-700);
+    }
+
+    .p-timeline {
+        width: min(380px, 100%);
+        margin-inline: auto;
     }
 
     .p-career__cards {
@@ -640,7 +709,7 @@ address {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1060px) {
     .p-career {
         --career-date-width: 76px;
         --career-month-height: 0.85rem;
@@ -664,7 +733,7 @@ address {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .p-career {
         --career-months: 53;
     }
@@ -680,6 +749,12 @@ address {
 
     .p-timeline__item:nth-child(n + 3) {
         --career-lift: 10;
+    }
+}
+
+@media (max-width: 1060px) {
+    .p-career__body {
+        
     }
 }
 

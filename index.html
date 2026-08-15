@@ -20,7 +20,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
 
@@ -45,7 +45,14 @@
 
         <main class="l-main">
             <section class="p-hero">
-                <img class="p-hero__image" src="images/hero-honkawa.webp" alt="本川悠真のポートレート" />
+                <img
+                    class="p-hero__image"
+                    src="images/hero-honkawa.webp"
+                    alt="本川悠真のポートレート"
+                    width="2400"
+                    height="1417"
+                    fetchpriority="high"
+                />
 
                 <div class="p-hero__detail">
                     <div class="p-hero__name">
@@ -54,9 +61,11 @@
                     </div>
 
                     <p class="p-hero__school">
-                        東京デザイン専門学校 グラフィックデザイン科 Web・映像専攻<br />
-                        2027年3月 卒業予定
+                        東京デザイン専門学校<br />
+                        グラフィックデザイン科<br />
+                        Web・映像専攻<br />
                     </p>
+                    <p class="p-hero__school-info">2027年3月 卒業予定</p>
                 </div>
             </section>
 
@@ -64,61 +73,110 @@
                 <h2 class="c-section-title">WORKS</h2>
                 <p class="c-section-subtitle">制作実績</p>
 
-                <ul class="p-work__list">
-                    <li class="p-work__item">
-                        <a class="p-work__media" href="#">
-                            <img
-                                class="p-work__image"
-                                src="images/work_ai-log.webp"
-                                alt="本川悠真のAI運用記録サイト"
-                                loading="lazy"
-                            />
+                <div class="l-inner">
+                    <ul class="p-work__list">
+                        <!-- <li class="p-work__item">
+                            <a class="p-work__media" href="#">
+                                <img
+                                    class="p-work__image"
+                                    src="images/work_ai-log.webp"
+                                    alt="本川悠真のAI運用記録サイト"
+                                    loading="lazy"
+                                />
+    
+                                <div class="p-work__overlay">
+                                    <p class="p-work__title">AI運用記録サイト</p>
+                                    <p class="p-work__text">AIに仕事を任せるために作った仕組みと、実際の作業記録を載せた個人サイト</p>
+                                    <p class="p-work__role">担当：設計・実装</p>
+                                </div>
+                            </a>
+                        </li> -->
 
-                            <div class="p-work__overlay">
-                                <p class="p-work__title">AI運用記録サイト</p>
-                                <p class="p-work__text">個人で公開しているAIの運用を記録しているサイト</p>
-                                <p class="p-work__role">担当：設計・実装</p>
+                        <li class="p-work__item">
+                            <div class="p-work__media">
+                                <img
+                                    class="p-work__image"
+                                    src="images/work_zero-studio.webp"
+                                    alt="ZERO Studioコーポレートサイトのトップページ"
+                                    width="960"
+                                    height="540"
+                                    loading="lazy"
+                                />
                             </div>
-                        </a>
-                    </li>
 
-                    <li class="p-work__item">
-                        <a class="p-work__media" href="#">
-                            <img
-                                class="p-work__image"
-                                src="images/work_zero-studio.webp"
-                                alt="ZERO Studioコーポレートサイトのトップページ"
-                                loading="lazy"
-                            />
-
-                            <div class="p-work__overlay">
-                                <p class="p-work__title">ZERO Studio コーポレートサイト</p>
-                                <p class="p-work__text">香川県にある広告会社「ZERO Studio」のコーポレートサイト</p>
-                                <p class="p-work__role">担当：設計・実装</p>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="p-work__item">
-                        <a class="p-work__media" href="#">
-                            <img
-                                class="p-work__image"
-                                src="images/work_bb-portal.webp"
-                                alt="BBグループの社内ポータルサイト"
-                                loading="lazy"
-                            />
-
-                            <div class="p-work__overlay">
-                                <p class="p-work__title">BBグループ 社内ポータル</p>
-                                <p class="p-work__text">香川県にある「BBグループ」の社内ポータルサイト</p>
-                                <p class="p-work__role">
-                                    担当：要件整理・画面設計・DB設計・実装<br />
-                                    社内向けのため画面・コード非公開
+                            <div class="p-work__detail">
+                                <p class="p-work__detail-label">実務 / 2026年</p>
+                                <h3 class="p-work__detail-title">ZERO Studio 公式サイト</h3>
+                                <p class="p-work__detail-text">
+                                    広告制作と街頭サイネージを行うZERO Studioのサイト。<br />
+                                    サービス、制作実績、広告掲載情報を一つのサイトに整理しました。
                                 </p>
+                                <dl class="p-work__detail-role">
+                                    <div class="p-work__detail-row">
+                                        <dt class="p-work__detail-term">担当</dt>
+                                        <dd class="p-work__detail-desc">要件定義・情報設計・実装</dd>
+                                    </div>
+
+                                    <div class="p-work__detail-row">
+                                        <dt class="p-work__detail-term">使用技術</dt>
+                                        <dd class="p-work__detail-desc">HTML / CSS / JavaScript</dd>
+                                    </div>
+
+                                    <div class="p-work__detail-row">
+                                        <dt class="p-work__detail-term">公開中</dt>
+                                        <dd class="p-work__detail-desc">
+                                            <a
+                                                class="p-work__detail-link"
+                                                href="https://zerostudio.pages.dev"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                >サイトを見る</a
+                                            >
+                                        </dd>
+                                    </div>
+                                </dl>
                             </div>
-                        </a>
-                    </li>
-                </ul>
+                        </li>
+
+                        <li class="p-work__item">
+                            <div class="p-work__media">
+                                <img
+                                    class="p-work__image"
+                                    src="images/work_bb-portal.webp"
+                                    alt="BBグループの社内ポータルサイト"
+                                    width="960"
+                                    height="540"
+                                    loading="lazy"
+                                />
+                            </div>
+
+                            <div class="p-work__detail">
+                                <p class="p-work__detail-label">社内開発 / 2026年</p>
+                                <h3 class="p-work__detail-title">BBグループ 社内ポータル</h3>
+                                <p class="p-work__detail-text">
+                                    7店舗、約100人が使用している社内ポータルサイト。<br />
+                                    社内での共通業務や異なる業務を落とし込み、一元管理できるサイトにしました。
+                                </p>
+                                <dl class="p-work__detail-role">
+                                    <div class="p-work__detail-row">
+                                        <dt class="p-work__detail-term">担当</dt>
+                                        <dd class="p-work__detail-desc">要件定義・画面設計・データベース設計・実装</dd>
+                                    </div>
+
+                                    <div class="p-work__detail-row">
+                                        <dt class="p-work__detail-term">使用技術</dt>
+                                        <dd class="p-work__detail-desc">HTML / CSS / JavaScript / Supabase</dd>
+                                    </div>
+
+                                    <div class="p-work__detail-row">
+                                        <dt class="p-work__detail-term">非公開</dt>
+                                        <dd class="p-work__detail-desc">社内向けのため</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </section>
 
             <section class="p-about l-section" id="about">
@@ -126,9 +184,7 @@
                     <h2 class="c-section-title">ABOUT</h2>
                     <p class="c-section-subtitle">私について</p>
                     <p class="p-about__text">
-                        香川県出身。 高校卒業後は三菱電機に入社し、製造管理の業務を3年半経験しました。
-                        現在の勤務先では、Webサイトを要件整理から実装まで担当しています。
-                        趣味はピアノ・ドラム・ルービックキューブ（6面を50秒で揃えられる程度）です。
+                        香川県出身。三菱電機で3年5か月、製造管理の仕事をしていました。現在は合同会社アルファで業務改善と広報制作をしています。撮影、動画編集、デザイン、Web制作、社内ツールの制作を担当しています。広報チームで分担する案件と、撮影からWeb制作まで一人で担当する案件があります。外部から依頼を受けた制作も担当しています。今の仕事を続けながら、2025年に東京デザイン専門学校へ入学しました。1年次のGPAは3.71です。
                     </p>
                 </div>
             </section>
@@ -139,9 +195,8 @@
                     <p class="c-section-subtitle">スキル</p>
 
                     <p class="p-skills__text">
-                        HTML / CSS / JavaScript / Figma / GitHub <br />
-                        Photoshop / Illustrator / Premiere Pro / After Effects <br />
-                        Claude Code / Codex
+                        Web — HTML / CSS / JavaScript / Git / Figma<br />Design — Photoshop / Lightroom Classic / Illustrator<br />Video
+                        — Premiere Pro / After Effects <br />
                     </p>
                 </div>
             </section>
@@ -199,7 +254,7 @@
 
                                     <div class="p-timeline__body">
                                         <h3 class="p-timeline__title">合同会社アルファ 正社員登用</h3>
-                                        <p class="p-timeline__subtitle">広報部</p>
+                                        <p class="p-timeline__subtitle">DX推進部・広報部</p>
                                     </div>
                                 </li>
 
@@ -257,14 +312,14 @@
                                     <p class="p-career-card__period">2021.04 - 2024.08</p>
                                 </div>
                                 <p class="p-career-card__role">生産システム部 製造管理課</p>
-                                <p class="p-career-card__lead">SDS 10,000枚超と環境管理</p>
+                                <p class="p-career-card__lead">SDSを1万枚以上管理</p>
                                 <p class="p-career-card__text">
-                                    化学物質のSDS（安全データシート）を計10,000枚以上確認し、大気汚染防止法などに基づく排出物の適合確認を3年間担当しました。ISO
-                                    14001では、文書更新と実績集計、内部監査、外部審査対応、環境目標の管理まで、一連の運用を担当しました。廃棄物処理も担当しました。
+                                    化学物質の安全データシート（SDS）を1万枚以上確認し、大気汚染防止法などに沿って排出物をチェックしていました。ISO
+                                    14001では、文書の更新、実績の集計、内部監査、外部審査への対応、環境目標の管理、廃棄物処理を担当しました。
                                 </p>
                                 <p class="p-career-card__lead">1,000種類以上の化学物質を管理</p>
                                 <p class="p-career-card__text">
-                                    数千行のExcelデータで、1,000種類以上の化学物質の在庫と使用状況を管理しました。部署ポータルの記事作成と更新にも携わりました。
+                                    数千行のExcelデータを使い、1,000種類以上の化学物質の在庫と使用状況を管理しました。入社初期には、部署ポータルの記事作成と更新も担当しました。
                                 </p>
                             </article>
 
@@ -274,13 +329,13 @@
                                     <p class="p-career-card__period">2022.08 - 現在</p>
                                 </div>
                                 <p class="p-career-card__role">DX推進部 広報部</p>
-                                <p class="p-career-card__lead">紙の案件管理をNotionへ移行</p>
+                                <p class="p-career-card__lead">紙の案件管理をNotionへ</p>
                                 <p class="p-career-card__text">
-                                    アルバイトとして業務改善に携わり、紙で管理していた案件情報をNotionへ移しました。5名体制で導入し、月約30件の案件管理に3年間使われています。
+                                    紙で管理していた案件情報をNotionへ移しました。5人で使い始め、現在も月約30件の案件管理に使っています。運用は3年続いています。
                                 </p>
                                 <p class="p-career-card__lead">担当領域を広げ、正社員へ</p>
                                 <p class="p-career-card__text">
-                                    撮影、動画編集、デザイン、SNS運用、Web制作へ担当を広げ、2024年10月に正社員へ登用されました。SNS運用では、月間閲覧数を2か月で約2万から約10万へ伸ばしました。
+                                    2022年にアルバイトとして入社し、2024年10月に正社員になりました。現在はDX推進部と広報部に所属し、撮影、動画編集、デザイン、SNS運用、Web制作を担当しています。SNSの月間閲覧数は、2か月で約2万から約10万に伸びました。
                                 </p>
                             </article>
 
@@ -292,11 +347,11 @@
                                 <p class="p-career-card__role">ショート動画 専属編集者</p>
                                 <p class="p-career-card__lead">月約20本を1年2か月継続</p>
                                 <p class="p-career-card__text">
-                                    Premiere ProとAfter Effectsを使用し、ショート動画を月約20本、1年2か月にわたり納品しました。
+                                    Premiere ProとAfter Effectsを使い、ショート動画を月約20本、1年2か月にわたって納品しました。
                                 </p>
-                                <p class="p-career-card__lead">担当動画の累計2,000万回再生</p>
+                                <p class="p-career-card__lead">担当動画は累計2,000万回再生</p>
                                 <p class="p-career-card__text">
-                                    登録者30万人のチャンネルで、専属の編集担当を務めました。自分が編集した動画だけで、累計再生数は2,000万回を超えています。
+                                    登録者30万人のチャンネルで専属編集を担当しました。担当した動画の合計再生数は2,000万回を超えています。
                                 </p>
                             </article>
 
@@ -306,13 +361,13 @@
                                     <p class="p-career-card__period">2025.04 - 現在</p>
                                 </div>
                                 <p class="p-career-card__role">グラフィックデザイン科 Web・映像専攻</p>
-                                <p class="p-career-card__lead">デザインの基礎をWeb制作へ</p>
+                                <p class="p-career-card__lead">デザインとコーディング</p>
                                 <p class="p-career-card__text">
-                                    1年次はレイアウト、配色、タイポグラフィなど、デザインの基礎を学びました。2年次からはWeb・映像専攻に進み、HTML、CSS、JavaScriptによるWeb制作に取り組んでいます。デザインとコーディングの両方から画面を考えています。
+                                    1年次はレイアウト、配色、タイポグラフィなど、デザインの基礎を学びました。2年次からはWeb・映像専攻でHTML、CSS、JavaScriptを学んでいます。
                                 </p>
-                                <p class="p-career-card__lead">GPA 3.71、出席率98%</p>
+                                <p class="p-career-card__lead">GPA 3.71／校友会奨学金</p>
                                 <p class="p-career-card__text">
-                                    1年次のGPAは3.71、出席率は98%です。書類選考と面接を通過し、卒業生約300人中3人が選ばれる12万円の校友会奨学金に採用されました。
+                                    1年次のGPAは3.71です。成績審査と面接を経て、卒業生約300人から3人が選ばれる校友会奨学金の奨学生になりました。
                                 </p>
                             </article>
                         </div>
