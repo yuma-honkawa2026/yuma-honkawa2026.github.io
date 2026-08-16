@@ -136,17 +136,30 @@ if (workResultReveals.length && "IntersectionObserver" in window && !reducedMoti
 
 const activityImages = document.querySelectorAll(".p-activities__image");
 const activityCaptions = document.querySelectorAll(".p-activities__caption-text");
+const activityDots = document.querySelectorAll(".p-activities__dot");
 
 if (activityImages.length > 1) {
     let activityIndex = 0;
+    let activityTimer;
 
-    setInterval(() => {
+    const showActivity = (next) => {
         activityImages[activityIndex].classList.remove("is-active");
         activityCaptions[activityIndex]?.classList.remove("is-active");
+        activityDots[activityIndex]?.classList.remove("is-active");
 
-        activityIndex = (activityIndex + 1) % activityImages.length;
+        activityIndex = (next + activityImages.length) % activityImages.length;
 
         activityImages[activityIndex].classList.add("is-active");
         activityCaptions[activityIndex]?.classList.add("is-active");
-    }, 6000);
+        activityDots[activityIndex]?.classList.add("is-active");
+
+        clearInterval(activityTimer);
+        activityTimer = setInterval(() => showActivity(activityIndex + 1), 6000);
+    };
+
+    showActivity(0);
+
+    activityDots.forEach((dot, index) => {
+        dot.addEventListener("click", () => showActivity(index));
+    });
 }

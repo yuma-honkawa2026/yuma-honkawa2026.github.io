@@ -853,6 +853,32 @@ button:focus-visible {
     opacity: 1;
 }
 
+.p-activities__dots {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    gap: var(--spacing-200);
+}
+
+.p-activities__dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent-accent);
+    opacity: 0.22;
+    cursor: pointer;
+    transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.p-activities__dot.is-active,
+.p-activities__dot:hover {
+    opacity: 1;
+}
+
 .p-activities__row {
     display: grid;
     grid-template-columns: 10.5rem minmax(0, 1fr);
