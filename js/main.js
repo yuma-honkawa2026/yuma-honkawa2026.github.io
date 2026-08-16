@@ -1,3 +1,29 @@
+const header = document.querySelector(".l-header");
+const navButton = document.querySelector(".p-gnav__button");
+
+const closeNav = () => {
+    header.classList.remove("is-open");
+    navButton.setAttribute("aria-expanded", "false");
+    navButton.setAttribute("aria-label", "メニューを開く");
+    document.body.style.overflow = "";
+};
+
+navButton.addEventListener("click", () => {
+    if (header.classList.contains("is-open")) {
+        closeNav();
+        return;
+    }
+
+    header.classList.add("is-open");
+    navButton.setAttribute("aria-expanded", "true");
+    navButton.setAttribute("aria-label", "メニューを閉じる");
+    document.body.style.overflow = "hidden";
+});
+
+document.querySelectorAll(".p-gnav__link").forEach((link) => {
+    link.addEventListener("click", closeNav);
+});
+
 document.querySelectorAll(".p-career-card[data-org]").forEach((card) => {
     if (!window.matchMedia("(hover: hover)").matches) return;
 
@@ -25,7 +51,8 @@ careerToggles.forEach((button) => {
 
     button.setAttribute("aria-label", title + "の詳細を見る");
 
-    button.addEventListener("click", () => {
+    // カードのどこを押しても開閉する。ボタンもカードの中なのでこれで拾える
+    card.addEventListener("click", () => {
         const willOpen = button.getAttribute("aria-expanded") !== "true";
 
         careerToggles.forEach((otherButton) => {
@@ -49,3 +76,77 @@ careerToggles.forEach((button) => {
         button.textContent = "詳細を閉じる";
     });
 });
+
+const darkSections = document.querySelectorAll(".p-about, .p-skills, .l-footer");
+
+const updateHeaderTone = () => {
+    if (!header) return;
+
+    const line = header.offsetHeight / 2;
+
+    const isDark = [...darkSections].some((section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= line && rect.bottom >= line;
+    });
+
+    document.body.classList.toggle("is-header-dark", isDark);
+};
+
+let toneTicking = false;
+
+const requestHeaderTone = () => {
+    if (toneTicking) return;
+
+    toneTicking = true;
+
+    requestAnimationFrame(() => {
+        updateHeaderTone();
+        toneTicking = false;
+    });
+};
+
+updateHeaderTone();
+window.addEventListener("scroll", requestHeaderTone, { passive: true });
+window.addEventListener("resize", requestHeaderTone);
+
+const workResultReveals = document.querySelectorAll("[data-result-reveal]");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+if (workResultReveals.length && "IntersectionObserver" in window && !reducedMotion.matches) {
+    const workResultObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add("is-revealed");
+                workResultObserver.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.35,
+            rootMargin: "0px 0px -10% 0px",
+        }
+    );
+
+    workResultReveals.forEach((result) => {
+        result.classList.add("is-reveal-ready");
+        workResultObserver.observe(result);
+    });
+}
+
+const activityImages = document.querySelectorAll(".p-activities__image");
+const activityCaptions = document.querySelectorAll(".p-activities__caption-text");
+
+if (activityImages.length > 1) {
+    let activityIndex = 0;
+
+    setInterval(() => {
+        activityImages[activityIndex].classList.remove("is-active");
+        activityCaptions[activityIndex]?.classList.remove("is-active");
+
+        activityIndex = (activityIndex + 1) % activityImages.length;
+
+        activityImages[activityIndex].classList.add("is-active");
+        activityCaptions[activityIndex]?.classList.add("is-active");
+    }, 6000);
+}
