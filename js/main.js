@@ -14,3 +14,38 @@ document.querySelectorAll(".p-career-card[data-org]").forEach((card) => {
         targets.forEach((el) => el.classList.remove("is-active"));
     });
 });
+
+const careerToggles = document.querySelectorAll("[data-career-toggle]");
+
+careerToggles.forEach((button) => {
+    const card = button.closest(".p-career-card");
+    const title = card?.querySelector(".p-career-card__title")?.textContent.trim();
+
+    if (!card || !title) return;
+
+    button.setAttribute("aria-label", title + "の詳細を見る");
+
+    button.addEventListener("click", () => {
+        const willOpen = button.getAttribute("aria-expanded") !== "true";
+
+        careerToggles.forEach((otherButton) => {
+            const otherCard = otherButton.closest(".p-career-card");
+            const otherTitle = otherCard?.querySelector(".p-career-card__title")?.textContent.trim();
+
+            otherCard?.classList.remove("is-expanded");
+            otherButton.setAttribute("aria-expanded", "false");
+            otherButton.textContent = "詳細を見る";
+
+            if (otherTitle) {
+                otherButton.setAttribute("aria-label", otherTitle + "の詳細を見る");
+            }
+        });
+
+        if (!willOpen) return;
+
+        card.classList.add("is-expanded");
+        button.setAttribute("aria-expanded", "true");
+        button.setAttribute("aria-label", title + "の詳細を閉じる");
+        button.textContent = "詳細を閉じる";
+    });
+});
