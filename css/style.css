@@ -107,7 +107,15 @@
     Foundation
 ============================== */
 html {
-    scroll-behavior: smooth; /* ページ内スクロール時にスムーズに移動 */
+    /* JavaScriptが動く時は js/main.js の自前スクロールが使われる。ここは効かない時の受け皿 */
+    scroll-behavior: smooth;
+}
+
+/* 動きを減らす設定にしている人には、滑らせず即座に移す */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 body {
@@ -191,6 +199,18 @@ body.is-header-dark .l-header:not(.is-open) {
     scroll-margin-top: 80px;
 }
 
+@media (max-width: 768px) {
+    /* スマホのナビは画面下のタブバーが持つので、ヘッダーは固定しない */
+    .l-header {
+        position: static;
+    }
+
+    /* 固定ヘッダーが無くなった分、区画へ飛んだ時に上へ空ける量も減らす */
+    .l-section {
+        scroll-margin-top: var(--spacing-400);
+    }
+}
+
 /* ==============================
     共通
 ============================== */
@@ -270,11 +290,14 @@ body.is-header-dark .l-header:not(.is-open) {
     transition: background-size var(--duration-base) var(--ease-out);
 }
 
-.p-gnav__link:hover,
-.p-fnav__link:hover,
-.p-contact__mail:hover,
-.p-contact__github:hover {
-    background-size: 100% 1px;
+/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
+@media (hover: hover) {
+    .p-gnav__link:hover,
+    .p-fnav__link:hover,
+    .p-contact__mail:hover,
+    .p-contact__github:hover {
+        background-size: 100% 1px;
+    }
 }
 
 a:focus-visible,
@@ -448,8 +471,11 @@ button:focus-visible {
     transition: transform 0.6s var(--ease-out);
 }
 
-.p-work__media--link:hover .p-work__image {
-    transform: scale(1.04);
+/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
+@media (hover: hover) {
+    .p-work__media--link:hover .p-work__image {
+        transform: scale(1.04);
+    }
 }
 
 .p-work__detail-title-link {
@@ -461,9 +487,12 @@ button:focus-visible {
     transition: background-size var(--duration-base) var(--ease-out);
 }
 
-.p-work__item:hover .p-work__detail-title-link,
-.p-work__detail-title-link:hover {
-    background-size: 100% 1px;
+/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
+@media (hover: hover) {
+    .p-work__item:hover .p-work__detail-title-link,
+    .p-work__detail-title-link:hover {
+        background-size: 100% 1px;
+    }
 }
 
 .p-work__detail {
@@ -498,8 +527,9 @@ button:focus-visible {
     font-size: var(--font-size-400);
     font-weight: 600;
     letter-spacing: var(--letter-spacing-100);
-    line-height: 1;
+    line-height: 1.4;
     text-wrap: balance;
+    overflow-wrap: anywhere;
     color: var(--color-on-accent);
 }
 
@@ -595,8 +625,11 @@ button:focus-visible {
     transition: transform 0.25s var(--ease-out);
 }
 
-.p-work__detail-link:hover::after {
-    transform: translate(3px, -3px);
+/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
+@media (hover: hover) {
+    .p-work__detail-link:hover::after {
+        transform: translate(3px, -3px);
+    }
 }
 
 @media (max-width: 480px) {
@@ -605,7 +638,24 @@ button:focus-visible {
     }
 
     .p-work__detail-result {
+        padding: var(--spacing-300);
         font-size: var(--font-size-300);
+        line-height: 1.45;
+        text-wrap: pretty;
+    }
+
+    /* 狭い幅では帯の展開中に白文字だけが先へ出るので、最初から完成形を見せる */
+    .p-work__detail-result.is-reveal-ready::before,
+    .p-work__detail-result.is-reveal-ready.is-revealed::before {
+        transform: scaleX(1);
+        transition: none;
+    }
+
+    .p-work__detail-result.is-reveal-ready .p-work__detail-result-text,
+    .p-work__detail-result.is-reveal-ready.is-revealed .p-work__detail-result-text {
+        opacity: 1;
+        transform: translateX(0);
+        transition: none;
     }
 
     .p-work__detail-row {
@@ -749,13 +799,21 @@ button:focus-visible {
 }
 
 .p-activities__caption {
-    position: relative;
-    min-height: 1.8em;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--spacing-300);
+    align-items: center;
     margin-top: var(--spacing-300);
     font-size: var(--font-size-100);
     line-height: 1.8;
     letter-spacing: var(--letter-spacing-100);
     color: var(--color-text-sub);
+}
+
+.p-activities__caption-copy {
+    position: relative;
+    min-width: 0;
+    min-height: 1.8em;
 }
 
 .p-activities__caption-text {
@@ -769,30 +827,48 @@ button:focus-visible {
     opacity: 1;
 }
 
-.p-activities__dots {
-    position: absolute;
-    top: 4px;
-    right: 0;
-    z-index: 1;
+.p-activities__controls {
     display: flex;
-    gap: var(--spacing-200);
+    align-items: center;
+    gap: var(--spacing-100);
 }
 
-.p-activities__dot {
-    width: 7px;
-    height: 7px;
+.p-activities__control {
+    display: grid;
+    width: 44px;
+    height: 44px;
     padding: 0;
-    border: 0;
+    place-items: center;
+    border: 1px solid var(--border-on-light);
     border-radius: var(--radius-full);
-    background-color: var(--color-accent-accent);
-    opacity: 0.22;
+    background-color: transparent;
+    color: var(--color-text-main);
     cursor: pointer;
-    transition: opacity var(--duration-base) var(--ease-out);
+    transition:
+        background-color var(--duration-base) var(--ease-out),
+        color var(--duration-base) var(--ease-out);
 }
 
-.p-activities__dot.is-active,
-.p-activities__dot:hover {
-    opacity: 1;
+.p-activities__counter {
+    min-width: 2.75rem;
+    text-align: center;
+    font-family: var(--font-family-en);
+    font-variant-numeric: tabular-nums;
+}
+
+/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
+@media (hover: hover) {
+    .p-activities__control:hover {
+        background-color: var(--color-accent-accent);
+        color: var(--color-on-accent);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .p-activities__image,
+    .p-activities__caption-text {
+        transition: none;
+    }
 }
 
 .p-activities__row {
@@ -1082,9 +1158,12 @@ button:focus-visible {
         box-shadow var(--duration-base) var(--ease-out);
 }
 
-.p-career-card:hover {
-    background-color: var(--career-card-bg-hover);
-    box-shadow: var(--shadow-200);
+/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
+@media (hover: hover) {
+    .p-career-card:hover {
+        background-color: var(--career-card-bg-hover);
+        box-shadow: var(--shadow-200);
+    }
 }
 
 .p-career-card.is-expanded {
@@ -1135,14 +1214,17 @@ button:focus-visible {
 
 .p-career-card__lead {
     font-size: var(--font-size-400);
-    font-weight: 400;
-    line-height: 2;
+    font-weight: 600;
+    line-height: 1.5;
     letter-spacing: var(--letter-spacing-300);
     color: var(--color-text-main);
+    margin-top: var(--spacing-400);
+    padding-left: var(--spacing-300);
+    border-left: 3px solid var(--color-accent-accent);
 }
 
 .p-career-card__text + .p-career-card__lead {
-    margin-top: var(--spacing-200);
+    margin-top: var(--spacing-500);
 }
 
 .p-career-card__text {
@@ -1198,11 +1280,6 @@ button:focus-visible {
 
     .p-career-card {
         flex: none;
-    }
-
-    .p-career-card:hover {
-        background-color: var(--career-card-bg);
-        box-shadow: var(--shadow-100);
     }
 }
 
@@ -1279,9 +1356,12 @@ button:focus-visible {
     height: 15px;
 }
 
-.p-contact__head-link:hover .p-contact__arrow {
-    background-color: var(--color-on-accent);
-    color: var(--color-accent-accent);
+/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
+@media (hover: hover) {
+    .p-contact__head-link:hover .p-contact__arrow {
+        background-color: var(--color-on-accent);
+        color: var(--color-accent-accent);
+    }
 }
 
 .p-contact__wrap {
@@ -1350,8 +1430,11 @@ button:focus-visible {
     border-top: 1px solid var(--border-on-accent);
 }
 
-.p-fnav__link:hover {
-    padding-inline-start: var(--spacing-300);
+/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
+@media (hover: hover) {
+    .p-fnav__link:hover {
+        padding-inline-start: var(--spacing-300);
+    }
 }
 
 .p-fnav__mark {
@@ -1372,10 +1455,13 @@ button:focus-visible {
     height: 10px;
 }
 
-.p-fnav__link:hover .p-fnav__mark {
-    background-color: var(--color-on-accent);
-    border-color: var(--color-on-accent);
-    color: var(--color-accent-accent);
+/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
+@media (hover: hover) {
+    .p-fnav__link:hover .p-fnav__mark {
+        background-color: var(--color-on-accent);
+        border-color: var(--color-on-accent);
+        color: var(--color-accent-accent);
+    }
 }
 
 .l-footer__copy {
@@ -1456,7 +1542,8 @@ button:focus-visible {
         position: fixed;
         left: 12px;
         right: 12px;
-        bottom: 9px;
+        /* iPhone下端のホームバーへ潜り込ませない */
+        bottom: calc(9px + env(safe-area-inset-bottom, 0px));
         height: 60px;
         display: flex;
         align-items: center;
@@ -1480,7 +1567,22 @@ button:focus-visible {
         font-size: 10px;
         letter-spacing: var(--letter-spacing-100);
         color: rgba(0, 0, 0, 0.48);
-        transition: color var(--duration-base) var(--ease-out);
+        /* タップした時にiOSが出す灰色の四角を消す */
+        -webkit-tap-highlight-color: transparent;
+        transition:
+            color var(--duration-base) var(--ease-out),
+            transform 0.18s var(--ease-out);
+    }
+
+    /* 押している間だけ少し縮めて、触った手応えを返す */
+    .p-tabbar__item:active {
+        transform: scale(0.92);
+    }
+
+    .p-tabbar__item:focus-visible {
+        outline: 2px solid var(--color-accent-accent);
+        outline-offset: 2px;
+        border-radius: var(--radius-200);
     }
 
     .p-tabbar__item.is-current {
@@ -1489,6 +1591,6 @@ button:focus-visible {
 
     /* タブバーが footer の下端にかぶるので、その分だけ足す */
     .l-footer {
-        padding-bottom: calc(60px + 9px + var(--spacing-400));
+        padding-bottom: calc(60px + 9px + var(--spacing-400) + env(safe-area-inset-bottom, 0px));
     }
 }

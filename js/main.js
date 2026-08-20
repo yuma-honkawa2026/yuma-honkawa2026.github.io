@@ -111,33 +111,75 @@ if (workResultReveals.length && "IntersectionObserver" in window && !reducedMoti
 
 const activityImages = document.querySelectorAll(".p-activities__image");
 const activityCaptions = document.querySelectorAll(".p-activities__caption-text");
-const activityDots = document.querySelectorAll(".p-activities__dot");
+const activityPrev = document.querySelector("[data-activity-prev]");
+const activityNext = document.querySelector("[data-activity-next]");
+const activityCounter = document.querySelector("[data-activity-counter]");
 
 if (activityImages.length > 1) {
     let activityIndex = 0;
-    let activityTimer;
 
     const showActivity = (next) => {
         activityImages[activityIndex].classList.remove("is-active");
+        activityImages[activityIndex].setAttribute("aria-hidden", "true");
         activityCaptions[activityIndex]?.classList.remove("is-active");
-        activityDots[activityIndex]?.classList.remove("is-active");
+        activityCaptions[activityIndex]?.setAttribute("aria-hidden", "true");
 
         activityIndex = (next + activityImages.length) % activityImages.length;
 
         activityImages[activityIndex].classList.add("is-active");
+        activityImages[activityIndex].setAttribute("aria-hidden", "false");
         activityCaptions[activityIndex]?.classList.add("is-active");
-        activityDots[activityIndex]?.classList.add("is-active");
+        activityCaptions[activityIndex]?.setAttribute("aria-hidden", "false");
 
-        clearInterval(activityTimer);
-        activityTimer = setInterval(() => showActivity(activityIndex + 1), 6000);
+        if (activityCounter) {
+            activityCounter.textContent = `${activityIndex + 1} / ${activityImages.length}`;
+        }
     };
 
     showActivity(0);
-
-    activityDots.forEach((dot, index) => {
-        dot.addEventListener("click", () => showActivity(index));
-    });
+    activityPrev?.addEventListener("click", () => showActivity(activityIndex - 1));
+    activityNext?.addEventListener("click", () => showActivity(activityIndex + 1));
 }
+
+// ページ内リンクを自前で動かす。ブラウザ標準の smooth より長く、終わり際を緩める
+let markCurrent = () => {};
+const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+let scrollFrame = 0;
+let isProgrammaticScroll = false;
+
+const scrollToTarget = (target) => {
+    const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+    const start = window.scrollY;
+    const limit = document.documentElement.scrollHeight - window.innerHeight;
+    const end = Math.max(0, Math.min(target.getBoundingClientRect().top + start - margin, limit));
+    const distance = end - start;
+
+    if (!distance) return;
+
+    // 近い時に間延びせず、遠い時に速すぎないよう、距離から時間を出して上下で挟む
+    const duration = Math.min(1100, Math.max(480, Math.abs(distance) * 0.55));
+    const began = performance.now();
+
+    cancelAnimationFrame(scrollFrame);
+    isProgrammaticScroll = true;
+
+    const step = (now) => {
+        const progress = Math.min(1, (now - began) / duration);
+
+        // behavior: instant を付けないと CSS の scroll-behavior と競合して跳ねる
+        window.scrollTo({ top: start + distance * easeInOutCubic(progress), behavior: "instant" });
+
+        if (progress < 1) {
+            scrollFrame = requestAnimationFrame(step);
+            return;
+        }
+
+        isProgrammaticScroll = false;
+    };
+
+    scrollFrame = requestAnimationFrame(step);
+};
 
 // 画面下のタブバー。いま画面の中央にある区画を選択中にする
 const tabbarLinks = document.querySelectorAll("[data-tabbar-link]");
@@ -147,7 +189,7 @@ if (tabbarLinks.length && "IntersectionObserver" in window) {
         .map((link) => document.getElementById(link.dataset.tabbarLink))
         .filter(Boolean);
 
-    const markCurrent = (id) => {
+    markCurrent = (id) => {
         tabbarLinks.forEach((link) => {
             link.classList.toggle("is-current", link.dataset.tabbarLink === id);
         });
@@ -155,6 +197,9 @@ if (tabbarLinks.length && "IntersectionObserver" in window) {
 
     const tabbarObserver = new IntersectionObserver(
         (entries) => {
+            // 自前スクロールの途中は、通り過ぎた区画で選択が点滅するので見ない
+            if (isProgrammaticScroll) return;
+
             const visible = entries
                 .filter((entry) => entry.isIntersecting)
                 .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -167,3 +212,22 @@ if (tabbarLinks.length && "IntersectionObserver" in window) {
     sections.forEach((section) => tabbarObserver.observe(section));
     markCurrent("works");
 }
+
+// ヘッダーとタブバーのページ内リンク
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+        const id = link.getAttribute("href").slice(1);
+        const target = document.getElementById(id);
+
+        // 動きを減らす設定の人には、標準の飛び方をそのまま使ってもらう
+        if (!target || reducedMotion.matches) return;
+
+        event.preventDefault();
+
+        // 到着を待たずに先へ点ける。押した反応が遅れて見えるのを防ぐ
+        if (link.dataset.tabbarLink) markCurrent(link.dataset.tabbarLink);
+
+        scrollToTarget(target);
+        history.replaceState(null, "", "#" + id);
+    });
+});

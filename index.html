@@ -226,6 +226,7 @@
                                     class="p-activities__image is-active"
                                     src="images/activities.jpg"
                                     alt="音楽同好会の部員と撮影した集合写真"
+                                    aria-hidden="false"
                                     width="3932"
                                     height="2432"
                                     loading="lazy"
@@ -235,6 +236,7 @@
                                     class="p-activities__image"
                                     src="images/festival.jpg"
                                     alt="文化祭実行委員会で教員へ企画を説明している様子"
+                                    aria-hidden="true"
                                     width="1400"
                                     height="874"
                                     loading="lazy"
@@ -243,19 +245,18 @@
                             </div>
 
                             <figcaption class="p-activities__caption">
-                                <span class="p-activities__caption-text is-active">音楽同好会（部員25名）</span>
-                                <span class="p-activities__caption-text">文化祭実行委員会 教員へのプレゼン</span>
-                                <span class="p-activities__dots">
-                                    <button
-                                        class="p-activities__dot is-active"
-                                        type="button"
-                                        aria-label="音楽同好会の写真を見る"
-                                    ></button>
-                                    <button
-                                        class="p-activities__dot"
-                                        type="button"
-                                        aria-label="文化祭実行委員会の写真を見る"
-                                    ></button>
+                                <span class="p-activities__caption-copy">
+                                    <span class="p-activities__caption-text is-active" aria-hidden="false">音楽同好会（部員25名）</span>
+                                    <span class="p-activities__caption-text" aria-hidden="true">文化祭実行委員会 教員へのプレゼン</span>
+                                </span>
+                                <span class="p-activities__controls">
+                                    <button class="p-activities__control" type="button" data-activity-prev aria-label="前の写真を見る">
+                                        <span aria-hidden="true">←</span>
+                                    </button>
+                                    <span class="p-activities__counter" data-activity-counter aria-live="polite">1 / 2</span>
+                                    <button class="p-activities__control" type="button" data-activity-next aria-label="次の写真を見る">
+                                        <span aria-hidden="true">→</span>
+                                    </button>
                                 </span>
                             </figcaption>
                         </figure>
