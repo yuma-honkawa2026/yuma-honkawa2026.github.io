@@ -35,18 +35,6 @@
             <nav class="p-gnav" aria-label="グローバルナビゲーション">
                 <a class="l-header__logo" href="/">YUMA HONKAWA</a>
 
-                <button
-                    class="p-gnav__button"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="gnav-list"
-                    aria-label="メニューを開く"
-                >
-                    <span class="p-gnav__bar" aria-hidden="true"></span>
-                    <span class="p-gnav__bar" aria-hidden="true"></span>
-                    <span class="p-gnav__bar" aria-hidden="true"></span>
-                </button>
-
                 <ul class="p-gnav__list" id="gnav-list">
                     <li class="p-gnav__item"><a class="p-gnav__link" href="#works">Works</a></li>
                     <li class="p-gnav__item"><a class="p-gnav__link" href="#about">About</a></li>
@@ -678,5 +666,71 @@
                 </div>
             </div>
         </footer>
+        <nav class="p-tabbar" aria-label="セクションナビゲーション">
+            <a class="p-tabbar__item" href="#works" data-tabbar-link="works">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M3 7h18v12H3zM8 7V5h8v2" />
+                </svg>
+                <span>制作物</span>
+            </a>
+            <a class="p-tabbar__item" href="#about" data-tabbar-link="about">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 20a8 8 0 0 1 16 0" />
+                </svg>
+                <span>自己紹介</span>
+            </a>
+            <a class="p-tabbar__item" href="#career" data-tabbar-link="career">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M4 19V5m0 14h16M8 15V9m4 6V7m4 8v-4" />
+                </svg>
+                <span>経歴</span>
+            </a>
+            <a class="p-tabbar__item" href="#contact" data-tabbar-link="contact">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M3 6h18v12H3zM3 7l9 6 9-6" />
+                </svg>
+                <span>連絡先</span>
+            </a>
+        </nav>
     </body>
 </html>

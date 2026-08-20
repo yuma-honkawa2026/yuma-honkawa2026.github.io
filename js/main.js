@@ -1,29 +1,4 @@
 const header = document.querySelector(".l-header");
-const navButton = document.querySelector(".p-gnav__button");
-
-const closeNav = () => {
-    header.classList.remove("is-open");
-    navButton.setAttribute("aria-expanded", "false");
-    navButton.setAttribute("aria-label", "メニューを開く");
-    document.body.style.overflow = "";
-};
-
-navButton.addEventListener("click", () => {
-    if (header.classList.contains("is-open")) {
-        closeNav();
-        return;
-    }
-
-    header.classList.add("is-open");
-    navButton.setAttribute("aria-expanded", "true");
-    navButton.setAttribute("aria-label", "メニューを閉じる");
-    document.body.style.overflow = "hidden";
-});
-
-document.querySelectorAll(".p-gnav__link").forEach((link) => {
-    link.addEventListener("click", closeNav);
-});
-
 document.querySelectorAll(".p-career-card[data-org]").forEach((card) => {
     if (!window.matchMedia("(hover: hover)").matches) return;
 
@@ -162,4 +137,33 @@ if (activityImages.length > 1) {
     activityDots.forEach((dot, index) => {
         dot.addEventListener("click", () => showActivity(index));
     });
+}
+
+// 画面下のタブバー。いま画面の中央にある区画を選択中にする
+const tabbarLinks = document.querySelectorAll("[data-tabbar-link]");
+
+if (tabbarLinks.length && "IntersectionObserver" in window) {
+    const sections = [...tabbarLinks]
+        .map((link) => document.getElementById(link.dataset.tabbarLink))
+        .filter(Boolean);
+
+    const markCurrent = (id) => {
+        tabbarLinks.forEach((link) => {
+            link.classList.toggle("is-current", link.dataset.tabbarLink === id);
+        });
+    };
+
+    const tabbarObserver = new IntersectionObserver(
+        (entries) => {
+            const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (visible) markCurrent(visible.target.id);
+        },
+        { rootMargin: "-45% 0px -45% 0px" }
+    );
+
+    sections.forEach((section) => tabbarObserver.observe(section));
+    markCurrent("works");
 }
