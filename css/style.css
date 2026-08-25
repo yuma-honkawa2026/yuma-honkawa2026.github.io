@@ -785,24 +785,13 @@ button:focus-visible {
 }
 
 .p-activities__image {
-    position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.2s var(--ease-out);
-}
-
-.p-activities__image.is-active {
-    opacity: 1;
+    display: block;
 }
 
 .p-activities__caption {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: var(--spacing-300);
-    align-items: center;
     margin-top: var(--spacing-300);
     font-size: var(--font-size-100);
     line-height: 1.8;
@@ -810,72 +799,11 @@ button:focus-visible {
     color: var(--color-text-sub);
 }
 
-.p-activities__caption-copy {
-    position: relative;
-    min-width: 0;
-    min-height: 1.8em;
-}
-
-.p-activities__caption-text {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1.2s var(--ease-out);
-}
-
-.p-activities__caption-text.is-active {
-    opacity: 1;
-}
-
-.p-activities__controls {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-100);
-}
-
-.p-activities__control {
-    display: grid;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    place-items: center;
-    border: 1px solid var(--border-on-light);
-    border-radius: var(--radius-full);
-    background-color: transparent;
-    color: var(--color-text-main);
-    cursor: pointer;
-    transition:
-        background-color var(--duration-base) var(--ease-out),
-        color var(--duration-base) var(--ease-out);
-}
-
-.p-activities__counter {
-    min-width: 2.75rem;
-    text-align: center;
-    font-family: var(--font-family-en);
-    font-variant-numeric: tabular-nums;
-}
-
-/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
-@media (hover: hover) {
-    .p-activities__control:hover {
-        background-color: var(--color-accent-accent);
-        color: var(--color-on-accent);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .p-activities__image,
-    .p-activities__caption-text {
-        transition: none;
-    }
-}
-
 .p-activities__row {
     display: grid;
     grid-template-columns: 10.5rem minmax(0, 1fr);
     gap: var(--spacing-400);
-    align-items: baseline;
+    align-items: start;
     padding-block: var(--spacing-300);
     border-top: 1px solid var(--border-on-light-weak);
 }
@@ -890,8 +818,14 @@ button:focus-visible {
     color: var(--color-text-sub);
 }
 
-.p-activities__role {
+.p-activities__roles {
+    display: grid;
+    gap: var(--spacing-200);
     margin: 0;
+}
+
+.p-activities__role {
+    display: block;
     font-size: var(--font-size-200);
     font-weight: 500;
     letter-spacing: var(--letter-spacing-100);
@@ -955,10 +889,13 @@ button:focus-visible {
 
 .p-skills__category {
     font-size: var(--font-size-200);
-    font-family: var(--font-family-en);
     font-weight: 700;
-    letter-spacing: var(--letter-spacing-400);
+    letter-spacing: var(--letter-spacing-200);
     color: var(--color-on-accent-sub);
+}
+
+.p-skills__content {
+    margin: 0;
 }
 
 .p-skills__items {
@@ -971,6 +908,15 @@ button:focus-visible {
     font-weight: 500;
     letter-spacing: var(--letter-spacing-100);
     line-height: 1.7;
+}
+
+.p-skills__description {
+    display: block;
+    margin-top: var(--spacing-200);
+    font-size: var(--font-size-100);
+    line-height: 1.8;
+    letter-spacing: var(--letter-spacing-100);
+    color: var(--color-on-accent-sub);
 }
 
 .p-skills__item {
@@ -1587,6 +1533,20 @@ button:focus-visible {
 
     .p-tabbar__item.is-current {
         color: rgba(0, 0, 0, 0.88);
+    }
+
+    /* ヒーローの名前と学校にバーが重なるので、読み終わるまで伏せておく。
+       クラスは JS が付ける。JS が動かない時は今までどおり最初から出す */
+    .is-hero-top .p-tabbar {
+        opacity: 0;
+        transform: translateY(12px);
+        pointer-events: none;
+    }
+
+    .p-tabbar {
+        transition:
+            opacity var(--duration-base) var(--ease-out),
+            transform var(--duration-base) var(--ease-out);
     }
 
     /* タブバーが footer の下端にかぶるので、その分だけ足す */

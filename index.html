@@ -6,6 +6,10 @@
         <title>本川悠真のPortfolio-Site</title>
         <meta name="description" content="東京デザイン専門学校2027卒、本川悠真のPortfolioです。" />
 
+        <!-- ファビコン -->
+        <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
         <!-- OGP（SNSシェア用） -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yuma-honkawa2026.github.io/" />
@@ -21,7 +25,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
 
@@ -223,73 +227,35 @@
                         <figure class="p-activities__figure">
                             <div class="p-activities__media">
                                 <img
-                                    class="p-activities__image is-active"
-                                    src="images/activities.jpg"
+                                    class="p-activities__image"
+                                    src="images/activities.webp"
                                     alt="音楽同好会の部員と撮影した集合写真"
-                                    aria-hidden="false"
                                     width="3932"
                                     height="2432"
                                     loading="lazy"
                                     decoding="async"
                                 />
-                                <img
-                                    class="p-activities__image"
-                                    src="images/festival.jpg"
-                                    alt="文化祭実行委員会で教員へ企画を説明している様子"
-                                    aria-hidden="true"
-                                    width="1400"
-                                    height="874"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
                             </div>
-
-                            <figcaption class="p-activities__caption">
-                                <span class="p-activities__caption-copy">
-                                    <span class="p-activities__caption-text is-active" aria-hidden="false">音楽同好会（部員25名）</span>
-                                    <span class="p-activities__caption-text" aria-hidden="true">文化祭実行委員会 教員へのプレゼン</span>
-                                </span>
-                                <span class="p-activities__controls">
-                                    <button class="p-activities__control" type="button" data-activity-prev aria-label="前の写真を見る">
-                                        <span aria-hidden="true">←</span>
-                                    </button>
-                                    <span class="p-activities__counter" data-activity-counter aria-live="polite">1 / 2</span>
-                                    <button class="p-activities__control" type="button" data-activity-next aria-label="次の写真を見る">
-                                        <span aria-hidden="true">→</span>
-                                    </button>
-                                </span>
-                            </figcaption>
+                            <figcaption class="p-activities__caption">音楽同好会 / 部員25名</figcaption>
                         </figure>
 
                         <dl class="p-activities__list">
                             <div class="p-activities__row">
                                 <dt class="p-activities__org">坂出工業高校</dt>
-                                <dd class="p-activities__role">生徒会長</dd>
-                            </div>
-
-                            <div class="p-activities__row">
-                                <dt class="p-activities__org">坂出工業高校</dt>
-                                <dd class="p-activities__role">吹奏楽部 部長<small>部員10名</small></dd>
-                            </div>
-
-                            <div class="p-activities__row">
-                                <dt class="p-activities__org">東京デザイン専門学校</dt>
-                                <dd class="p-activities__role">文化祭実行委員会 副委員長<small>2025年</small></dd>
+                                <dd class="p-activities__roles">
+                                    <span class="p-activities__role">生徒会長</span>
+                                    <span class="p-activities__role">吹奏楽部 部長<small>部員10名</small></span>
+                                </dd>
                             </div>
 
                             <div class="p-activities__row">
                                 <dt class="p-activities__org">東京デザイン専門学校</dt>
-                                <dd class="p-activities__role">文化祭実行委員会 委員長<small>2026年</small></dd>
-                            </div>
-
-                            <div class="p-activities__row">
-                                <dt class="p-activities__org">東京デザイン専門学校</dt>
-                                <dd class="p-activities__role">音楽同好会 部長<small>部員25名</small></dd>
-                            </div>
-
-                            <div class="p-activities__row">
-                                <dt class="p-activities__org">東京デザイン専門学校</dt>
-                                <dd class="p-activities__role">卓球同好会 副部長<small>部員18名</small></dd>
+                                <dd class="p-activities__roles">
+                                    <span class="p-activities__role">文化祭実行委員会 副委員長<small>2025年</small></span>
+                                    <span class="p-activities__role">文化祭実行委員会 委員長<small>2026年</small></span>
+                                    <span class="p-activities__role">音楽同好会 部長<small>部員25名</small></span>
+                                    <span class="p-activities__role">卓球同好会 副部長<small>部員18名</small></span>
+                                </dd>
                             </div>
                         </dl>
                     </div>
@@ -305,30 +271,40 @@
 
                     <dl class="p-skills__list">
                         <div class="p-skills__group">
-                            <dt class="p-skills__category">Web</dt>
-                            <dd class="p-skills__items">
-                                <span class="p-skills__item">HTML</span>
-                                <span class="p-skills__item">CSS</span>
-                                <span class="p-skills__item">JavaScript</span>
-                                <span class="p-skills__item">Git</span>
+                            <dt class="p-skills__category">実装</dt>
+                            <dd class="p-skills__content">
+                                <p class="p-skills__items">
+                                    <span class="p-skills__item">HTML</span>
+                                    <span class="p-skills__item">CSS</span>
+                                    <span class="p-skills__item">JavaScript</span>
+                                    <span class="p-skills__item">Supabase</span>
+                                    <span class="p-skills__item">Git</span>
+                                </p>
+                                <small class="p-skills__description">フロントエンド、認証、データ取得経路まで担当。</small>
                             </dd>
                         </div>
 
                         <div class="p-skills__group">
-                            <dt class="p-skills__category">Design</dt>
-                            <dd class="p-skills__items">
-                                <span class="p-skills__item">Figma</span>
-                                <span class="p-skills__item">Photoshop</span>
-                                <span class="p-skills__item">Illustrator</span>
+                            <dt class="p-skills__category">制作</dt>
+                            <dd class="p-skills__content">
+                                <p class="p-skills__items">
+                                    <span class="p-skills__item">Figma</span>
+                                    <span class="p-skills__item">Photoshop</span>
+                                    <span class="p-skills__item">Illustrator</span>
+                                    <span class="p-skills__item">Lightroom Classic</span>
+                                </p>
+                                <small class="p-skills__description">看板、SNSに出す画像、イベントポスターなどを制作。</small>
                             </dd>
                         </div>
 
                         <div class="p-skills__group">
-                            <dt class="p-skills__category">Photo / Video</dt>
-                            <dd class="p-skills__items">
-                                <span class="p-skills__item">Lightroom Classic</span>
-                                <span class="p-skills__item">Premiere Pro</span>
-                                <span class="p-skills__item">After Effects</span>
+                            <dt class="p-skills__category">映像</dt>
+                            <dd class="p-skills__content">
+                                <p class="p-skills__items">
+                                    <span class="p-skills__item">Premiere Pro</span>
+                                    <span class="p-skills__item">After Effects</span>
+                                </p>
+                                <small class="p-skills__description">月約20本の編集を継続し、担当分の累計再生数は2,000万回。</small>
                             </dd>
                         </div>
                     </dl>

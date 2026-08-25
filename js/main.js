@@ -67,6 +67,20 @@ const updateHeaderTone = () => {
     document.body.classList.toggle("is-header-dark", isDark);
 };
 
+// 画面下のタブバーは、ヒーローの名前と学校を読み終わるまで伏せておく
+const tabbar = document.querySelector(".p-tabbar");
+const heroDetail = document.querySelector(".p-hero__detail");
+
+const updateTabbarReveal = () => {
+    if (!tabbar || !heroDetail) return;
+
+    // バーの高さと下の余白のぶんだけ、ヒーローが上へ抜けてから出す
+    const clearance = tabbar.offsetHeight + 24;
+    const isTop = heroDetail.getBoundingClientRect().bottom > window.innerHeight - clearance;
+
+    document.body.classList.toggle("is-hero-top", isTop);
+};
+
 let toneTicking = false;
 
 const requestHeaderTone = () => {
@@ -76,11 +90,13 @@ const requestHeaderTone = () => {
 
     requestAnimationFrame(() => {
         updateHeaderTone();
+        updateTabbarReveal();
         toneTicking = false;
     });
 };
 
 updateHeaderTone();
+updateTabbarReveal();
 window.addEventListener("scroll", requestHeaderTone, { passive: true });
 window.addEventListener("resize", requestHeaderTone);
 
@@ -107,38 +123,6 @@ if (workResultReveals.length && "IntersectionObserver" in window && !reducedMoti
         result.classList.add("is-reveal-ready");
         workResultObserver.observe(result);
     });
-}
-
-const activityImages = document.querySelectorAll(".p-activities__image");
-const activityCaptions = document.querySelectorAll(".p-activities__caption-text");
-const activityPrev = document.querySelector("[data-activity-prev]");
-const activityNext = document.querySelector("[data-activity-next]");
-const activityCounter = document.querySelector("[data-activity-counter]");
-
-if (activityImages.length > 1) {
-    let activityIndex = 0;
-
-    const showActivity = (next) => {
-        activityImages[activityIndex].classList.remove("is-active");
-        activityImages[activityIndex].setAttribute("aria-hidden", "true");
-        activityCaptions[activityIndex]?.classList.remove("is-active");
-        activityCaptions[activityIndex]?.setAttribute("aria-hidden", "true");
-
-        activityIndex = (next + activityImages.length) % activityImages.length;
-
-        activityImages[activityIndex].classList.add("is-active");
-        activityImages[activityIndex].setAttribute("aria-hidden", "false");
-        activityCaptions[activityIndex]?.classList.add("is-active");
-        activityCaptions[activityIndex]?.setAttribute("aria-hidden", "false");
-
-        if (activityCounter) {
-            activityCounter.textContent = `${activityIndex + 1} / ${activityImages.length}`;
-        }
-    };
-
-    showActivity(0);
-    activityPrev?.addEventListener("click", () => showActivity(activityIndex - 1));
-    activityNext?.addEventListener("click", () => showActivity(activityIndex + 1));
 }
 
 // ページ内リンクを自前で動かす。ブラウザ標準の smooth より長く、終わり際を緩める
