@@ -1,6 +1,6 @@
 const header = document.querySelector(".l-header");
 document.querySelectorAll(".p-career-card[data-org]").forEach((card) => {
-    if (!window.matchMedia("(hover: hover)").matches) return;
+    if (!window.matchMedia("(hover: hover) and (min-width: 769px)").matches) return;
 
     const org = card.dataset.org;
     const targets = document.querySelectorAll(

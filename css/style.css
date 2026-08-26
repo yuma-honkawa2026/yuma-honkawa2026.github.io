@@ -291,7 +291,7 @@ body.is-header-dark .l-header:not(.is-open) {
 }
 
 /* 指で触った時に出ないよう、マウスがある環境だけに限定する */
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 769px) {
     .p-gnav__link:hover,
     .p-fnav__link:hover,
     .p-contact__mail:hover,
@@ -472,7 +472,7 @@ button:focus-visible {
 }
 
 /* 指で触った時に出ないよう、マウスがある環境だけに限定する */
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 769px) {
     .p-work__media--link:hover .p-work__image {
         transform: scale(1.04);
     }
@@ -488,7 +488,7 @@ button:focus-visible {
 }
 
 /* 指で触った時に出ないよう、マウスがある環境だけに限定する */
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 769px) {
     .p-work__item:hover .p-work__detail-title-link,
     .p-work__detail-title-link:hover {
         background-size: 100% 1px;
@@ -626,7 +626,7 @@ button:focus-visible {
 }
 
 /* 指で触った時に出ないよう、マウスがある環境だけに限定する */
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 769px) {
     .p-work__detail-link:hover::after {
         transform: translate(3px, -3px);
     }
@@ -1105,7 +1105,7 @@ button:focus-visible {
 }
 
 /* 指で触った時に出ないよう、マウスがある環境だけに限定する */
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 769px) {
     .p-career-card:hover {
         background-color: var(--career-card-bg-hover);
         box-shadow: var(--shadow-200);
@@ -1303,7 +1303,7 @@ button:focus-visible {
 }
 
 /* 指で触った時に出ないよう、マウスがある環境だけに限定する */
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 769px) {
     .p-contact__head-link:hover .p-contact__arrow {
         background-color: var(--color-on-accent);
         color: var(--color-accent-accent);
@@ -1377,7 +1377,7 @@ button:focus-visible {
 }
 
 /* 指で触った時に出ないよう、マウスがある環境だけに限定する */
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 769px) {
     .p-fnav__link:hover {
         padding-inline-start: var(--spacing-300);
     }
@@ -1402,7 +1402,7 @@ button:focus-visible {
 }
 
 /* 指で触った時に出ないよう、マウスがある環境だけに限定する */
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 769px) {
     .p-fnav__link:hover .p-fnav__mark {
         background-color: var(--color-on-accent);
         border-color: var(--color-on-accent);
@@ -1504,6 +1504,7 @@ button:focus-visible {
 
     .p-tabbar__item {
         min-width: 60px;
+        font-family: var(--font-family-en);
         height: 46px;
         display: flex;
         flex-direction: column;
