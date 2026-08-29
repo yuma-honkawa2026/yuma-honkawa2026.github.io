@@ -349,9 +349,19 @@ button:focus-visible {
 
 
 @media (max-width: 768px) {
+    .l-header {
+        height: auto;
+    }
+
+    .p-gnav {
+        min-height: 80px;
+        height: auto;
+    }
+
     .l-header__logo {
         letter-spacing: var(--letter-spacing-100);
         line-height: 1;
+        white-space: normal;
     }
 
     /* スマホのナビは画面下のタブバーが持つので、ヘッダーの一覧は出さない */
