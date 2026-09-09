@@ -18,6 +18,12 @@ document.querySelectorAll(".p-career-card[data-org]").forEach((card) => {
 
 const careerToggles = document.querySelectorAll("[data-career-toggle]");
 
+const setCareerTextVisibility = (card, isVisible) => {
+    card?.querySelectorAll(".p-career-card__text").forEach((text) => {
+        text.setAttribute("aria-hidden", String(!isVisible));
+    });
+};
+
 careerToggles.forEach((button) => {
     const card = button.closest(".p-career-card");
     const title = card?.querySelector(".p-career-card__title")?.textContent.trim();
@@ -35,6 +41,7 @@ careerToggles.forEach((button) => {
             const otherTitle = otherCard?.querySelector(".p-career-card__title")?.textContent.trim();
 
             otherCard?.classList.remove("is-expanded");
+            setCareerTextVisibility(otherCard, false);
             otherButton.setAttribute("aria-expanded", "false");
             otherButton.textContent = "詳細を見る";
 
@@ -46,6 +53,7 @@ careerToggles.forEach((button) => {
         if (!willOpen) return;
 
         card.classList.add("is-expanded");
+        setCareerTextVisibility(card, true);
         button.setAttribute("aria-expanded", "true");
         button.setAttribute("aria-label", title + "の詳細を閉じる");
         button.textContent = "詳細を閉じる";
@@ -79,6 +87,13 @@ const updateTabbarReveal = () => {
     const isTop = heroDetail.getBoundingClientRect().bottom > window.innerHeight - clearance;
 
     document.body.classList.toggle("is-hero-top", isTop);
+    tabbar.toggleAttribute("inert", isTop);
+
+    if (isTop) {
+        tabbar.setAttribute("aria-hidden", "true");
+    } else {
+        tabbar.removeAttribute("aria-hidden");
+    }
 };
 
 let toneTicking = false;
@@ -175,7 +190,15 @@ if (tabbarLinks.length && "IntersectionObserver" in window) {
 
     markCurrent = (id) => {
         tabbarLinks.forEach((link) => {
-            link.classList.toggle("is-current", link.dataset.tabbarLink === id);
+            const isCurrent = link.dataset.tabbarLink === id;
+
+            link.classList.toggle("is-current", isCurrent);
+
+            if (isCurrent) {
+                link.setAttribute("aria-current", "location");
+            } else {
+                link.removeAttribute("aria-current");
+            }
         });
     };
 

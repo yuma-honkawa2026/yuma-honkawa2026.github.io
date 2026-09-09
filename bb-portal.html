@@ -13,7 +13,7 @@
         <meta property="og:url" content="https://yuma-honkawa2026.github.io/bb-portal.html" />
         <meta property="og:title" content="BBグループ 社内ポータル｜本川悠真 Portfolio" />
         <meta property="og:description" content="7店舗の複数業務を扱う社内ポータルの制作実績。" />
-        <meta property="og:site_name" content="本川悠真のPortfolio-Site" />
+        <meta property="og:site_name" content="本川悠真 Portfolio" />
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:image" content="https://yuma-honkawa2026.github.io/images/bb-portal-desktop.png" />
 
@@ -37,6 +37,7 @@
                 <ul class="p-gnav__list">
                     <li class="p-gnav__item"><a class="p-gnav__link" href="index.html#works">Works</a></li>
                     <li class="p-gnav__item"><a class="p-gnav__link" href="index.html#about">About</a></li>
+                    <li class="p-gnav__item"><a class="p-gnav__link" href="index.html#skills">Skills</a></li>
                     <li class="p-gnav__item"><a class="p-gnav__link" href="index.html#career">Career</a></li>
                     <li class="p-gnav__item"><a class="p-gnav__link" href="index.html#contact">Contact</a></li>
                 </ul>
@@ -56,21 +57,35 @@
                 <header class="p-case__header">
                     <p class="p-case__type">7店舗の業務を扱う社内Webシステム</p>
                     <h1 class="p-case__title">BBグループ 社内ポータル</h1>
-                    <ul class="p-case__fields" aria-label="制作分野">
+                    <ul class="p-case__fields" aria-label="プロジェクトの範囲">
+                        <li>業務整理</li>
                         <li>要件定義</li>
-                        <li>UI設計</li>
-                        <li>フロントエンド</li>
-                        <li>データベース</li>
+                        <li>設計・実装</li>
+                        <li>検証・改善</li>
                     </ul>
                 </header>
 
                 <figure class="p-case__visual">
                     <div class="p-case__showcase">
                         <div class="p-case__panel p-case__panel--desktop">
-                            <img src="images/bb-portal-desktop.png" alt="ノートパソコンに表示した社内ポータルのPC画面" />
+                            <img
+                                src="images/bb-portal-desktop.webp"
+                                alt="ノートパソコンに表示した社内ポータルのPC画面"
+                                width="1920"
+                                height="1440"
+                                decoding="async"
+                                fetchpriority="high"
+                            />
                         </div>
                         <div class="p-case__panel p-case__panel--mobile">
-                            <img src="images/bb-portal-mobile.png" alt="スマートフォンに表示した社内ポータルの画面" />
+                            <img
+                                src="images/bb-portal-mobile.webp"
+                                alt="スマートフォンに表示した社内ポータルの画面"
+                                width="1920"
+                                height="1440"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </div>
                     </div>
                     <figcaption>PCとスマートフォンの表示画面。</figcaption>
@@ -80,19 +95,19 @@
                     <dl>
                         <div class="p-case__fact p-case__fact--overview">
                             <dt>OVERVIEW</dt>
-                            <dd>BBグループ7店舗で使用する社内ポータルを制作しています。対象は店舗運営、受発注、売上管理、月末処理などです。</dd>
+                            <dd>BBグループ7店舗で使用する社内ポータルを<span class="u-nowrap">制作しています。</span>対象は店舗運営、受発注、売上管理、<span class="u-nowrap">月末処理などです。</span></dd>
                         </div>
                         <div class="p-case__fact">
                             <dt>TERM</dt>
-                            <dd>2026年〜／継続開発中</dd>
+                            <dd>2026年〜 / 継続開発中</dd>
                         </div>
                         <div class="p-case__fact">
-                            <dt>ROLE</dt>
+                            <dt>TEAM</dt>
                             <dd>3名で制作</dd>
                         </div>
                         <div class="p-case__fact">
-                            <dt>SCOPE</dt>
-                            <dd>業務整理・要件定義／UI・データベース設計／フロントエンド・認証・権限実装／検証・改善</dd>
+                            <dt>PROJECT SCOPE</dt>
+                            <dd>業務整理・要件定義 / UI・データベース設計 / フロントエンド・認証・権限実装 / 検証・改善</dd>
                         </div>
                         <div class="p-case__fact">
                             <dt>AREAS</dt>
@@ -109,15 +124,15 @@
                         </div>
                         <div class="p-case__fact">
                             <dt>TECHNOLOGY</dt>
-                            <dd>HTML／CSS／JavaScript／Supabase／Cloudflare Pages</dd>
+                            <dd>HTML / CSS / JavaScript / Supabase / Cloudflare Pages</dd>
                         </div>
                         <div class="p-case__fact">
                             <dt>TOOLS</dt>
-                            <dd>Claude Code／Codex</dd>
+                            <dd>Claude Code / Codex</dd>
                         </div>
                         <div class="p-case__fact">
                             <dt>DEVICE</dt>
-                            <dd>PC／スマートフォン</dd>
+                            <dd>PC / スマートフォン</dd>
                         </div>
                     </dl>
                     <p class="p-case__confidentiality">仕入価格と従業員情報を含む画面、コード、URLは公開していません。</p>
@@ -131,45 +146,58 @@
                     <div class="p-case__section-body">
                         <h3>業務の進み具合を一か所で確認できなかった</h3>
                         <p>
-                            必要な情報の保管先と、誰がどこまで対応したかを確認する方法が、店舗や業務ごとに異なっていました。責任者への聞き取りをもとに各業務の流れと担当者を整理し、店舗運営、受発注、売上管理、月末処理などを一つのポータルで扱えるようにしました。
+                            必要な情報の保管先と、誰がどこまで対応したかを確認する方法が、店舗や業務ごとに異なっていました。責任者と実務担当者へ確認し、店舗運営、受発注、売上管理、月末処理などを一つのポータルで扱えるようにしています。
                         </p>
                     </div>
                 </section>
 
                 <section class="p-case__section" aria-labelledby="approach-title">
                     <div class="p-case__section-head">
-                        <p>IMPACT</p>
-                        <h2 id="approach-title">購買業務で変えたこと</h2>
+                        <p>APPROACH</p>
+                        <h2 id="approach-title">判断と実装</h2>
                     </div>
                     <ol class="p-case__points">
                         <li>
                             <span class="p-case__point-number">01</span>
                             <div>
-                                <h3>購買業務の月間作業を約30時間から約5時間へ短縮する見込み</h3>
+                                <h3>6領域の流れと担当を整理</h3>
                                 <p>
-                                    従来の運用では、紙の取りまとめや転記、買い出し、納品、請求書作成に月約30時間かかっていました。システム化後も買い出しと納品には約5時間かかるため、それ以外の月約25時間を削減できる見込みです。現在は試験中のため、実績ではなく試算値です。
+                                    責任者と実務担当者へ確認し、入力する人、確認する人、次の工程へ渡す情報を業務ごとに整理しました。店舗ごとに分かれていた日次売上は6店舗で同じ形式にそろえ、全店舗の推移をまとめて見られるようにしました。
                                 </p>
                             </div>
                         </li>
                         <li>
                             <span class="p-case__point-number">02</span>
                             <div>
-                                <h3>4か所への記録を1回の入力へ</h3>
+                                <h3>請求方式に関係なく、全案件で作業時間を記録</h3>
                                 <p>
-                                    これまでは、依頼内容を紙に書き、スマートフォンで撮影してLINEへ載せ、買い物リストと請求書へ書き写していました。システム上では、最初に入力した内容を購入、納品、検品、月末請求まで引き継げるようにしました。4か所へ記録する工程が1回の入力に変わり、記載漏れや写し間違いの原因も取り除きました。
+                                    時間単価の案件だけに絞る案を選ばなかった理由は、固定料金と月額の案件では採算を比べられなくなるためです。そこで全案件へ広げ、売上額と実際にかかった時間を並べて、案件ごとの採算を確認できるようにしました。
                                 </p>
                             </div>
                         </li>
                         <li>
                             <span class="p-case__point-number">03</span>
                             <div>
-                                <h3>担当者1人の記憶に頼っていた価格情報を約78品目分登録</h3>
+                                <h3>4か所への記録を1回の入力へ</h3>
                                 <p>
-                                    以前の価格表は2024年9月で更新が止まり、その後の価格は担当者1人へ確認する必要がありました。約78品目の価格、仕入先、税率を登録し、変更履歴が残る形にしました。必要な情報を画面で確認できるようにしました。
+                                    入力した内容を後の確認や集計へ引き継ぐ設計にしました。購買では、紙、LINE、買い物リスト、請求書の4か所へ書いていた内容を1回の入力へまとめ、同じ内容の転記をなくしました。
                                 </p>
                             </div>
                         </li>
                     </ol>
+                </section>
+
+                <section class="p-case__section" aria-labelledby="impact-title">
+                    <div class="p-case__section-head">
+                        <p>IMPACT</p>
+                        <h2 id="impact-title">効果の試算</h2>
+                    </div>
+                    <div class="p-case__section-body">
+                        <h3>登録済み28名全体で月約200時間の削減を試算</h3>
+                        <p>
+                            全機能が定着し、登録済み28名がそれぞれの担当業務でポータルを使う場合の仮説です。更新・集計を多く行う担当6名は月20時間、店舗責任者6名は月8時間、一般利用者16名は月2時間減ると置き、6×20＋6×8＋16×2＝月200時間としました。役割別人数と削減時間は試算上の仮定です。購買担当1名の月約25時間は、更新・集計を多く行う担当6名の試算に含めています。
+                        </p>
+                    </div>
                 </section>
 
                 <section class="p-case__section" aria-labelledby="outcome-title">
@@ -179,6 +207,7 @@
                     </div>
                     <div class="p-case__section-body">
                         <h3>実際の業務で試験中</h3>
+                        <p>現在はオーナーと実際の業務で試験しています。月約200時間は、全機能が定着し、登録済み28名が担当業務でポータルを使う場合の試算で、現在の実績ではありません。</p>
                     </div>
                 </section>
             </article>
