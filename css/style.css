@@ -776,19 +776,27 @@ button:focus-visible {
 
 @media (max-width: 768px) {
     .p-about {
-        background-position: 58% 50%;
+        background: var(--color-base-dark);
+    }
+
+    .p-about::before {
+        content: "";
+        display: block;
+        aspect-ratio: 16 / 9;
+        background: url("../images/about-piano.webp") 70% 50% / cover no-repeat;
     }
 
     .p-about.l-section {
-        min-height: 620px;
+        min-height: 0;
         padding-block: 0;
     }
 
     .p-about .l-inner {
-        grid-template-columns: minmax(0, 0.56fr) minmax(0, 0.44fr);
-        min-height: 620px;
-        padding-block: 48px 52px;
-        column-gap: 0;
+        width: calc(100% - 48px);
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+        padding-block: 32px 40px;
+        gap: 24px 0;
     }
 
     .p-about .c-section-title {
@@ -796,40 +804,20 @@ button:focus-visible {
         letter-spacing: var(--letter-spacing-300);
     }
 
-    .p-about__body {
-        margin-top: 12px;
-    }
-
     .p-about__text {
-        font-size: 0.9375rem;
+        font-size: var(--font-size-300);
         line-height: 1.9;
         letter-spacing: 0.01em;
     }
 
     .p-about .u-nowrap {
         white-space: normal;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
     }
 
     .p-about .u-nowrap--short {
         white-space: nowrap;
-    }
-}
-
-@media (max-width: 350px) {
-    .p-about .l-inner {
-        grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
-    }
-
-    .p-about__text {
-        font-size: var(--font-size-200);
-        line-height: 1.85;
-    }
-}
-
-@media (max-width: 768px) and (max-height: 650px) {
-    .p-about .l-inner {
-        align-content: start;
-        padding-top: var(--spacing-750);
     }
 }
 
