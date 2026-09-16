@@ -16,8 +16,7 @@
     --color-on-accent-sub: rgba(241, 241, 241, 0.68);
     --border-on-accent: rgba(241, 241, 241, 0.2);
 
-    --shadow-inset:
-        inset 0 14px 26px -14px rgba(0, 0, 0, 0.55), inset 0 -14px 26px -14px rgba(0, 0, 0, 0.55);
+    --shadow-inset: inset 0 14px 26px -14px rgba(0, 0, 0, 0.55), inset 0 -14px 26px -14px rgba(0, 0, 0, 0.55);
 
     /* 明るい面の罫線 */
     --border-on-light: rgba(51, 51, 51, 0.18);
@@ -109,11 +108,9 @@
     Foundation
 ============================== */
 html {
-    /* JavaScriptが動く時は js/main.js の自前スクロールが使われる。ここは効かない時の受け皿 */
     scroll-behavior: smooth;
 }
 
-/* 動きを減らす設定にしている人には、滑らせず即座に移す */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -202,12 +199,10 @@ body.is-header-dark .l-header:not(.is-open) {
 }
 
 @media (max-width: 768px) {
-    /* スマホのナビは画面下のタブバーが持つので、ヘッダーは固定しない */
     .l-header {
         position: static;
     }
 
-    /* 固定ヘッダーが無くなった分、区画へ飛んだ時に上へ空ける量も減らす */
     .l-section {
         scroll-margin-top: var(--spacing-400);
     }
@@ -292,7 +287,6 @@ body.is-header-dark .l-header:not(.is-open) {
     transition: background-size var(--duration-base) var(--ease-out);
 }
 
-/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
 @media (hover: hover) and (min-width: 769px) {
     .p-gnav__link:hover,
     .p-fnav__link:hover,
@@ -317,7 +311,6 @@ button:focus-visible {
 .l-footer {
     box-shadow: var(--shadow-inset);
 }
-
 
 /* ==============================
     header
@@ -360,8 +353,6 @@ button:focus-visible {
     letter-spacing: var(--letter-spacing-200);
 }
 
-
-
 @media (max-width: 768px) {
     .l-header {
         height: auto;
@@ -378,7 +369,6 @@ button:focus-visible {
         white-space: normal;
     }
 
-    /* スマホのナビは画面下のタブバーが持つので、ヘッダーの一覧は出さない */
     .p-gnav__list {
         display: none;
     }
@@ -486,7 +476,6 @@ button:focus-visible {
     transition: transform 0.6s var(--ease-out);
 }
 
-/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
 @media (hover: hover) and (min-width: 769px) {
     .p-work__media--link:hover .p-work__image {
         transform: scale(1.04);
@@ -505,7 +494,6 @@ button:focus-visible {
     transition: background-size var(--duration-base) var(--ease-out);
 }
 
-/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
 @media (hover: hover) and (min-width: 769px) {
     .p-work__item:hover .p-work__detail-title-link,
     .p-work__detail-title-link:hover {
@@ -650,7 +638,6 @@ button:focus-visible {
     transition: transform 0.25s var(--ease-out);
 }
 
-/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
 @media (hover: hover) and (min-width: 769px) {
     .p-work__detail-link:hover::after {
         transform: translate(3px, -3px);
@@ -669,7 +656,6 @@ button:focus-visible {
         text-wrap: pretty;
     }
 
-    /* 狭い幅では帯の展開中に白文字だけが先へ出るので、最初から完成形を見せる */
     .p-work__detail-result.is-reveal-ready::before,
     .p-work__detail-result.is-reveal-ready.is-revealed::before {
         transform: scaleX(1);
@@ -892,7 +878,7 @@ button:focus-visible {
     letter-spacing: var(--letter-spacing-100);
 }
 
-.p-activities__role small {
+.p-activities__note {
     margin-left: var(--spacing-200);
     font-size: var(--font-size-100);
     font-weight: 400;
@@ -1185,7 +1171,6 @@ button:focus-visible {
         box-shadow var(--duration-base) var(--ease-out);
 }
 
-/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
 @media (hover: hover) and (min-width: 769px) {
     .p-career-card:hover {
         background-color: var(--career-card-bg-hover);
@@ -1378,12 +1363,11 @@ button:focus-visible {
         color var(--duration-base) var(--ease-out);
 }
 
-.p-contact__arrow svg {
+.p-contact__arrow-icon {
     width: 15px;
     height: 15px;
 }
 
-/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
 @media (hover: hover) and (min-width: 769px) {
     .p-contact__head-link:hover .p-contact__arrow {
         background-color: var(--color-on-accent);
@@ -1458,7 +1442,6 @@ button:focus-visible {
     border-top: 1px solid var(--border-on-accent);
 }
 
-/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
 @media (hover: hover) and (min-width: 769px) {
     .p-fnav__link:hover {
         padding-inline-start: var(--spacing-300);
@@ -1478,12 +1461,11 @@ button:focus-visible {
         color var(--duration-base) var(--ease-out);
 }
 
-.p-fnav__mark svg {
+.p-fnav__icon {
     width: 10px;
     height: 10px;
 }
 
-/* 指で触った時に出ないよう、マウスがある環境だけに限定する */
 @media (hover: hover) and (min-width: 769px) {
     .p-fnav__link:hover .p-fnav__mark {
         background-color: var(--color-on-accent);
@@ -1553,13 +1535,6 @@ button:focus-visible {
 
 /* ==============================
     スマホ下部のタブバー
-    music.apple.com の再生バーを、明るい配色で開いて実測（2026-08-20）
-      面 rgba(245,245,247,.55) ／ ぼかし saturate(2.2) blur(16px) ／ 角丸 1000px
-      影 0 10px 40px rgba(0,0,0,.1) ／ 文字 rgba(0,0,0,.88) ／ ふち無し
-    面は無彩色で色を持たない。彩度を2.2倍に上げてからぼかすので、後ろの色がそのまま透ける。
-    実測から離したのは3つ: 高さ52→60px ／ アイコン下のラベル10px ／
-    選択していないタブの薄さ（Appleの再生バーに選択の状態が無いので、
-    暗い配色の .92→.5 と同じ比を明るい配色へ当てて .88→.48 にした）
 ============================== */
 .p-tabbar {
     display: none;
@@ -1570,7 +1545,7 @@ button:focus-visible {
         position: fixed;
         left: 12px;
         right: 12px;
-        /* iPhone下端のホームバーへ潜り込ませない */
+
         bottom: calc(9px + env(safe-area-inset-bottom, 0px));
         height: 60px;
         display: flex;
@@ -1597,14 +1572,13 @@ button:focus-visible {
         font-size: 10px;
         letter-spacing: var(--letter-spacing-100);
         color: rgba(0, 0, 0, 0.72);
-        /* タップした時にiOSが出す灰色の四角を消す */
+
         -webkit-tap-highlight-color: transparent;
         transition:
             color var(--duration-base) var(--ease-out),
             transform 0.18s var(--ease-out);
     }
 
-    /* 押している間だけ少し縮めて、触った手応えを返す */
     .p-tabbar__item:active {
         transform: scale(0.92);
     }
@@ -1619,8 +1593,6 @@ button:focus-visible {
         color: rgba(0, 0, 0, 0.88);
     }
 
-    /* ヒーローの名前と学校にバーが重なるので、読み終わるまで伏せておく。
-       クラスは JS が付ける。JS が動かない時は今までどおり最初から出す */
     .is-hero-top .p-tabbar {
         opacity: 0;
         transform: translateY(12px);
@@ -1633,7 +1605,6 @@ button:focus-visible {
             transform var(--duration-base) var(--ease-out);
     }
 
-    /* タブバーが footer の下端にかぶるので、その分だけ足す */
     .l-footer {
         padding-bottom: calc(60px + 9px + var(--spacing-400) + env(safe-area-inset-bottom, 0px));
     }

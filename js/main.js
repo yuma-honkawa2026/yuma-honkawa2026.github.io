@@ -3,9 +3,7 @@ document.querySelectorAll(".p-career-card[data-org]").forEach((card) => {
     if (!window.matchMedia("(hover: hover) and (min-width: 769px)").matches) return;
 
     const org = card.dataset.org;
-    const targets = document.querySelectorAll(
-        `.p-timeline__item[data-org="${org}"], .p-timeline__range[data-org="${org}"]`
-    );
+    const targets = document.querySelectorAll(`.p-timeline__item[data-org="${org}"], .p-timeline__range[data-org="${org}"]`);
 
     card.addEventListener("mouseenter", () => {
         targets.forEach((el) => el.classList.add("is-active"));
@@ -32,7 +30,6 @@ careerToggles.forEach((button) => {
 
     button.setAttribute("aria-label", title + "の詳細を見る");
 
-    // カードのどこを押しても開閉する。ボタンもカードの中なのでこれで拾える
     card.addEventListener("click", () => {
         const willOpen = button.getAttribute("aria-expanded") !== "true";
 
@@ -75,14 +72,12 @@ const updateHeaderTone = () => {
     document.body.classList.toggle("is-header-dark", isDark);
 };
 
-// 画面下のタブバーは、ヒーローの名前と学校を読み終わるまで伏せておく
 const tabbar = document.querySelector(".p-tabbar");
 const heroDetail = document.querySelector(".p-hero__detail");
 
 const updateTabbarReveal = () => {
     if (!tabbar || !heroDetail) return;
 
-    // バーの高さと下の余白のぶんだけ、ヒーローが上へ抜けてから出す
     const clearance = tabbar.offsetHeight + 24;
     const isTop = heroDetail.getBoundingClientRect().bottom > window.innerHeight - clearance;
 
@@ -131,7 +126,7 @@ if (workResultReveals.length && "IntersectionObserver" in window && !reducedMoti
         {
             threshold: 0.35,
             rootMargin: "0px 0px -10% 0px",
-        }
+        },
     );
 
     workResultReveals.forEach((result) => {
@@ -140,7 +135,6 @@ if (workResultReveals.length && "IntersectionObserver" in window && !reducedMoti
     });
 }
 
-// ページ内リンクを自前で動かす。ブラウザ標準の smooth より長く、終わり際を緩める
 let markCurrent = () => {};
 const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
@@ -156,7 +150,6 @@ const scrollToTarget = (target) => {
 
     if (!distance) return;
 
-    // 近い時に間延びせず、遠い時に速すぎないよう、距離から時間を出して上下で挟む
     const duration = Math.min(1100, Math.max(480, Math.abs(distance) * 0.55));
     const began = performance.now();
 
@@ -166,7 +159,6 @@ const scrollToTarget = (target) => {
     const step = (now) => {
         const progress = Math.min(1, (now - began) / duration);
 
-        // behavior: instant を付けないと CSS の scroll-behavior と競合して跳ねる
         window.scrollTo({ top: start + distance * easeInOutCubic(progress), behavior: "instant" });
 
         if (progress < 1) {
@@ -180,13 +172,10 @@ const scrollToTarget = (target) => {
     scrollFrame = requestAnimationFrame(step);
 };
 
-// 画面下のタブバー。いま画面の中央にある区画を選択中にする
 const tabbarLinks = document.querySelectorAll("[data-tabbar-link]");
 
 if (tabbarLinks.length && "IntersectionObserver" in window) {
-    const sections = [...tabbarLinks]
-        .map((link) => document.getElementById(link.dataset.tabbarLink))
-        .filter(Boolean);
+    const sections = [...tabbarLinks].map((link) => document.getElementById(link.dataset.tabbarLink)).filter(Boolean);
 
     markCurrent = (id) => {
         tabbarLinks.forEach((link) => {
@@ -204,7 +193,6 @@ if (tabbarLinks.length && "IntersectionObserver" in window) {
 
     const tabbarObserver = new IntersectionObserver(
         (entries) => {
-            // 自前スクロールの途中は、通り過ぎた区画で選択が点滅するので見ない
             if (isProgrammaticScroll) return;
 
             const visible = entries
@@ -213,25 +201,22 @@ if (tabbarLinks.length && "IntersectionObserver" in window) {
 
             if (visible) markCurrent(visible.target.id);
         },
-        { rootMargin: "-45% 0px -45% 0px" }
+        { rootMargin: "-45% 0px -45% 0px" },
     );
 
     sections.forEach((section) => tabbarObserver.observe(section));
     markCurrent("works");
 }
 
-// ヘッダーとタブバーのページ内リンク
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (event) => {
         const id = link.getAttribute("href").slice(1);
         const target = document.getElementById(id);
 
-        // 動きを減らす設定の人には、標準の飛び方をそのまま使ってもらう
         if (!target || reducedMotion.matches) return;
 
         event.preventDefault();
 
-        // 到着を待たずに先へ点ける。押した反応が遅れて見えるのを防ぐ
         if (link.dataset.tabbarLink) markCurrent(link.dataset.tabbarLink);
 
         scrollToTarget(target);
