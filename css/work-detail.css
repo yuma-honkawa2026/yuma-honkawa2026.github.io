@@ -67,9 +67,9 @@
 }
 
 .p-case__image {
-    aspect-ratio: 1.9;
-    object-fit: cover;
-    object-position: center 46%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .p-case__caption {
@@ -250,10 +250,13 @@
 
     .p-case .l-header__logo {
         align-self: flex-start;
+        max-width: 100%;
+        overflow-wrap: anywhere;
     }
 
     .p-case .p-gnav__list {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         width: 100%;
         gap: var(--spacing-200);
@@ -291,11 +294,6 @@
 
     .p-case__text {
         line-height: 1.95;
-    }
-
-    .p-case__image {
-        aspect-ratio: 4/3;
-        object-fit: contain;
     }
 
     .p-case__body {
